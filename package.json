@@ -1,0 +1,25 @@
+{
+  "name": "WebServices",
+  "version": "0.0.0",
+  "description": "WebServices",
+  "main": "app.js",
+  "author": 
+  {
+    "name": "xcamprubi",
+    "email": ""
+  },
+  "dependencies":
+  {
+	"connect":"~3.4.0",
+    "underscore":"~1.8.3",
+    "node-mysql":"~0.4.2",
+    "cps":"~1.0.2",
+    "mssql": "~2.1.6",
+    "nodemailer": "~1.4.0",
+    "mime": "~1.3.4",
+    "serve-favicon": "~2.3.0",
+    "compression": "~1.6.1",
+    "cookie-session":"~2.0.0-alpha.1"
+  }
+    
+}
