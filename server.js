@@ -76,8 +76,9 @@ app.use(function (req, res)
     }
     else
     {
-        //Servir los ficheros, si logged in        
-        if (logOk || path.extname(filename) != ".html")
+        //Servir los ficheros, si logged in
+        var logOk = true;
+        if (logOk || path.extname(filename) == ".html")
         {
             //Hemos de emmbeberlo en un menú?            
             if (filename.indexOf("@@MENU@@") != -1)
