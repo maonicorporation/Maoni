@@ -12,7 +12,8 @@
       
         <link href="./bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="./css/maoni.css" rel="stylesheet">
-      <link href="./css/dashboard.css" rel="stylesheet">
+        <link href="./css/dashboard.css" rel="stylesheet">
+        <link href="./css/animate.min.css" rel="stylesheet">
 
     </head>
 
@@ -45,7 +46,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-md-2 col-sm-4 __sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reports</a></li>
@@ -57,7 +58,8 @@
             <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
+            <li><a href="@@MENU@@_page_001.html">LINK A UNO</a></li>
+            <li><a href="@@MENU@@_page_002.html">LINK A DOS</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item again</a></li>
@@ -65,16 +67,20 @@
             <li><a href="">Another nav item</a></li>
           </ul>
         </div>
+        
+        <div class="col-md-10 col-sm-8">
             <section id="content" style="height:100%" >
-                <div id="embedder" class="container-fluid" style="height:100%">
+                <div id="embedder" class="container-fluid animated slideInRight" style="height:100%">
                         
                     @@EMBEDED@@
                        
                 </div>
             </section>
-            
         </div>
+        
+        
       </div>
+      
     </div>
   </body>
 </html>
