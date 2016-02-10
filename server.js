@@ -7,6 +7,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var fs = require('fs');
 var mime = require('mime');
+var utilities = require("./utilities");
 
 //Globals
 var g_root = __dirname;
@@ -53,43 +54,6 @@ function logFile(mess)
     });
 }
 
-function servefile(res, filename)
-{
-    //Verificar que el fichero exista
-    fs.stat(filename, function (err, stat)//
-    {
-        if (err)
-        {
-            console.dir("Fichero no encontrado : " + filename);
-            
-            if ('ENOENT' == err.code)
-            {
-                res.statusCode = 404;
-                res.end('Not Found');
-            }
-            else
-            {
-                res.statusCode = 500;
-                res.end('Internal Server Error');
-            }
-        } 
-        else
-        {
-            res.setHeader('Content-Length', stat.size);
-            var mimetype = mime.lookup(path.basename(filename));
-            res.setHeader('content-type', mimetype);
-            
-            var stream = fs.createReadStream(filename);
-            stream.pipe(res);
-            stream.on('error', function (err)
-            {
-                res.statusCode = 500;
-                res.end('Internal Server Error');
-            });
-        }
-    });
-}
-
 app.use(function (req, res)
 {
     //dotest();
@@ -102,17 +66,37 @@ app.use(function (req, res)
     if (req.session.loggedin != null && req.session.loggedin) logOk = true;
     
     //Acción o servir ficheros?
-    if (req.url == "/@func")
+    if (req.url == "/CRUD")
     {
-        
+        //CRUD
     }
     else if (req.url == "/")
     {
-        servefile(res, path.join(home, "index.html"));
+        utilities.servefile(res, path.join(home, "index.html"));
     }
     else
     {
-        servefile(res, filename);
+        //Servir los ficheros, si logged in        
+        if (logOk || path.extname(filename) != ".html")
+        {
+            //Hemos de emmbeberlo en un menú?            
+            if (filename.indexOf("@@MENU@@") != -1)
+            {
+                utilities.servefileembeded(res, filename);
+            }
+
+            //Si no, lo servimos como un fichero normnal
+            else
+            {
+                utilities.servefile(res, filename);
+            }
+        }
+
+        //Si no se ha logeado, servimos la pantalla de login
+        else
+        {
+            utilities.servefile (res, path.join(home, "index.html"));
+        }
     }
 });
 
