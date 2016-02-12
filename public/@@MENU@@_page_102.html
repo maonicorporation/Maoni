@@ -1,0 +1,36 @@
+﻿<script>
+
+    $(document).ready(function ()
+    {
+        fill ();
+    });
+    
+    function fill()
+    {
+	}
+    
+    function edit (rowid)
+    {
+        alert (rowid);
+    }
+    
+</script>
+
+<div id="idCardListado" class="card">
+    <div class="card-header ch-alt">
+        <div class="hideOnprint padding-lr pull-right">
+            <button class="btn bgm-amber waves-effect" onclick="window.location.href='@@MENU@@_page_101.html';">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Volver
+            </button>
+        </div>
+        <h2><span id="idTituloInforme">Editar </span><small id="idFiltro"> usuario</small></h2>         
+    </div>
+
+    <div id="tabcontainer" class="card-body card-padding">
+        
+        <table id="idTable" class="table table-striped table-hover">				
+			<tbody></tbody>
+		</table>
+
+    </div>
+</div> <!-- CARD-->

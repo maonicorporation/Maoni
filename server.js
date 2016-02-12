@@ -8,6 +8,7 @@ var favicon = require('serve-favicon');
 var fs = require('fs');
 var mime = require('mime');
 var utilities = require("./utilities");
+var bbdd = require("./bbdd");
 
 //Globals
 var g_root = __dirname;
@@ -34,26 +35,6 @@ app.use(cookieSession({
     cookie: { maxAge: g_hour * 24, secure: true }
 }));
 
-function logFile(mess)
-{
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    
-    var fmess = h + ":" + m + ":" + s + "\t" + mess + "\n";
-    
-    var fpath = __dirname + "/logs/" + "log" + yyyy + "-" + mm + "-" + dd + ".log";
-    
-    fs.appendFile(fpath, fmess, function (err)
-    {
-    });
-}
-
 app.use(function (req, res)
 {
     //dotest();
@@ -66,9 +47,11 @@ app.use(function (req, res)
     if (req.session.loggedin != null && req.session.loggedin) logOk = true;
     
     //Acción o servir ficheros?
-    if (req.url == "/CRUD")
+    utilities.logFile("Request file: " + req.url);
+    
+    if (req.url == "/BBDD")
     {
-        //CRUD
+        bbdd.redirecciona(req, res);
     }
     else if (req.url == "/")
     {
@@ -104,9 +87,7 @@ app.use(function (req, res)
 //https://localhost:4000
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
 
-logFile(mess);
-
-console.dir(mess);
+utilities.logFile(mess);
 
 //https.createServer(options, app).listen(g_port);
 https.createServer(app).listen(g_port);

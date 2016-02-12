@@ -1,0 +1,60 @@
+﻿<script>
+
+    $(document).ready(function ()
+    {
+        fill ();
+    });
+    
+    function fill()
+    {
+        selAllUsers (function callback(data)
+        {
+            $("#idTable tr").remove();
+	        $('#idTable > tbody:last').append('<tr><th>ROWID</th><th>Id usuario</th><th>Nombre</th><th></th></tr>');
+    
+            var i = 0;
+            
+            for (i = 0; i < data.length; i++)
+            {
+                var f0 = data[i].ROWID;
+                var f1 = data[i].IDUSUARIO;
+                var f2 = data[i].DESCUSUARIO;
+                
+                //var row = "<tr><td>" + f0 + "</td><td>" + f1 + "</td><td>" + f2 + "</td><td>" + f3 + "</td>" + gridBut(f0) + printBut(f0) + "</tr>";
+                var row = "<tr><td>" + f0 + "</td><td>" + f1 + "</td><td>" + f2 + "</td>" + editButton (f0) + "</tr>";
+                
+                $('#idTable > tbody:last').append(row);
+            }
+        });
+	}
+    
+    function edit (rowid)
+    {
+        setCookie ("rowid", rowid);
+        window.location.href = "@@MENU@@_page_102.html";
+    }
+    
+</script>
+
+<div id="idCardListado" class="card">
+    <div class="card-header ch-alt">
+        <div class="hideOnprint padding-lr pull-right">
+            <button id="butImprimir" class="btn bgm-amber waves-effect" onclick="printReport();">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir
+            </button>
+            <button id="butExportar" class="btn bgm-amber waves-effect" onclick="exportData()";"> 
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo
+            </button>
+        </div>
+        <h2><span id="idTituloInforme">Usuarios </span><small id="idFiltro"> comentario</small></h2>         
+    </div>
+
+    <div id="tabcontainer" class="card-body card-padding">
+        
+        <table id="idTable" class="table table-striped table-hover">				
+			<tbody></tbody>
+		</table>
+
+    </div>
+</div> <!-- CARD-->
+        

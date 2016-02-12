@@ -2,6 +2,28 @@
 var mime = require('mime');
 var path = require('path');
 
+function logFile(mess)
+{
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    
+    var fmess = h + ":" + m + ":" + s + "\t" + mess + "\n";
+    var fmess2 = h + ":" + m + ":" + s + " " + mess;
+    
+    var fpath = __dirname + "/logs/" + "log" + yyyy + "-" + mm + "-" + dd + ".log";
+    
+    fs.appendFile(fpath, fmess, function (err)
+    {        
+        console.dir(fmess2);
+    });
+}
+
 function servefile(res, filename)
 {
     //Verificar que el fichero exista
@@ -81,3 +103,4 @@ function servefileembeded(res, filename)
 
 exports.servefile = servefile;
 exports.servefileembeded = servefileembeded;
+exports.logFile = logFile;
