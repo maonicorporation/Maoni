@@ -28,6 +28,7 @@ function redirecciona(req, res)
     req.on('data', function (data)
     {
         jsonString += data;
+        
     });
     req.on('end', function ()
     {
