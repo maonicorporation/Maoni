@@ -11,13 +11,14 @@ var box = new DB({
     host     : 'localhost',
     user     : 'root',
     password : 'maonipass77',
-    database : 'maoni'
+    database : 'maonibd'
 });
 
 //Hash de funciones
 var handle = {};
 
 handle["version"] = version;
+handle["login"] = login;
 handle["sel_all_from_empresas"] = sel_all_from_empresas;
 handle["sel_all_from_users"] = sel_all_from_users;
 
@@ -32,15 +33,22 @@ function redirecciona(req, res)
     });
     req.on('end', function ()
     {
-        var params = JSON.parse(jsonString);
-        
-        var mess = params.f + " -> " + jsonString;
-        utilities.logFile(mess);
-
-        handle[params.f](req, res, params, function (err, ret)
+        if(jsonString.trim() != "")
         {
-            res.end (ret);
-        });
+            var params = JSON.parse(jsonString);
+            
+            var mess = params.f + " -> " + jsonString;
+            utilities.logFile(mess);
+
+            handle[params.f](req, res, params, function (err, ret)
+            {
+                res.end (ret);
+            });
+        }  
+        else
+        {
+            res.end ();
+        }          
     });
 }
 
@@ -48,9 +56,53 @@ exports.redirecciona = redirecciona;
 
 /**********************************************************************************************************************/
 
+//Generador de keys
+function random (low, high)
+{
+    return Math.floor(Math.random() * (high - low) + low);
+}
+
+function getkey ()
+{
+    return random (1, 1000000);
+}
+
+var KEYS = []
+KEYS.push (7604320);//DEBUG
+
 function version (req, res, params, callback)
 {
     callback (null, "version: 1.0");
+}
+
+function login (req, res, params, callback)
+{
+    var sentencia = "SELECT DESCUSUARIO FROM maonibd.usuarios where IDUSUARIO = ? and PASSWORD = ?";
+   
+    
+    box.connect(function(conn, callback)//xparams.user, xparams.pwd DB.format('select * from users where id = ?' [userId]);
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [params.user, params.pwd], callback);
+            },
+            function(res, cb) 
+            {
+                if (res.length == 1)
+                {
+                    var key = getkey();
+                    res[0].SESSION_KEY = key;
+                    KEYS.push(key);
+                    callback (null, JSON.stringify (res));
+                }
+                else
+                {
+                    callback (null, JSON.stringify (0));
+                }
+            }
+        ], callback);
+    }, callback);
 }
 
 function sel_all_from_empresas (req, res, params, callback)
