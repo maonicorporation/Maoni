@@ -11,7 +11,7 @@ var box = new DB({
     host     : 'localhost',
     user     : 'root',
     password : 'maonipass77',
-    database : 'maoni'
+    database : 'maoniBD'
 });
 
 //Hash de funciones
