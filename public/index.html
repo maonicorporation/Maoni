@@ -11,6 +11,7 @@
         <script src="./bootstrap/js/bootstrap.min.js"></script>
         <script src="./js/sha256.js"></script>
         <script src="./js/toastr.js"></script>
+        <script src="./js/lib.js"></script>
       
         <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/maoni.css" rel="stylesheet">
@@ -44,11 +45,17 @@
             });
             
             function dologin()
-            {                
-                var hash = Sha256.hash("a");
-                //alert (hash);
+            {         
+                var user = $("#idUser").val();       
+                var pwd = Sha256.hash($("#idPwd").val());
                 
-                window.location.href = "@@MENU@@_page_000.html";
+                login(user, pwd, function (err, data)
+                {
+                    //alert(data);
+                    //window.location.href = "@@MENU@@_page_000.html";
+                });
+                
+                
             }
         
         </script>
@@ -63,8 +70,8 @@
         <h4 class="form-signin-heading">Por favor, introduzca usuario y contraseña</h4>
         <label for="idUser" class="sr-only">Email address</label>
         <input type="text" id="idUser" class="form-control" placeholder="Usuario" required autofocus>
-        <label for="idPass" class="sr-only">Password</label>
-        <input type="password" id="idPass" class="form-control" placeholder="Contraseña" required>
+        <label for="idPwd" class="sr-only">Password</label>
+        <input type="password" id="idPwd" class="form-control" placeholder="Contraseña" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="0"> Recordar

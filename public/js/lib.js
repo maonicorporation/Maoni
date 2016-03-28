@@ -40,6 +40,21 @@ function selAllUsers (callback)
 	});
 }
 
+function login (user, pwd, callback)
+{
+    var params = { f: "login", user: user, pwd: pwd };
+
+	$.post( "BBDD", JSON.stringify(params))
+	.fail(function() 
+    {
+         callback("error login", jQuery.parseJSON("{err:0}"));
+	})
+	.done(function( data )
+	{
+        callback(null, jQuery.parseJSON(data));
+	});
+}
+
 /******************************************************************************************************************/
 
 function editButton (id)
