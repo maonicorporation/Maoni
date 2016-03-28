@@ -51,8 +51,18 @@ function login (user, pwd, callback)
 	})
 	.done(function( data )
 	{
-        callback(null, jQuery.parseJSON(data));
+        if (data.length > 0)
+        {
+            setCookie("SESSIONKEY", data[0].SESSIONKEY);
+            setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
+        }
+        callback(null, data);
 	});
+}
+
+function navigateTo (url)
+{
+    return url + "?SESSIONKEY=" + getCookie("SESSIONKEY");
 }
 
 /******************************************************************************************************************/

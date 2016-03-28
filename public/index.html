@@ -29,9 +29,9 @@
             "positionClass": "toast-bottom-full-width",
             "preventDuplicates": false,
             "onclick": null,
-            "showDuration": "0",
+            "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": "0",
+            "timeOut": "5000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",
@@ -41,7 +41,7 @@
             
             $(document).ready(function ()
             {
-                toastr["success"]("Utilizamos cookies tralari tralara")
+                toastr["success"]("Utilizamos cookies tralari tralara");
             });
             
             function dologin()
@@ -51,8 +51,14 @@
                 
                 login(user, pwd, function (err, data)
                 {
-                    //alert(data);
-                    //window.location.href = "@@MENU@@_page_000.html";
+                    if (data.length>0)
+                    {
+                        window.location.href = navigateTo ("@@MENU@@_page_000.html");
+                    }
+                    else
+                    {
+                        toastr["error"]("Usuario desconocido");
+                    }
                 });
                 
                 

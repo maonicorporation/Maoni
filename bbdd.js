@@ -18,13 +18,27 @@ var box = new DB({
 >>>>>>> dad02b42b77666b3dd09a7d7a281e2b25a360a62
 });
 
-//Hash de funciones
-var handle = {};
+/**********************************************************************************************************************/
 
-handle["version"] = version;
-handle["login"] = login;
-handle["sel_all_from_empresas"] = sel_all_from_empresas;
-handle["sel_all_from_users"] = sel_all_from_users;
+//Generador de keys
+function random (low, high)
+{
+    return Math.floor(Math.random() * (high - low) + low);
+}
+
+function getkey ()
+{
+    return random (1, 1000000);
+}
+
+var KEYS = []
+KEYS.push (7604320);//DEBUG
+
+function keyExists (key)
+{
+    var i = KEYS.indexOf(parseInt(key));
+    return i > -1;
+}
 
 function redirecciona(req, res)
 {
@@ -46,6 +60,9 @@ function redirecciona(req, res)
 
             handle[params.f](req, res, params, function (err, ret)
             {
+                res.setHeader('Content-Length', ret.length);
+                res.setHeader('Content-Type', 'application/json');
+            
                 res.end (ret);
             });
         }  
@@ -57,22 +74,17 @@ function redirecciona(req, res)
 }
 
 exports.redirecciona = redirecciona;
+exports.keyExists = keyExists;
 
 /**********************************************************************************************************************/
 
-//Generador de keys
-function random (low, high)
-{
-    return Math.floor(Math.random() * (high - low) + low);
-}
+//Hash de funciones de bbdd
+var handle = {};
 
-function getkey ()
-{
-    return random (1, 1000000);
-}
-
-var KEYS = []
-KEYS.push (7604320);//DEBUG
+handle["version"] = version;
+handle["login"] = login;
+handle["sel_all_from_empresas"] = sel_all_from_empresas;
+handle["sel_all_from_users"] = sel_all_from_users;
 
 function version (req, res, params, callback)
 {
@@ -96,13 +108,13 @@ function login (req, res, params, callback)
                 if (res.length == 1)
                 {
                     var key = getkey();
-                    res[0].SESSION_KEY = key;
+                    res[0].SESSIONKEY = key;
                     KEYS.push(key);
                     callback (null, JSON.stringify (res));
                 }
                 else
                 {
-                    callback (null, JSON.stringify (0));
+                    callback (null, "{}");
                 }
             }
         ], callback);
