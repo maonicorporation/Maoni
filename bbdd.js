@@ -11,7 +11,7 @@ var box = new DB({
     host     : 'localhost',
     user     : 'root',
     password : 'maonipass77',
-    database : 'maoni'
+    database : 'maoniBD'
 });
 
 //Hash de funciones
@@ -74,7 +74,7 @@ function sel_all_from_empresas (req, res, params, callback)
 
 function sel_all_from_users (req, res, params, callback)
 {
-    var sentencia = "SELECT ROWID, IDUSUARIO, DESCUSUARIO FROM maoni.usuarios";
+    var sentencia = "SELECT ROWID, IDUSUARIO, DESCUSUARIO FROM usuarios";
     
     box.connect(function(conn, callback)
     {
