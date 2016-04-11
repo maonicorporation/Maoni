@@ -24,7 +24,7 @@ function logFile(mess)
     });
 }
 
-function servefile(res, filename)
+function servefile (res, filename)
 {
     //Verificar que el fichero exista
     fs.stat(filename, function (err, stat)//
@@ -35,8 +35,9 @@ function servefile(res, filename)
             
             if ('ENOENT' == err.code)
             {
-                res.statusCode = 404;
-                res.end('Not Found');
+                //res.statusCode = 404;
+                //res.end('Not Found');
+                servefile (res, "./404.html")
             }
             else
             {

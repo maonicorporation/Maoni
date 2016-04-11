@@ -40,6 +40,31 @@ function selAllUsers (callback)
 	});
 }
 
+function login (user, pwd, callback)
+{
+    var params = { f: "login", user: user, pwd: pwd };
+
+	$.post( "BBDD", JSON.stringify(params))
+	.fail(function() 
+    {
+         callback("error login", jQuery.parseJSON("{err:0}"));
+	})
+	.done(function( data )
+	{
+        if (data.length > 0)
+        {
+            setCookie("SESSIONKEY", data[0].SESSIONKEY);
+            setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
+        }
+        callback(null, data);
+	});
+}
+
+function navigateTo (url)
+{
+    return url + "?SESSIONKEY=" + getCookie("SESSIONKEY");
+}
+
 /******************************************************************************************************************/
 
 function editButton (id)

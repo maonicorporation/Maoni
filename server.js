@@ -53,33 +53,42 @@ app.use(function (req, res)
     {
         bbdd.redirecciona(req, res);
     }
-    else if (req.url == "/")
+    else if (req.url == "/" || req.url == "/index.html")
     {
         utilities.servefile(res, path.join(home, "index.html"));
     }
     else
     {
-        //Servir los ficheros, si logged in
-        var logOk = true;
-        if (logOk || path.extname(filename) == ".html")
+        var url_parts = parse(req.url, true);
+        var query = url_parts.query;
+        
+        if (path.extname(filename).toUpperCase() == ".HTML")
         {
             //Hemos de emmbeberlo en un menú?            
             if (filename.indexOf("@@MENU@@") != -1)
             {
-                utilities.servefileembeded(res, filename);
+                //Está logeado?
+                var logOk = false; 
+                var sk = query.SESSIONKEY;
+                
+                if (sk != undefined && bbdd.keyExists(sk))
+                {
+                    utilities.servefileembeded(res, filename);
+                }
+                else
+                {
+                    utilities.servefile (res, "./404.html")
+                }
             }
-
-            //Si no, lo servimos como un fichero normnal
             else
             {
                 utilities.servefile(res, filename);
             }
         }
-
-        //Si no se ha logeado, servimos la pantalla de login
+        //Si no, lo servimos como un fichero normnal
         else
         {
-            utilities.servefile (res, path.join(home, "index.html"));
+            utilities.servefile(res, filename);
         }
     }
 });
