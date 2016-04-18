@@ -60,6 +60,14 @@ function login (user, pwd, callback)
 	});
 }
 
+function logout()
+{
+    setCookie("SESSIONKEY", 0);
+    setCookie("DESCUSUARIO", 0);
+    
+    window.location.href = "index.html";
+}
+
 function navigateTo (url)
 {
     return url + "?SESSIONKEY=" + getCookie("SESSIONKEY");

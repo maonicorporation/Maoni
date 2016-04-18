@@ -1,10 +1,15 @@
 /*
  * Base structure
  */
-
+ 
+ 
+ 
+a, a:active, a:focus {
+outline: none;
+}
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 64px;
+  padding-top: 0px;
 }
 
 
@@ -56,15 +61,29 @@ body {
   margin-bottom: 20px;
   margin-left: -20px;
 }
-.nav-sidebar > li > a {
+.nav-sidebar > li > a
+{
   padding-right: 20px;
   padding-left: 20px;
+  color: #797979;
+  background-color: #fff;
 }
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
+.nav-sidebar > .active > a:focus 
+{
   color: #fff;
-    background-color: #FF5722;
+  background-color: #FF5722;
+}
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus
+{
+  padding-right: 80px;
+  padding-left: 80px;
+  color: #61ca42;
+  background-color: #fff;
 }
 
 
