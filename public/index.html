@@ -19,6 +19,21 @@
         <link href="./css/animate.min.css" rel="stylesheet">
         <link href="./css/toastr.css" rel="stylesheet">
         
+        <style>
+            
+            xbody { 
+background: url(img/fondo.png) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+body { 
+background: url(img/fondo.png) no-repeat left top fixed; 
+
+}
+        </style>
         <script>
             
         toastr.options = {
@@ -41,7 +56,7 @@
             
             $(document).ready(function ()
             {
-                toastr["success"]("Utilizamos cookies tralari tralara");
+                //toastr["success"]("Utilizamos cookies tralari tralara");
             });
             
             function dologin()
@@ -72,8 +87,9 @@
     <div class="container animated bounce">
 
     <form class="form-signin">
-        <h1 class="form-signin-heading">MAONI zzz</h1>
-        <h4 class="form-signin-heading">Por favor, introduzca usuario y contraseña</h4>
+
+        <img src="img/logoGo.png" class="img-responsive" style="margin: 0 auto;" alt="Maoni"> 
+        <br/>
         <label for="idUser" class="sr-only">Email address</label>
         <input type="text" id="idUser" class="form-control" placeholder="Usuario" required autofocus>
         <label for="idPwd" class="sr-only">Password</label>
@@ -82,7 +98,12 @@
             <label>
                 <input type="checkbox" value="0"> Recordar
             </label>
+            <div class="pull-right">
+            <p><small><a href="#"><u>¿Olvidó su contraseña?</u></a></small></p>
+            </div>
         </div>
+        
+        <br/>
         <button class="btn btn-lg btn-primary btn-block butround" type="button" onclick="dologin()">Iniciar</button>
     </form>
 

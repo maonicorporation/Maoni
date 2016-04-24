@@ -82,7 +82,19 @@ app.use(function (req, res)
             }
             else
             {
-                utilities.servefile(res, filename);
+                //utilities.servefile(res, filename);
+                //Está logeado?
+                var logOk = false; 
+                var sk = query.SESSIONKEY;
+                
+                if (sk != undefined && bbdd.keyExists(sk))
+                {
+                    utilities.servefile(res, filename);
+                }
+                else
+                {
+                    utilities.servefile (res, "./404.html")
+                }
             }
         }
         //Si no, lo servimos como un fichero normnal

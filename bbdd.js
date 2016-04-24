@@ -7,14 +7,19 @@ var DB = db.DB;
 var BaseRow = db.Row;
 var BaseTable = db.Table;
 
+/*
 var box = new DB({
     host     : 'localhost',
     user     : 'root',
     password : 'maonipass77',
-
     database : 'maoniBD'
+});*/
 
-
+var box = new DB({
+    host     : 'go.maoni.solutions',
+    user     : 'gomaonis_Aleix',
+    password : 'Aleix.2302',
+    database : 'gomaonis_maonibd'
 });
 
 /**********************************************************************************************************************/
@@ -92,10 +97,9 @@ function version (req, res, params, callback)
 
 function login (req, res, params, callback)
 {
-    var sentencia = "SELECT DESCUSUARIO FROM maonibd.usuarios where IDUSUARIO = ? and PASSWORD = ?";
-   
+    var sentencia = "SELECT DESCUSUARIO FROM usuarios where IDUSUARIO = ? and PASSWORD = ?";
     
-    box.connect(function(conn, callback)//xparams.user, xparams.pwd DB.format('select * from users where id = ?' [userId]);
+    box.connect(function(conn, callback)
     {
         cps.seq([
             function(_, callback)
