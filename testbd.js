@@ -21,7 +21,7 @@ var box = new DB({
 });*/
 
 var box = new DB({
-    host     : 'go.maoni.solutions',
+    host     : 'go.maoni.solutions', /*localhost*/
     user     : 'gomaonis_Aleix',
     password : 'Aleix.2302',
     database : 'gomaonis_maonibd'

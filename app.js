@@ -24,7 +24,7 @@ var options = {
 };
 
 //Connect components
-app.use(favicon(__dirname + '/public/img/ico.png'));
+app.use(favicon(__dirname + '/protected/img/ico.png'));
 
 var compression = require('compression');
 app.use(compression())
@@ -39,7 +39,7 @@ app.use(function (req, res)
 {
     //dotest();
 
-    var home = g_root + "/public/";
+    var home = g_root + "/protected/";
     var url = parse(req.url);
     var filename = path.join(home, url.pathname);
     var logOk = false;
@@ -61,6 +61,9 @@ app.use(function (req, res)
     {
         var url_parts = parse(req.url, true);
         var query = url_parts.query;
+        
+        utilities.logFile("filename: " + filename);
+        utilities.logFile("ext: " + path.extname(filename).toUpperCase());
         
         if (path.extname(filename).toUpperCase() == ".HTML")
         {

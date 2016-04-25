@@ -50,6 +50,7 @@ function servefile (res, filename)
             res.setHeader('Content-Length', stat.size);
             var mimetype = mime.lookup(path.basename(filename));
             res.setHeader('content-type', mimetype);
+            res.setHeader('Cache-Control','no-cache');
             
             var stream = fs.createReadStream(filename);
             stream.pipe(res);
