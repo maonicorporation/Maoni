@@ -1,0 +1,1657 @@
+21:45:6	INICIO maoni. Escuchando en el puerto: 5555
+21:46:37	Request file: /
+21:46:37	Request file: /jquery/jquery.min.js
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+21:46:37	ext: .JS
+21:46:37	Request file: /bootstrap/js/bootstrap.min.js
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+21:46:37	ext: .JS
+21:46:37	Request file: /js/sha256.js
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+21:46:37	ext: .JS
+21:46:37	Request file: /js/toastr.js
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:46:37	ext: .JS
+21:46:37	Request file: /js/lib.js
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:46:37	ext: .JS
+21:46:37	Request file: /bootstrap/css/bootstrap.min.css
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+21:46:37	ext: .CSS
+21:46:37	Request file: /css/maoni.css
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:46:37	ext: .CSS
+21:46:37	Request file: /css/signin.css
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+21:46:37	ext: .CSS
+21:46:37	ext: .CSS
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:46:37	Request file: /css/animate.min.css
+21:46:37	Request file: /css/toastr.css
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:46:37	ext: .CSS
+21:46:37	Request file: /img/logoGo.png
+21:46:37	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+21:46:37	ext: .PNG
+21:46:38	Request file: /img/fondo.png
+21:46:38	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+21:46:38	ext: .PNG
+21:46:49	Request file: /BBDD
+21:46:49	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+21:46:50	Request file: /@@MENU@@_page_000.html?SESSIONKEY=201201
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+21:46:50	ext: .HTML
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+21:46:50	ext: .JS
+21:46:50	Request file: /jquery/jquery.min.js
+21:46:50	Request file: /bootstrap/js/bootstrap.min.js
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+21:46:50	ext: .JS
+21:46:50	Request file: /js/lib.js
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:46:50	ext: .JS
+21:46:50	Request file: /bootstrap/css/bootstrap.min.css
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+21:46:50	ext: .CSS
+21:46:50	Request file: /css/animate.min.css
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:46:50	ext: .CSS
+21:46:50	Request file: /css/maoni.css
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:46:50	ext: .CSS
+21:46:50	Request file: /css/dashboard.css
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+21:46:50	ext: .CSS
+21:46:50	Request file: /img/logo.png
+21:46:50	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+21:46:50	ext: .PNG
+21:52:36	Request file: /@@MENU@@_page_000.html?SESSIONKEY=201201
+21:52:36	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+21:52:36	ext: .HTML
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+21:52:37	Request file: /bootstrap/js/bootstrap.min.js
+21:52:37	Request file: /jquery/jquery.min.js
+21:52:37	ext: .JS
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+21:52:37	ext: .JS
+21:52:37	Request file: /js/lib.js
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:52:37	ext: .JS
+21:52:37	Request file: /bootstrap/css/bootstrap.min.css
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+21:52:37	ext: .CSS
+21:52:37	Request file: /css/maoni.css
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:52:37	ext: .CSS
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+21:52:37	ext: .CSS
+21:52:37	Request file: /css/dashboard.css
+21:52:37	Request file: /css/animate.min.css
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:52:37	ext: .CSS
+21:52:37	Request file: /img/logo.png
+21:52:37	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+21:52:37	ext: .PNG
+21:57:51	Request file: /@@MENU@@_page_000.html?SESSIONKEY=201201
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+21:57:51	ext: .HTML
+21:57:51	Request file: /jquery/jquery.min.js
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+21:57:51	ext: .JS
+21:57:51	Request file: /bootstrap/js/bootstrap.min.js
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+21:57:51	ext: .JS
+21:57:51	Request file: /bootstrap/css/bootstrap.min.css
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+21:57:51	ext: .CSS
+21:57:51	Request file: /js/lib.js
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:57:51	ext: .JS
+21:57:51	Request file: /css/maoni.css
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:57:51	ext: .CSS
+21:57:51	Request file: /css/dashboard.css
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+21:57:51	ext: .CSS
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:57:51	ext: .CSS
+21:57:51	Request file: /css/animate.min.css
+21:57:51	Request file: /img/logo.png
+21:57:51	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+21:57:51	ext: .PNG
+21:59:16	Request file: /@@MENU@@_page_000.html?SESSIONKEY=201201
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+21:59:16	ext: .HTML
+21:59:16	Request file: /jquery/jquery.min.js
+21:59:16	ext: .JS
+21:59:16	Request file: /bootstrap/js/bootstrap.min.js
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+21:59:16	ext: .JS
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+21:59:16	Request file: /js/lib.js
+21:59:16	Request file: /js/bootstrap-select.js
+21:59:16	ext: .JS
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js
+21:59:16	ext: .JS
+21:59:16	Request file: /bootstrap/css/bootstrap.min.css
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+21:59:16	ext: .CSS
+21:59:16	Request file: /css/maoni.css
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:59:16	ext: .CSS
+21:59:16	Request file: /css/dashboard.css
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+21:59:16	ext: .CSS
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:59:16	ext: .CSS
+21:59:16	Request file: /css/bootstrap-select.min.css
+21:59:16	Request file: /css/animate.min.css
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+21:59:16	ext: .CSS
+21:59:16	Request file: /css/bootstrap-select.min.css
+21:59:16	ext: .CSS
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+21:59:16	Request file: /img/logo.png
+21:59:16	ext: .PNG
+21:59:16	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+21:59:35	Request file: /js/jquery/jquery.min.js
+21:59:35	filename: c:\projectes\Maoni\Maoni\protected\js\jquery\jquery.min.js
+21:59:35	ext: .JS
+22:1:50	INICIO maoni. Escuchando en el puerto: 5555
+22:1:57	Request file: /
+22:1:58	Request file: /jquery/jquery.min.js
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:1:58	ext: .JS
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:1:58	Request file: /bootstrap/js/bootstrap.min.js
+22:1:58	ext: .JS
+22:1:58	Request file: /js/sha256.js
+22:1:58	ext: .JS
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+22:1:58	Request file: /js/toastr.js
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+22:1:58	ext: .JS
+22:1:58	Request file: /js/lib.js
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:1:58	ext: .JS
+22:1:58	Request file: /bootstrap/css/bootstrap.min.css
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:1:58	ext: .CSS
+22:1:58	Request file: /css/maoni.css
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:1:58	ext: .CSS
+22:1:58	Request file: /css/signin.css
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+22:1:58	ext: .CSS
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:1:58	ext: .CSS
+22:1:58	Request file: /css/toastr.css
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+22:1:58	ext: .CSS
+22:1:58	Request file: /css/animate.min.css
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+22:1:58	Request file: /img/logoGo.png
+22:1:58	ext: .PNG
+22:1:58	Request file: /img/fondo.png
+22:1:58	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+22:1:58	ext: .PNG
+22:2:3	Request file: /BBDD
+22:2:3	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:2:4	Request file: /@@MENU@@_page_000.html?SESSIONKEY=709233
+22:2:4	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:2:4	ext: .HTML
+22:2:5	Request file: /jquery/jquery.min.js
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:2:5	ext: .JS
+22:2:5	ext: .JS
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:2:5	ext: .JS
+22:2:5	Request file: /js/lib.js
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:2:5	Request file: /bootstrap/css/bootstrap.min.css
+22:2:5	ext: .CSS
+22:2:5	Request file: /css/maoni.css
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:2:5	ext: .CSS
+22:2:5	Request file: /css/animate.min.css
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:2:5	ext: .CSS
+22:2:5	Request file: /bootstrap/js/bootstrap.min.js
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:2:5	Request file: /css/dashboard.css
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:2:5	ext: .CSS
+22:2:5	Request file: /css/bootstrap-select.min.css
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:2:5	ext: .CSS
+22:2:5	Request file: /js/bootstrap-select.js
+22:2:5	ext: .JS
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js
+22:2:5	Request file: /img/logo.png
+22:2:5	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:2:5	ext: .PNG
+22:2:56	INICIO maoni. Escuchando en el puerto: 5555
+22:3:13	Request file: /
+22:3:13	Request file: /jquery/jquery.min.js
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:3:13	ext: .JS
+22:3:13	Request file: /bootstrap/js/bootstrap.min.js
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:3:13	ext: .JS
+22:3:13	Request file: /js/sha256.js
+22:3:13	ext: .JS
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+22:3:13	ext: .JS
+22:3:13	Request file: /js/toastr.js
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+22:3:13	Request file: /js/lib.js
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:3:13	ext: .JS
+22:3:13	Request file: /bootstrap/css/bootstrap.min.css
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:3:13	ext: .CSS
+22:3:13	Request file: /css/maoni.css
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:3:13	ext: .CSS
+22:3:13	Request file: /css/signin.css
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+22:3:13	ext: .CSS
+22:3:13	Request file: /css/animate.min.css
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:3:13	ext: .CSS
+22:3:13	Request file: /css/toastr.css
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+22:3:13	ext: .CSS
+22:3:13	Request file: /img/logoGo.png
+22:3:13	ext: .PNG
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+22:3:13	Request file: /img/fondo.png
+22:3:13	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+22:3:13	ext: .PNG
+22:3:20	Request file: /BBDD
+22:3:20	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:3:23	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:3:23	ext: .HTML
+22:3:23	Request file: /jquery/jquery.min.js
+22:3:23	ext: .JS
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:3:23	Request file: /bootstrap/js/bootstrap.min.js
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:3:23	ext: .JS
+22:3:23	Request file: /js/lib.js
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:3:23	ext: .JS
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:3:23	ext: .JS
+22:3:23	Request file: /js/bootstrap-select.min.js
+22:3:23	Request file: /bootstrap/css/bootstrap.min.css
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:3:23	Request file: /css/maoni.css
+22:3:23	ext: .CSS
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:3:23	ext: .CSS
+22:3:23	Request file: /css/animate.min.css
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:3:23	ext: .CSS
+22:3:23	Request file: /css/dashboard.css
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:3:23	ext: .CSS
+22:3:23	Request file: /css/bootstrap-select.min.css
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:3:23	ext: .CSS
+22:3:23	Request file: /img/logo.png
+22:3:23	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:3:23	ext: .PNG
+22:5:57	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:5:57	ext: .HTML
+22:5:57	Request file: /jquery/jquery.min.js
+22:5:57	ext: .JS
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:5:57	Request file: /bootstrap/js/bootstrap.min.js
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:5:57	ext: .JS
+22:5:57	Request file: /js/lib.js
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:5:57	ext: .JS
+22:5:57	Request file: /js/bootstrap-select.min.js
+22:5:57	ext: .JS
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:5:57	Request file: /bootstrap/css/bootstrap.min.css
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:5:57	ext: .CSS
+22:5:57	Request file: /css/maoni.css
+22:5:57	ext: .CSS
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:5:57	Request file: /css/dashboard.css
+22:5:57	ext: .CSS
+22:5:57	Request file: /css/animate.min.css
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:5:57	ext: .CSS
+22:5:57	Request file: /css/bootstrap-select.min.css
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:5:57	ext: .CSS
+22:5:57	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:5:58	Request file: /img/logo.png
+22:5:58	ext: .PNG
+22:5:58	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:7:3	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:7:3	ext: .HTML
+22:7:3	Request file: /jquery/jquery.min.js
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:7:3	ext: .JS
+22:7:3	Request file: /bootstrap/js/bootstrap.min.js
+22:7:3	ext: .JS
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:7:3	Request file: /js/lib.js
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:7:3	ext: .JS
+22:7:3	Request file: /js/bootstrap-select.min.js
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:7:3	ext: .JS
+22:7:3	Request file: /bootstrap/css/bootstrap.min.css
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:7:3	ext: .CSS
+22:7:3	Request file: /css/maoni.css
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:7:3	ext: .CSS
+22:7:3	Request file: /css/dashboard.css
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:7:3	ext: .CSS
+22:7:3	Request file: /css/animate.min.css
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:7:3	ext: .CSS
+22:7:3	ext: .CSS
+22:7:3	Request file: /css/bootstrap-select.min.css
+22:7:3	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:7:4	ext: .PNG
+22:7:4	Request file: /img/logo.png
+22:7:4	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:7:50	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:7:50	ext: .HTML
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:7:50	Request file: /bootstrap/js/bootstrap.min.js
+22:7:50	Request file: /jquery/jquery.min.js
+22:7:50	ext: .JS
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:7:50	ext: .JS
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:7:50	Request file: /js/lib.js
+22:7:50	ext: .JS
+22:7:50	Request file: /js/bootstrap-select.min.js
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:7:50	ext: .JS
+22:7:50	Request file: /bootstrap/css/bootstrap.min.css
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:7:50	ext: .CSS
+22:7:50	Request file: /css/maoni.css
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:7:50	ext: .CSS
+22:7:50	Request file: /css/dashboard.css
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:7:50	ext: .CSS
+22:7:50	Request file: /css/animate.min.css
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:7:50	ext: .CSS
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:7:50	ext: .CSS
+22:7:50	Request file: /css/bootstrap-select.min.css
+22:7:50	Request file: /img/logo.png
+22:7:50	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:7:50	ext: .PNG
+22:8:37	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:8:37	ext: .HTML
+22:8:37	Request file: /jquery/jquery.min.js
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:8:37	ext: .JS
+22:8:37	Request file: /bootstrap/js/bootstrap.min.js
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:8:37	ext: .JS
+22:8:37	Request file: /js/lib.js
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:8:37	ext: .JS
+22:8:37	Request file: /js/bootstrap-select.min.js
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:8:37	ext: .JS
+22:8:37	Request file: /bootstrap/css/bootstrap.min.css
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:8:37	ext: .CSS
+22:8:37	Request file: /css/maoni.css
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:8:37	ext: .CSS
+22:8:37	Request file: /css/dashboard.css
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:8:37	Request file: /css/animate.min.css
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:8:37	ext: .CSS
+22:8:37	Request file: /css/bootstrap-select.min.css
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:8:37	ext: .CSS
+22:8:37	ext: .CSS
+22:8:37	Request file: /img/logo.png
+22:8:37	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:8:37	ext: .PNG
+22:9:34	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:9:34	ext: .HTML
+22:9:34	Request file: /jquery/jquery.min.js
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:9:34	ext: .JS
+22:9:34	Request file: /bootstrap/js/bootstrap.min.js
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:9:34	ext: .JS
+22:9:34	Request file: /js/lib.js
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:9:34	Request file: /js/bootstrap-select.min.js
+22:9:34	ext: .JS
+22:9:34	ext: .JS
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:9:34	Request file: /bootstrap/css/bootstrap.min.css
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:9:34	ext: .CSS
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:9:34	Request file: /css/maoni.css
+22:9:34	ext: .CSS
+22:9:34	Request file: /css/dashboard.css
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:9:34	ext: .CSS
+22:9:34	Request file: /css/bootstrap-select.min.css
+22:9:34	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:9:34	ext: .CSS
+22:9:34	ext: .CSS
+22:9:34	Request file: /css/animate.min.css
+22:9:35	Request file: /img/logo.png
+22:9:35	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:9:35	ext: .PNG
+22:9:38	Request file: /img/logo.png
+22:9:38	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:9:38	ext: .PNG
+22:11:32	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:11:32	ext: .HTML
+22:11:32	Request file: /jquery/jquery.min.js
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:11:32	ext: .JS
+22:11:32	Request file: /bootstrap/js/bootstrap.min.js
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:11:32	ext: .JS
+22:11:32	Request file: /js/bootstrap-select.min.js
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:11:32	Request file: /js/lib.js
+22:11:32	ext: .JS
+22:11:32	Request file: /bootstrap/css/bootstrap.min.css
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:11:32	Request file: /css/maoni.css
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:11:32	ext: .CSS
+22:11:32	ext: .JS
+22:11:32	ext: .CSS
+22:11:32	Request file: /css/dashboard.css
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:11:32	ext: .CSS
+22:11:32	Request file: /css/animate.min.css
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:11:32	ext: .CSS
+22:11:32	Request file: /css/bootstrap-select.min.css
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:11:32	ext: .CSS
+22:11:32	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:11:32	ext: .PNG
+22:11:32	Request file: /img/logo.png
+22:13:2	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:13:2	ext: .HTML
+22:13:2	Request file: /jquery/jquery.min.js
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:13:2	ext: .JS
+22:13:2	Request file: /bootstrap/js/bootstrap.min.js
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:13:2	ext: .JS
+22:13:2	Request file: /js/lib.js
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:13:2	ext: .JS
+22:13:2	Request file: /js/bootstrap-select.min.js
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:13:2	ext: .JS
+22:13:2	Request file: /css/maoni.css
+22:13:2	Request file: /bootstrap/css/bootstrap.min.css
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:13:2	ext: .CSS
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:13:2	ext: .CSS
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:13:2	ext: .CSS
+22:13:2	Request file: /css/dashboard.css
+22:13:2	Request file: /css/animate.min.css
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:13:2	ext: .CSS
+22:13:2	Request file: /css/bootstrap-select.min.css
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:13:2	ext: .CSS
+22:13:2	Request file: /img/logo.png
+22:13:2	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:13:2	ext: .PNG
+22:14:57	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:14:57	ext: .HTML
+22:14:57	Request file: /jquery/jquery.min.js
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:14:57	ext: .JS
+22:14:57	Request file: /bootstrap/js/bootstrap.min.js
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:14:57	ext: .JS
+22:14:57	Request file: /js/lib.js
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:14:57	ext: .JS
+22:14:57	Request file: /bootstrap/css/bootstrap.min.css
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:14:57	ext: .CSS
+22:14:57	Request file: /js/bootstrap-select.min.js
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:14:57	ext: .JS
+22:14:57	Request file: /css/maoni.css
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:14:57	ext: .CSS
+22:14:57	Request file: /css/dashboard.css
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:14:57	ext: .CSS
+22:14:57	Request file: /css/animate.min.css
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:14:57	ext: .CSS
+22:14:57	Request file: /css/bootstrap-select.min.css
+22:14:57	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:14:57	ext: .CSS
+22:14:58	ext: .PNG
+22:14:58	Request file: /img/logo.png
+22:14:58	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:15:26	Request file: /@@MENU@@_page_000.html?SESSIONKEY=31709
+22:15:26	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:15:26	ext: .HTML
+22:15:27	Request file: /jquery/jquery.min.js
+22:15:27	ext: .JS
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:15:27	Request file: /bootstrap/js/bootstrap.min.js
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:15:27	ext: .JS
+22:15:27	Request file: /js/lib.js
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:15:27	ext: .JS
+22:15:27	Request file: /js/bootstrap-select.min.js
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:15:27	ext: .JS
+22:15:27	Request file: /bootstrap/css/bootstrap.min.css
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:15:27	ext: .CSS
+22:15:27	Request file: /css/maoni.css
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:15:27	ext: .CSS
+22:15:27	Request file: /css/dashboard.css
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:15:27	Request file: /css/animate.min.css
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:15:27	ext: .CSS
+22:15:27	Request file: /css/bootstrap-select.min.css
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:15:27	ext: .CSS
+22:15:27	ext: .CSS
+22:15:27	Request file: /img/logo.png
+22:15:27	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:15:27	ext: .PNG
+22:16:16	Request file: /
+22:16:16	Request file: /jquery/jquery.min.js
+22:16:16	ext: .JS
+22:16:16	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:16:16	Request file: /js/toastr.js
+22:16:16	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+22:16:16	ext: .JS
+22:16:16	Request file: /js/sha256.js
+22:16:16	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+22:16:16	ext: .JS
+22:16:16	Request file: /bootstrap/js/bootstrap.min.js
+22:16:16	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:16:16	ext: .JS
+22:16:16	Request file: /bootstrap/css/bootstrap.min.css
+22:16:16	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:16:16	ext: .CSS
+22:16:16	Request file: /js/lib.js
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:16:17	ext: .JS
+22:16:17	Request file: /css/maoni.css
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:16:17	ext: .CSS
+22:16:17	Request file: /css/signin.css
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+22:16:17	ext: .CSS
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:16:17	ext: .CSS
+22:16:17	Request file: /css/animate.min.css
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+22:16:17	Request file: /css/toastr.css
+22:16:17	ext: .CSS
+22:16:17	Request file: /img/logoGo.png
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+22:16:17	ext: .PNG
+22:16:17	Request file: /img/fondo.png
+22:16:17	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+22:16:17	ext: .PNG
+22:16:22	Request file: /BBDD
+22:16:22	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:16:22	Request file: /@@MENU@@_page_000.html?SESSIONKEY=698350
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:16:22	ext: .HTML
+22:16:22	Request file: /jquery/jquery.min.js
+22:16:22	ext: .JS
+22:16:22	Request file: /bootstrap/js/bootstrap.min.js
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:16:22	ext: .JS
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:16:22	Request file: /js/lib.js
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:16:22	ext: .JS
+22:16:22	Request file: /bootstrap/css/bootstrap.min.css
+22:16:22	Request file: /css/maoni.css
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:16:22	Request file: /css/animate.min.css
+22:16:22	ext: .CSS
+22:16:22	ext: .CSS
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:16:22	ext: .CSS
+22:16:22	Request file: /js/bootstrap-select.min.js
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:16:22	ext: .JS
+22:16:22	Request file: /css/dashboard.css
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:16:22	ext: .CSS
+22:16:22	Request file: /css/bootstrap-select.min.css
+22:16:22	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:16:22	ext: .CSS
+22:16:23	Request file: /img/logo.png
+22:16:23	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:16:23	ext: .PNG
+22:17:38	Request file: /@@MENU@@_page_000.html?SESSIONKEY=698350
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:17:38	ext: .HTML
+22:17:38	Request file: /jquery/jquery.min.js
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:17:38	ext: .JS
+22:17:38	Request file: /bootstrap/js/bootstrap.min.js
+22:17:38	ext: .JS
+22:17:38	Request file: /js/lib.js
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:17:38	ext: .JS
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:17:38	Request file: /js/bootstrap-select.min.js
+22:17:38	ext: .JS
+22:17:38	Request file: /bootstrap/css/bootstrap.min.css
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:17:38	ext: .CSS
+22:17:38	Request file: /css/maoni.css
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:17:38	ext: .CSS
+22:17:38	Request file: /css/dashboard.css
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:17:38	ext: .CSS
+22:17:38	Request file: /css/animate.min.css
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:17:38	ext: .CSS
+22:17:38	Request file: /css/bootstrap-select.min.css
+22:17:38	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:17:38	ext: .CSS
+22:17:39	Request file: /img/logo.png
+22:17:39	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:17:39	ext: .PNG
+22:21:58	Request file: /@@MENU@@_page_000.html?SESSIONKEY=698350
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:21:58	ext: .HTML
+22:21:58	Request file: /jquery/jquery.min.js
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:21:58	ext: .JS
+22:21:58	Request file: /bootstrap/js/bootstrap.min.js
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:21:58	ext: .JS
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:21:58	ext: .JS
+22:21:58	Request file: /js/lib.js
+22:21:58	Request file: /bootstrap/css/bootstrap.min.css
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:21:58	ext: .CSS
+22:21:58	Request file: /css/maoni.css
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:21:58	ext: .CSS
+22:21:58	ext: .JS
+22:21:58	Request file: /js/bootstrap-select.min.js
+22:21:58	Request file: /css/dashboard.css
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:21:58	ext: .CSS
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:21:58	Request file: /css/animate.min.css
+22:21:58	ext: .CSS
+22:21:58	Request file: /css/bootstrap-select.min.css
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:21:58	ext: .CSS
+22:21:58	Request file: /img/logo.png
+22:21:58	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:21:58	ext: .PNG
+22:25:43	INICIO maoni. Escuchando en el puerto: 5555
+22:25:46	Request file: /@@MENU@@_page_000.html?SESSIONKEY=698350
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:25:46	ext: .HTML
+22:25:46	Request file: /jquery/jquery.min.js
+22:25:46	ext: .JS
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:25:46	Request file: /bootstrap/js/bootstrap.min.js
+22:25:46	ext: .JS
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:25:46	Request file: /bootstrap/css/bootstrap.min.css
+22:25:46	ext: .CSS
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:25:46	Request file: /css/maoni.css
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:25:46	ext: .CSS
+22:25:46	Request file: /css/animate.min.css
+22:25:46	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:25:46	ext: .CSS
+22:25:55	Request file: /BBDD
+22:25:55	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:25:56	Request file: /@@MENU@@_page_000.html?SESSIONKEY=988414
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:25:56	ext: .HTML
+22:25:56	Request file: /jquery/jquery.min.js
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:25:56	ext: .JS
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:25:56	Request file: /js/lib.js
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:25:56	ext: .JS
+22:25:56	Request file: /bootstrap/js/bootstrap.min.js
+22:25:56	ext: .JS
+22:25:56	Request file: /js/bootstrap-select.min.js
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:25:56	ext: .JS
+22:25:56	Request file: /js/bootstrap-datetimepicker.min.js
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:25:56	ext: .JS
+22:25:56	Request file: /bootstrap/css/bootstrap.min.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /css/maoni.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /css/dashboard.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /css/animate.min.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /css/bootstrap-select.min.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /css/bootstrap-datetimepicker.min.css
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:25:56	ext: .CSS
+22:25:56	Request file: /img/logo.png
+22:25:56	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:25:56	ext: .PNG
+22:29:46	INICIO maoni. Escuchando en el puerto: 5555
+22:29:49	Request file: /@@MENU@@_page_000.html?SESSIONKEY=988414
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:29:49	ext: .HTML
+22:29:49	Request file: /jquery/jquery.min.js
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:29:49	ext: .JS
+22:29:49	Request file: /bootstrap/js/bootstrap.min.js
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:29:49	ext: .JS
+22:29:49	Request file: /bootstrap/css/bootstrap.min.css
+22:29:49	ext: .CSS
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:29:49	Request file: /css/maoni.css
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:29:49	ext: .CSS
+22:29:49	Request file: /css/animate.min.css
+22:29:49	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:29:49	ext: .CSS
+22:29:51	Request file: /index.html
+22:29:51	Request file: /jquery/jquery.min.js
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:29:51	ext: .JS
+22:29:51	Request file: /bootstrap/js/bootstrap.min.js
+22:29:51	ext: .JS
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:29:51	Request file: /js/sha256.js
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+22:29:51	ext: .JS
+22:29:51	Request file: /js/toastr.js
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+22:29:51	ext: .JS
+22:29:51	Request file: /js/lib.js
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:29:51	ext: .JS
+22:29:51	Request file: /bootstrap/css/bootstrap.min.css
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:29:51	ext: .CSS
+22:29:51	Request file: /css/maoni.css
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:29:51	ext: .CSS
+22:29:51	Request file: /css/signin.css
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+22:29:51	ext: .CSS
+22:29:51	Request file: /css/animate.min.css
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:29:51	ext: .CSS
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+22:29:51	ext: .CSS
+22:29:51	Request file: /css/toastr.css
+22:29:51	Request file: /img/fondo.png
+22:29:51	ext: .PNG
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+22:29:51	Request file: /img/logoGo.png
+22:29:51	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+22:29:51	ext: .PNG
+22:30:0	Request file: /BBDD
+22:30:0	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:30:1	Request file: /@@MENU@@_page_000.html?SESSIONKEY=400769
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:30:1	ext: .HTML
+22:30:1	Request file: /jquery/jquery.min.js
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:30:1	ext: .JS
+22:30:1	Request file: /bootstrap/js/bootstrap.min.js
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:30:1	ext: .JS
+22:30:1	Request file: /js/lib.js
+22:30:1	ext: .JS
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:30:1	Request file: /js/bootstrap-select.min.js
+22:30:1	ext: .JS
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:30:1	Request file: /js/bootstrap-datetimepicker.min.js
+22:30:1	ext: .JS
+22:30:1	Request file: /bootstrap/css/bootstrap.min.css
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:30:1	ext: .CSS
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:30:1	Request file: /css/maoni.css
+22:30:1	ext: .CSS
+22:30:1	ext: .CSS
+22:30:1	Request file: /css/dashboard.css
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:30:1	Request file: /css/animate.min.css
+22:30:1	ext: .CSS
+22:30:1	Request file: /css/bootstrap-select.min.css
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:30:1	ext: .CSS
+22:30:1	ext: .CSS
+22:30:1	Request file: /css/bootstrap-datetimepicker.min.css
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:30:1	Request file: /img/logo.png
+22:30:1	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:30:1	ext: .PNG
+22:31:49	Request file: /@@MENU@@_page_000.html?SESSIONKEY=400769
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:31:49	ext: .HTML
+22:31:49	Request file: /jquery/jquery.min.js
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:31:49	ext: .JS
+22:31:49	Request file: /bootstrap/js/bootstrap.min.js
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:31:49	ext: .JS
+22:31:49	Request file: /js/lib.js
+22:31:49	ext: .JS
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:31:49	Request file: /js/bootstrap-select.min.js
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:31:49	ext: .JS
+22:31:49	Request file: /js/bootstrap-datetimepicker.min.js
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:31:49	ext: .JS
+22:31:49	Request file: /bootstrap/css/bootstrap.min.css
+22:31:49	ext: .CSS
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:31:49	Request file: /css/maoni.css
+22:31:49	ext: .CSS
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:31:49	Request file: /css/dashboard.css
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:31:49	Request file: /css/animate.min.css
+22:31:49	ext: .CSS
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:31:49	ext: .CSS
+22:31:49	ext: .CSS
+22:31:49	Request file: /css/bootstrap-select.min.css
+22:31:49	Request file: /css/bootstrap-datetimepicker.min.css
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:31:49	ext: .CSS
+22:31:49	Request file: /img/logo.png
+22:31:49	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:31:49	ext: .PNG
+22:34:19	INICIO maoni. Escuchando en el puerto: 5555
+22:34:26	Request file: /BBDD
+22:34:26	login -> {"f":"login","user":"maoni","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+22:34:27	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:34:27	ext: .HTML
+22:34:27	Request file: /jquery/jquery.min.js
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:34:27	ext: .JS
+22:34:27	Request file: /bootstrap/js/bootstrap.min.js
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:34:27	ext: .JS
+22:34:27	Request file: /js/lib.js
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:34:27	ext: .JS
+22:34:27	Request file: /js/bootstrap-datetimepicker.min.js
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:34:27	ext: .JS
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:34:27	Request file: /js/bootstrap-select.min.js
+22:34:27	ext: .JS
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:34:27	ext: .CSS
+22:34:27	Request file: /bootstrap/css/bootstrap.min.css
+22:34:27	Request file: /css/maoni.css
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:34:27	ext: .CSS
+22:34:27	Request file: /css/dashboard.css
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:34:27	ext: .CSS
+22:34:27	Request file: /css/animate.min.css
+22:34:27	Request file: /css/bootstrap-select.min.css
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:34:27	ext: .CSS
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:34:27	ext: .CSS
+22:34:27	ext: .CSS
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:34:27	Request file: /css/bootstrap-datetimepicker.min.css
+22:34:27	Request file: /css/material-design-iconic-font.min.css
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:34:27	ext: .CSS
+22:34:27	Request file: /img/logo.png
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:34:27	ext: .PNG
+22:34:27	Request file: /fonts/Material-Design-Iconic-Font.woff?v=1.0.1
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\fonts\Material-Design-Iconic-Font.woff
+22:34:27	ext: .WOFF
+22:34:27	Request file: /fonts/Material-Design-Iconic-Font.ttf?v=1.0.1
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\fonts\Material-Design-Iconic-Font.ttf
+22:34:27	ext: .TTF
+22:34:27	Request file: /fonts/Material-Design-Iconic-Font.woff?v=1.0.1
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\fonts\Material-Design-Iconic-Font.woff
+22:34:27	ext: .WOFF
+22:34:27	Request file: /fonts/Material-Design-Iconic-Font.ttf?v=1.0.1
+22:34:27	ext: .TTF
+22:34:27	filename: c:\projectes\Maoni\Maoni\protected\fonts\Material-Design-Iconic-Font.ttf
+22:35:1	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:35:1	ext: .HTML
+22:35:1	Request file: /jquery/jquery.min.js
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:35:1	Request file: /bootstrap/js/bootstrap.min.js
+22:35:1	ext: .JS
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:35:1	ext: .JS
+22:35:1	Request file: /js/lib.js
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:35:1	ext: .JS
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:35:1	Request file: /js/bootstrap-select.min.js
+22:35:1	ext: .JS
+22:35:1	Request file: /js/bootstrap-datetimepicker.min.js
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:35:1	ext: .JS
+22:35:1	Request file: /bootstrap/css/bootstrap.min.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/maoni.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/dashboard.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/animate.min.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/bootstrap-select.min.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/bootstrap-datetimepicker.min.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /css/material-design-iconic-font.min.css
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:35:1	ext: .CSS
+22:35:1	Request file: /img/logo.png
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:35:1	ext: .PNG
+22:35:1	Request file: /fonts/Material-Design-Iconic-Font.woff?v=1.0.1
+22:35:1	filename: c:\projectes\Maoni\Maoni\protected\fonts\Material-Design-Iconic-Font.woff
+22:35:1	ext: .WOFF
+22:37:47	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:37:47	ext: .HTML
+22:37:47	Request file: /jquery/jquery.min.js
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:37:47	ext: .JS
+22:37:47	Request file: /bootstrap/js/bootstrap.min.js
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:37:47	ext: .JS
+22:37:47	Request file: /js/lib.js
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:37:47	ext: .JS
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:37:47	ext: .JS
+22:37:47	Request file: /js/bootstrap-select.min.js
+22:37:47	Request file: /js/bootstrap-datetimepicker.min.js
+22:37:47	ext: .CSS
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:37:47	ext: .JS
+22:37:47	Request file: /bootstrap/css/bootstrap.min.css
+22:37:47	ext: .CSS
+22:37:47	Request file: /css/maoni.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:37:47	Request file: /css/dashboard.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:37:47	ext: .CSS
+22:37:47	Request file: /css/animate.min.css
+22:37:47	ext: .CSS
+22:37:47	Request file: /css/bootstrap-select.min.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:37:47	ext: .CSS
+22:37:47	Request file: /css/bootstrap-datetimepicker.min.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:37:47	ext: .CSS
+22:37:47	Request file: /css/material-design-iconic-font.min.css
+22:37:47	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:37:47	ext: .CSS
+22:37:48	Request file: /img/logo.png
+22:37:48	ext: .PNG
+22:37:48	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:48:11	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:48:11	ext: .HTML
+22:48:11	Request file: /jquery/jquery.min.js
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:48:11	ext: .JS
+22:48:11	Request file: /bootstrap/js/bootstrap.min.js
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:48:11	ext: .JS
+22:48:11	Request file: /js/bootstrap-select.min.js
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:48:11	ext: .JS
+22:48:11	Request file: /bootstrap/css/bootstrap.min.css
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:48:11	ext: .CSS
+22:48:11	Request file: /js/bootstrap-datetimepicker.min.js
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:48:11	ext: .JS
+22:48:11	Request file: /js/lib.js
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:48:11	ext: .JS
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:48:11	ext: .CSS
+22:48:11	Request file: /css/maoni.css
+22:48:11	Request file: /css/dashboard.css
+22:48:11	ext: .CSS
+22:48:11	Request file: /css/animate.min.css
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:48:11	ext: .CSS
+22:48:11	Request file: /css/bootstrap-select.min.css
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:48:11	ext: .CSS
+22:48:11	ext: .CSS
+22:48:11	Request file: /css/bootstrap-datetimepicker.min.css
+22:48:11	ext: .CSS
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:48:11	Request file: /css/material-design-iconic-font.min.css
+22:48:11	Request file: /img/logo.png
+22:48:11	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:48:11	ext: .PNG
+22:48:19	Request file: /jquery/jquery.min.map
+22:48:19	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:48:19	Request file: /js/bootstrap-select.js.map
+22:48:19	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:48:19	ext: .MAP
+22:48:19	ext: .MAP
+22:48:28	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:48:28	ext: .HTML
+22:48:28	Request file: /jquery/jquery.min.js
+22:48:28	ext: .JS
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:48:28	Request file: /bootstrap/js/bootstrap.min.js
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:48:28	ext: .JS
+22:48:28	Request file: /js/lib.js
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:48:28	ext: .JS
+22:48:28	ext: .JS
+22:48:28	Request file: /js/bootstrap-select.min.js
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:48:28	Request file: /js/bootstrap-datetimepicker.min.js
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:48:28	ext: .JS
+22:48:28	Request file: /bootstrap/css/bootstrap.min.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:48:28	ext: .CSS
+22:48:28	Request file: /css/maoni.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:48:28	ext: .CSS
+22:48:28	ext: .CSS
+22:48:28	Request file: /css/dashboard.css
+22:48:28	Request file: /css/animate.min.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:48:28	ext: .CSS
+22:48:28	Request file: /css/bootstrap-select.min.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:48:28	ext: .CSS
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:48:28	Request file: /css/material-design-iconic-font.min.css
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:48:28	ext: .CSS
+22:48:28	Request file: /css/bootstrap-datetimepicker.min.css
+22:48:28	ext: .CSS
+22:48:28	Request file: /jquery/jquery.min.map
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:48:28	ext: .MAP
+22:48:28	Request file: /js/bootstrap-select.js.map
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:48:28	ext: .MAP
+22:48:28	Request file: /img/logo.png
+22:48:28	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:48:28	ext: .PNG
+22:50:4	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:50:4	ext: .HTML
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:50:4	Request file: /jquery/jquery.min.js
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:50:4	Request file: /bootstrap/js/bootstrap.min.js
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:50:4	ext: .JS
+22:50:4	Request file: /js/lib.js
+22:50:4	ext: .JS
+22:50:4	ext: .JS
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:50:4	Request file: /js/moment.min.js
+22:50:4	ext: .JS
+22:50:4	Request file: /js/bootstrap-select.min.js
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:50:4	ext: .JS
+22:50:4	Request file: /js/bootstrap-datetimepicker.min.js
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:50:4	ext: .JS
+22:50:4	Request file: /bootstrap/css/bootstrap.min.css
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:50:4	ext: .CSS
+22:50:4	Request file: /css/maoni.css
+22:50:4	ext: .CSS
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:50:4	Request file: /css/dashboard.css
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:50:4	ext: .CSS
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:50:4	Request file: /css/animate.min.css
+22:50:4	ext: .CSS
+22:50:4	ext: .CSS
+22:50:4	Request file: /css/bootstrap-select.min.css
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:50:4	Request file: /css/bootstrap-datetimepicker.min.css
+22:50:4	ext: .CSS
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:50:4	ext: .CSS
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:50:4	Request file: /css/material-design-iconic-font.min.css
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:50:4	ext: .MAP
+22:50:4	Request file: /jquery/jquery.min.map
+22:50:4	ext: .MAP
+22:50:4	Request file: /js/bootstrap-select.js.map
+22:50:4	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:50:5	Request file: /img/logo.png
+22:50:5	ext: .PNG
+22:50:5	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:50:27	Request file: /jquery/jquery.min.map
+22:50:27	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:50:27	ext: .MAP
+22:50:27	Request file: /js/bootstrap-select.js.map
+22:50:27	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:50:27	ext: .MAP
+22:51:48	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:51:48	ext: .HTML
+22:51:48	Request file: /jquery/jquery.min.js
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:51:48	ext: .JS
+22:51:48	Request file: /bootstrap/js/bootstrap.min.js
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:51:48	ext: .JS
+22:51:48	Request file: /js/lib.js
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:51:48	ext: .JS
+22:51:48	Request file: /js/moment.min.js
+22:51:48	Request file: /js/bootstrap-select.min.js
+22:51:48	ext: .JS
+22:51:48	Request file: /js/bootstrap-datetimepicker.min.js
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:51:48	ext: .JS
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:51:48	ext: .JS
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:51:48	Request file: /bootstrap/css/bootstrap.min.css
+22:51:48	ext: .CSS
+22:51:48	Request file: /css/maoni.css
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:51:48	ext: .CSS
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:51:48	ext: .CSS
+22:51:48	Request file: /css/dashboard.css
+22:51:48	Request file: /css/animate.min.css
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:51:48	ext: .CSS
+22:51:48	Request file: /css/bootstrap-select.min.css
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:51:48	ext: .CSS
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:51:48	Request file: /css/bootstrap-datetimepicker.min.css
+22:51:48	ext: .CSS
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:51:48	ext: .CSS
+22:51:48	Request file: /css/material-design-iconic-font.min.css
+22:51:48	Request file: /jquery/jquery.min.map
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:51:48	ext: .MAP
+22:51:48	Request file: /js/bootstrap-select.js.map
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:51:48	ext: .MAP
+22:51:48	Request file: /img/logo.png
+22:51:48	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:51:48	ext: .PNG
+22:52:32	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:52:32	ext: .HTML
+22:52:32	Request file: /jquery/jquery.min.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:52:32	ext: .JS
+22:52:32	Request file: /bootstrap/js/bootstrap.min.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:52:32	ext: .JS
+22:52:32	Request file: /js/moment.min.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:52:32	ext: .JS
+22:52:32	Request file: /js/bootstrap-select.min.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:52:32	ext: .JS
+22:52:32	Request file: /js/bootstrap-datetimepicker.min.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:52:32	ext: .JS
+22:52:32	Request file: /js/lib.js
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:52:32	ext: .JS
+22:52:32	Request file: /bootstrap/css/bootstrap.min.css
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:52:32	ext: .CSS
+22:52:32	Request file: /css/maoni.css
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:52:32	ext: .CSS
+22:52:32	Request file: /css/dashboard.css
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:52:32	ext: .CSS
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:52:32	Request file: /css/animate.min.css
+22:52:32	ext: .CSS
+22:52:32	Request file: /css/bootstrap-select.min.css
+22:52:32	ext: .CSS
+22:52:32	Request file: /css/bootstrap-datetimepicker.min.css
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:52:32	ext: .CSS
+22:52:32	Request file: /css/material-design-iconic-font.min.css
+22:52:32	ext: .CSS
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:52:32	Request file: /jquery/jquery.min.map
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:52:32	ext: .MAP
+22:52:32	Request file: /js/bootstrap-select.js.map
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:52:32	ext: .MAP
+22:52:32	Request file: /img/logo.png
+22:52:32	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:52:32	ext: .PNG
+22:52:56	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:52:56	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:52:56	ext: .HTML
+22:52:57	Request file: /jquery/jquery.min.js
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:52:57	ext: .JS
+22:52:57	ext: .JS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:52:57	Request file: /bootstrap/js/bootstrap.min.js
+22:52:57	Request file: /js/lib.js
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:52:57	ext: .JS
+22:52:57	Request file: /js/moment.min.js
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:52:57	ext: .JS
+22:52:57	Request file: /js/bootstrap-select.min.js
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:52:57	ext: .JS
+22:52:57	Request file: /js/bootstrap-datetimepicker.min.js
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:52:57	ext: .JS
+22:52:57	Request file: /bootstrap/css/bootstrap.min.css
+22:52:57	ext: .CSS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:52:57	Request file: /css/maoni.css
+22:52:57	ext: .CSS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:52:57	Request file: /css/dashboard.css
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:52:57	ext: .CSS
+22:52:57	ext: .CSS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:52:57	Request file: /css/bootstrap-select.min.css
+22:52:57	Request file: /css/animate.min.css
+22:52:57	ext: .CSS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:52:57	Request file: /css/bootstrap-datetimepicker.min.css
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:52:57	ext: .CSS
+22:52:57	ext: .CSS
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:52:57	Request file: /css/material-design-iconic-font.min.css
+22:52:57	Request file: /jquery/jquery.min.map
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:52:57	ext: .MAP
+22:52:57	Request file: /js/bootstrap-select.js.map
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:52:57	ext: .MAP
+22:52:57	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:52:57	ext: .PNG
+22:52:57	Request file: /img/logo.png
+22:54:13	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:54:13	ext: .HTML
+22:54:13	Request file: /js/lib.js
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:54:13	ext: .JS
+22:54:13	Request file: /js/moment.min.js
+22:54:13	ext: .JS
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:54:13	Request file: /js/bootstrap-select.min.js
+22:54:13	ext: .JS
+22:54:13	Request file: /js/bootstrap-datetimepicker.min.js
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:54:13	ext: .JS
+22:54:13	ext: .JS
+22:54:13	Request file: /jquery/jquery.min.js
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:54:13	Request file: /bootstrap/js/bootstrap.min.js
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:54:13	ext: .JS
+22:54:13	Request file: /bootstrap/css/bootstrap.min.css
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:54:13	ext: .CSS
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:54:13	Request file: /css/maoni.css
+22:54:13	ext: .CSS
+22:54:13	Request file: /css/dashboard.css
+22:54:13	ext: .CSS
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:54:13	ext: .CSS
+22:54:13	Request file: /css/animate.min.css
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:54:13	ext: .CSS
+22:54:13	Request file: /css/bootstrap-select.min.css
+22:54:13	Request file: /css/bootstrap-datetimepicker.min.css
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:54:13	ext: .CSS
+22:54:13	Request file: /css/material-design-iconic-font.min.css
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:54:13	ext: .CSS
+22:54:13	Request file: /js/bootstrap-select.js.map
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:54:13	ext: .MAP
+22:54:13	Request file: /jquery/jquery.min.map
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:54:13	ext: .MAP
+22:54:13	Request file: /img/logo.png
+22:54:13	ext: .PNG
+22:54:13	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:54:29	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:54:29	ext: .HTML
+22:54:29	Request file: /jquery/jquery.min.js
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:54:29	ext: .JS
+22:54:29	Request file: /bootstrap/js/bootstrap.min.js
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:54:29	ext: .JS
+22:54:29	Request file: /js/lib.js
+22:54:29	ext: .JS
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:54:29	Request file: /js/moment.min.js
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:54:29	ext: .JS
+22:54:29	Request file: /js/bootstrap-select.min.js
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:54:29	ext: .JS
+22:54:29	Request file: /js/bootstrap-datetimepicker.min.js
+22:54:29	ext: .JS
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:54:29	Request file: /bootstrap/css/bootstrap.min.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /css/maoni.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /css/dashboard.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /css/animate.min.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /css/bootstrap-select.min.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /css/bootstrap-datetimepicker.min.css
+22:54:29	Request file: /css/material-design-iconic-font.min.css
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:54:29	ext: .CSS
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:54:29	ext: .CSS
+22:54:29	Request file: /jquery/jquery.min.map
+22:54:29	ext: .MAP
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:54:29	Request file: /js/bootstrap-select.js.map
+22:54:29	ext: .MAP
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:54:29	Request file: /img/logo.png
+22:54:29	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:54:29	ext: .PNG
+22:56:2	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+22:56:2	ext: .HTML
+22:56:2	Request file: /jquery/jquery.min.js
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+22:56:2	ext: .JS
+22:56:2	Request file: /bootstrap/js/bootstrap.min.js
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+22:56:2	ext: .JS
+22:56:2	Request file: /js/lib.js
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+22:56:2	ext: .JS
+22:56:2	Request file: /js/moment.min.js
+22:56:2	ext: .JS
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+22:56:2	Request file: /js/bootstrap-select.min.js
+22:56:2	ext: .JS
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+22:56:2	Request file: /js/bootstrap-datetimepicker.min.js
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+22:56:2	ext: .JS
+22:56:2	Request file: /bootstrap/css/bootstrap.min.css
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+22:56:2	ext: .CSS
+22:56:2	Request file: /css/maoni.css
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+22:56:2	ext: .CSS
+22:56:2	Request file: /css/dashboard.css
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+22:56:2	ext: .CSS
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+22:56:2	Request file: /css/animate.min.css
+22:56:2	ext: .CSS
+22:56:2	Request file: /css/bootstrap-select.min.css
+22:56:2	ext: .CSS
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+22:56:2	Request file: /css/bootstrap-datetimepicker.min.css
+22:56:2	ext: .CSS
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+22:56:2	Request file: /css/material-design-iconic-font.min.css
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+22:56:2	ext: .CSS
+22:56:2	Request file: /jquery/jquery.min.map
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+22:56:2	ext: .MAP
+22:56:2	Request file: /js/bootstrap-select.js.map
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+22:56:2	ext: .MAP
+22:56:2	Request file: /img/logo.png
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+22:56:2	ext: .PNG
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\fonts\glyphicons-halflings-regular.woff2
+22:56:2	Request file: /bootstrap/fonts/glyphicons-halflings-regular.woff2
+22:56:2	ext: .WOFF2
+22:56:2	Request file: /bootstrap/fonts/glyphicons-halflings-regular.woff
+22:56:2	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\fonts\glyphicons-halflings-regular.woff
+22:56:2	ext: .WOFF
+23:1:36	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+23:1:36	ext: .HTML
+23:1:36	Request file: /js/moment.min.js
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+23:1:36	ext: .JS
+23:1:36	Request file: /jquery/jquery.min.js
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+23:1:36	ext: .JS
+23:1:36	Request file: /bootstrap/js/bootstrap.min.js
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+23:1:36	ext: .JS
+23:1:36	Request file: /js/lib.js
+23:1:36	ext: .JS
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+23:1:36	Request file: /js/bootstrap-datetimepicker.min.js
+23:1:36	ext: .JS
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+23:1:36	Request file: /js/bootstrap-select.min.js
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+23:1:36	ext: .JS
+23:1:36	ext: .CSS
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+23:1:36	Request file: /bootstrap/css/bootstrap.min.css
+23:1:36	Request file: /css/maoni.css
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+23:1:36	ext: .CSS
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+23:1:36	Request file: /css/dashboard.css
+23:1:36	Request file: /css/animate.min.css
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+23:1:36	ext: .CSS
+23:1:36	Request file: /css/bootstrap-select.min.css
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+23:1:36	ext: .CSS
+23:1:36	ext: .CSS
+23:1:36	Request file: /css/bootstrap-datetimepicker.min.css
+23:1:36	ext: .CSS
+23:1:36	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+23:1:37	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+23:1:37	Request file: /css/material-design-iconic-font.min.css
+23:1:37	ext: .CSS
+23:1:37	Request file: /jquery/jquery.min.map
+23:1:37	ext: .MAP
+23:1:37	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+23:1:37	Request file: /js/bootstrap-select.js.map
+23:1:37	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+23:1:37	ext: .MAP
+23:1:37	Request file: /img/logo.png
+23:1:37	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+23:1:37	ext: .PNG
+23:1:37	Request file: /bootstrap/fonts/glyphicons-halflings-regular.woff2
+23:1:37	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\fonts\glyphicons-halflings-regular.woff2
+23:1:37	ext: .WOFF2
+23:3:45	Request file: /@@MENU@@_page_000.html?SESSIONKEY=428168
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+23:3:45	ext: .HTML
+23:3:45	Request file: /jquery/jquery.min.js
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.js
+23:3:45	ext: .JS
+23:3:45	ext: .JS
+23:3:45	Request file: /js/moment.min.js
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\js\moment.min.js
+23:3:45	Request file: /js/bootstrap-datetimepicker.min.js
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-datetimepicker.min.js
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\js\bootstrap.min.js
+23:3:45	ext: .JS
+23:3:45	Request file: /js/lib.js
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+23:3:45	ext: .JS
+23:3:45	Request file: /js/bootstrap-select.min.js
+23:3:45	ext: .JS
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.min.js
+23:3:45	ext: .JS
+23:3:45	Request file: /bootstrap/js/bootstrap.min.js
+23:3:45	Request file: /bootstrap/css/bootstrap.min.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\css\bootstrap.min.css
+23:3:45	ext: .CSS
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-datetimepicker.min.css
+23:3:45	Request file: /css/bootstrap-datetimepicker.min.css
+23:3:45	ext: .CSS
+23:3:45	Request file: /css/maoni.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\dashboard.css
+23:3:45	ext: .CSS
+23:3:45	ext: .CSS
+23:3:45	Request file: /css/dashboard.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+23:3:45	ext: .CSS
+23:3:45	Request file: /css/bootstrap-select.min.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\bootstrap-select.min.css
+23:3:45	ext: .CSS
+23:3:45	Request file: /css/animate.min.css
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\css\material-design-iconic-font.min.css
+23:3:45	ext: .CSS
+23:3:45	Request file: /css/material-design-iconic-font.min.css
+23:3:45	Request file: /jquery/jquery.min.map
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\jquery\jquery.min.map
+23:3:45	ext: .MAP
+23:3:45	Request file: /js/bootstrap-select.js.map
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\js\bootstrap-select.js.map
+23:3:45	ext: .MAP
+23:3:45	Request file: /img/logo.png
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\img\logo.png
+23:3:45	ext: .PNG
+23:3:45	Request file: /bootstrap/fonts/glyphicons-halflings-regular.woff2
+23:3:45	filename: c:\projectes\Maoni\Maoni\protected\bootstrap\fonts\glyphicons-halflings-regular.woff2
+23:3:45	ext: .WOFF2

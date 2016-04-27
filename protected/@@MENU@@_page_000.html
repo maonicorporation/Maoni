@@ -1,10 +1,63 @@
-﻿<div class="card-body card-padding">
-    <div class="jumbotron">
+﻿<script>
+$(document).ready(function ()
+{        
+});
 
-        <h1>¡Hola!</h1>
-        <br />
-        <p>Bienvenido a Maoni</p>
-        <br />
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a></p>
+$(function ()
+{    
+    $('#datetimepicker1').datetimepicker({
+        format:'DD/MM/YYYY',    
+        date: new Date()
+        });
+        
+    $('#datetimepicker2').datetimepicker({
+        format:'DD/MM/YYYY',    
+        date: new Date()
+        });
+});
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Overview</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="pull-right">
+
+
+
+
+                <div class="form-inline">
+                    <div class="form-group">
+                        
+                        <label for="datetimepicker1">Desde &nbsp&nbsp</label>
+                        <div class='input-group date _form-control' id='datetimepicker1'>
+                            <input data-format="dd-MM-yyyy" type='text' class="_form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        
+                        <label for="datetimepicker2">Hasta &nbsp&nbsp</label>
+                        <div class='input-group date _form-control' id='datetimepicker2'>
+                            <input data-format="dd-MM-yyyy" type='text' class="_form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        
+                                 
+                        <label for="cbinforme">Complejo &nbsp&nbsp</label>   
+                        <select id="cbinforme" class="selectpicker combovadjust" data-live-search="true" data-none-selected-text="TODOS">
+                            <option value="1.1">Alanda Club Marbella</option>
+                            <option value="1.1">Ogisaka Garden</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

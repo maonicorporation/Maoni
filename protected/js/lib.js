@@ -80,3 +80,10 @@ function editButton (id)
     var onclickevent = 'onclick="edit(' + id + ')"';
     return '<td><span style="cursor: pointer;" ' + onclickevent + ' ><span  href="#" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></span></td>';
 }   
+
+function pad(n, width, z)
+{
+    z = z || '0';
+    n = n + '';
+    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
