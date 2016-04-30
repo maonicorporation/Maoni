@@ -1,19 +1,39 @@
-﻿<script>
-$(document).ready(function ()
-{        
-});
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+
+<script>
+
 
 $(function ()
-{    
-    $('#datetimepicker1').datetimepicker({
-        format:'DD/MM/YYYY',    
-        date: new Date()
-        });
+{ 
+    getHoteles (function(err, data)
+    {
+        $('#cbhoteles').empty();
         
-    $('#datetimepicker2').datetimepicker({
-        format:'DD/MM/YYYY',    
-        date: new Date()
+        for (var i = 0; i < data.length; i++)
+        {
+            var option = $('<option />');
+            option.attr('value', data[i].IDHOTEL).text(data[i].DESCHOTEL);
+
+            $('#cbhoteles').append(option);
+        }
+        
+        $("#cbhoteles").select2
+        ({
+            placeholder: "Seleccione un complejo...",
+            allowClear: true
         });
+    });
+    
+    $('#single_cal2').daterangepicker
+    ({
+        singleDatePicker: true,
+        format:'DD/MM/YYYY',
+        calender_style: "picker_2"
+    }, 
+    function(start, end, label) {
+        console.log(start.toISOString(), end.toISOString(), label);
+    });
+		
 });
 </script>
 
@@ -31,31 +51,26 @@ $(function ()
 
 
                 <div class="form-inline">
+                    
                     <div class="form-group">
-                        
-                        <label for="datetimepicker1">Desde &nbsp&nbsp</label>
-                        <div class='input-group date _form-control' id='datetimepicker1'>
-                            <input data-format="dd-MM-yyyy" type='text' class="_form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+							  
+                        <label for="cbinforme">Desde &nbsp&nbsp</label>                         
+                        <div class="col-md-11 form-group has-feedback">
+                            <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="Fecha" aria-describedby="inputSuccess2Status2">
+                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
                         </div>
                         
-                        <label for="datetimepicker2">Hasta &nbsp&nbsp</label>
-                        <div class='input-group date _form-control' id='datetimepicker2'>
-                            <input data-format="dd-MM-yyyy" type='text' class="_form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                        
-                                 
-                        <label for="cbinforme">Complejo &nbsp&nbsp</label>   
-                        <select id="cbinforme" class="selectpicker combovadjust" data-live-search="true" data-none-selected-text="TODOS">
-                            <option value="1.1">Alanda Club Marbella</option>
-                            <option value="1.1">Ogisaka Garden</option>
-                        </select>
-                    </div>
+				    </div> 
+                    
+                    <div class="form-group">
+					    <label for="cbinforme">Complejo &nbsp&nbsp</label> 
+                        <div class="col-md-11 form-group has-feedback">
+                            <select id="cbhoteles" class=" col-md-11 form-control" tabindex="-1">
+                            </select>
+						</div>  
+					</div>	 
+                    
                 </div>
             </div>
         </div>

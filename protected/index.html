@@ -7,17 +7,19 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Maoni</title>
       
-        <script src="./jquery/jquery.min.js"></script>
-        <script src="./bootstrap/js/bootstrap.min.js"></script>
+        <script src="./vendors/jquery/dist/jquery.min.js"></script>
+        <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./js/sha256.js"></script>
         <script src="./js/toastr.js"></script>
         <script src="./js/lib.js"></script>
       
-        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/maoni.css" rel="stylesheet">
         <link href="./css/signin.css" rel="stylesheet">
         <link href="./css/animate.min.css" rel="stylesheet">
         <link href="./css/toastr.css" rel="stylesheet">
+		
+		<link href="./css/custom.css" rel="stylesheet">
         
         <style>
             
@@ -66,7 +68,7 @@ background: url(img/fondo.png) no-repeat left top fixed;
                 
                 login(user, pwd, function (err, data)
                 {
-                    if (data.length>0)
+                    if (data != null)
                     {
                         window.location.href = navigateTo ("@@MENU@@_page_000.html");
                     }
@@ -75,8 +77,14 @@ background: url(img/fondo.png) no-repeat left top fixed;
                         toastr["error"]("Usuario desconocido");
                     }
                 });
-                
-                
+            }
+            
+            function GetChar(event)
+            {
+                if (event.keyCode == 13)
+                {
+                    dologin();
+                }
             }
         
         </script>
@@ -91,9 +99,9 @@ background: url(img/fondo.png) no-repeat left top fixed;
         <img src="img/logoGo.png" class="img-responsive" style="margin: 0 auto;" alt="Maoni"> 
         <br/>
         <label for="idUser" class="sr-only">Email address</label>
-        <input type="text" id="idUser" class="form-control" placeholder="Usuario" required autofocus>
+        <input type="text" id="idUser" class="form-control" placeholder="Usuario" required autofocus onkeypress="GetChar (event);" autocorrect="off" autocapitalize="none">
         <label for="idPwd" class="sr-only">Password</label>
-        <input type="password" id="idPwd" class="form-control" placeholder="Contraseña" required>
+        <input type="password" id="idPwd" class="form-control" placeholder="Contraseña" required onkeypress="GetChar (event);" autocorrect="off" autocapitalize="none">
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="0"> Recordar

@@ -25,37 +25,67 @@ function getCookie(cname)
 
 /******************************************************************************************************************/
 
-function selAllUsers (callback)
-{
-	var params = { f : "sel_all_from_users" };
-
-	$.post( "BBDD", JSON.stringify(params))
-	.fail(function() 
-    {
-         alert ('fail');
-	})
-	.done(function( data )
-	{
-        callback(jQuery.parseJSON(data));
-	});
-}
-
-function login (user, pwd, callback)
+function loginToMaoni (user, pwd, callback)
 {
     var params = { f: "login", user: user, pwd: pwd };
 
 	$.post( "BBDD", JSON.stringify(params))
 	.fail(function() 
     {
-         callback("error login", jQuery.parseJSON("{err:0}"));
 	})
 	.done(function( data )
 	{
         if (data.length > 0)
         {
             setCookie("SESSIONKEY", data[0].SESSIONKEY);
-            setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
+            callback();
         }
+	});
+}
+
+function login (user, pwd, callback)
+{
+    //http://wsreservas.go.maoni.solutions/Usuarios/maoni/99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201
+    
+    if(user == "") user = "any";
+    
+    var url = "http://wsreservas.go.maoni.solutions/Usuarios/" + user + "/"+ pwd;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error login", null);
+	})
+	.done(function( data )
+	{
+        if (data != undefined && data.length > 0)
+        {
+            loginToMaoni(user,pwd,function()
+            {
+                setCookie("SESSIONKEYBBDD", data[0].SESSIONKEY);
+                setCookie("IDUSUARIO", user);
+                setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
+                callback(null, data);
+            });
+
+        }
+        else
+        {
+            callback(null, null);
+        }        
+	});
+}
+
+function getHoteles (callback)
+{
+    //http://wsreservas.go.maoni.solutions/Hoteles/maoni
+    var url = "http://wsreservas.go.maoni.solutions/Hoteles/" + getCookie("IDUSUARIO");
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
         callback(null, data);
 	});
 }
