@@ -34,6 +34,21 @@ function ddmmyyToUnix (date)
 	return year + month + day;	
 }
 
+function dateToddmmyy(date)
+{
+    var dd = date.getDate();
+    var mm = date.getMonth()+1; 
+
+    var yyyy = date.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    return dd+'/'+mm+'/'+yyyy;
+}
+
 /******************************************************************************************************************/
 
 function loginToMaoni (user, pwd, callback)
@@ -90,6 +105,23 @@ function getHoteles (callback)
 {
     //http://wsreservas.go.maoni.solutions/Hoteles/maoni
     var url = "http://wsreservas.go.maoni.solutions/Hoteles/" + getCookie("IDUSUARIO");
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getReservas (idhotel, entrada, callback)
+{
+	//http://wsreservas.go.maoni.solutions/Reservas/1/20160501
+	//app.get('/Reservas/:IDHOTEL/:ENTRADA', bbdd.getReservas, function(err,data){});
+
+    var url = "http://wsreservas.go.maoni.solutions/Reservas/" + idhotel + "/" + entrada;
 	$.get(url)
 	.fail(function() 
     {

@@ -28,6 +28,17 @@
     <link href="./css/toastr.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="./css/custom.css" rel="stylesheet">
+    
+    <!-- iCheck -->
+    <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="./vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="./vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="./vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="./vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="./vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    
+    
   </head>
 
   <body class="nav-md">
@@ -36,15 +47,17 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <img src="img/logoGo.png" class="img-responsive" style="margin: 0 auto;" alt="Maoni"> 
+              <img src="img/logoGowhite.png" class="img-responsive" style="margin: 0 auto; padding-left: 40px; padding-right: 40px; padding-top: 10px;" alt="Maoni"> 
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <div class="profile">
+            <div class="profile" style="margin-top: 6px">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <div>
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img" >
+                </div>
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -74,11 +87,12 @@
                       </li>
                     </ul>
                   </li>
-                  <li id="grp2"><a><i class="fa fa-user"></i> Reserva <span class="fa fa-chevron-down"></span></a>
+                  <li id="grp2"><a><i class="fa fa-list"></i> Reserva <span class="fa fa-chevron-down"></span></a>
                     <ul id="menu2" class="nav child_menu">
                       <li id="page201"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_201.html');">Introducción manual</a>
                       </li>
-                      <li><a href="#">Consultar</a>
+                      
+                      <li id="page202"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_202.html');">Consultar</a>
                       </li>
                     </ul>
                   </li>
@@ -269,7 +283,30 @@
     
     <script src="./js/toastr.js"></script>
     
-    <
+    
+    
+    <!-- FastClick -->
+    <script src="./vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./vendors/nprogress/nprogress.js"></script>
+    <!-- Datatables -->
+    <script src="./vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="./vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="./vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="./vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="./vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="./vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="./vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="./vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="./vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="./vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="./vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="./vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+    <script src="./vendors/jszip/dist/jszip.min.js"></script>
+    <script src="./vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="./vendors/pdfmake/build/vfs_fonts.js"></script>
+    
+    
     
     <!-- FastClick -- >
     <script src="./vendors/fastclick/lib/fastclick.js"></script>

@@ -1,0 +1,150 @@
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+<script>
+    
+var table = null;
+
+$(function ()
+{     
+    $('#grp2').addClass('active');
+    $('#menu2').show();
+    $('#page202').addClass('current-page');
+});
+
+$(function ()
+{ 
+    getHoteles (function(err, data)
+    {
+        $('#cbhoteles').empty();
+        
+        for (var i = 0; i < data.length; i++)
+        {
+            var option = $('<option />');
+            option.attr('value', data[i].IDHOTEL).text(data[i].DESCHOTEL);
+
+            $('#cbhoteles').append(option);
+        }
+        
+        $("#cbhoteles").select2
+        ({
+            placeholder: "Seleccione un complejo...",
+            allowClear: true
+        });
+    });
+    //$("#datepicker").datepicker("setDate", new Date());
+    $('#idDesde').daterangepicker
+    ({
+        singleDatePicker: true,
+        format:'DD/MM/YYYY',
+        calender_style: "picker_2"
+    }, 
+    function(start, end, label) {
+        console.log(start.toISOString(), end.toISOString(), label);
+    });
+});
+
+$(document).ready(function()
+{
+    table = $('#datatable').DataTable();
+    $('#idDesde').val(dateToddmmyy(new Date()));
+});
+      
+function query ()
+{
+    if(table != null)
+    {
+        table.destroy();
+    }
+    $("#datatable > tbody > tr").remove();
+    
+    var idhotel = $('#cbhoteles').find(":selected").val();
+    var entrada = ddmmyyToUnix($('#idDesde').val());
+    
+    getReservas (idhotel, entrada, function(err, data)
+    {
+        //$('#cbhoteles').empty();
+        
+        for (var i = 0; i < data.length; i++)
+        {
+            var row = "<tr>";
+            row += "<td><span class='badge'>" + i + "</span></td>";
+            row += "<td>" + data[i].IDRESERVA + "</td>";
+            row += "<td>" + data[i].ENTRADA + "</td>";
+            row += "<td>" + data[i].SALIDA + "</td>";
+            row += "<td><a href='mailto:" + data[i].MAIL_CARDEX + "'>" + data[i].MAIL_CARDEX + "</a></td>";
+            row += "<td>" + data[i].NOMBRE + " " +  data[i].APELLIDO1 + " " + data[i].APELLIDO2 + "</td>";
+            
+            row += "</tr>";
+    
+            $('#datatable > tbody:last').append(row);
+        }
+        
+        table = $('#datatable').DataTable();
+    });
+}
+
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Reservas <small>Consultar</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                    
+                <div class="x_content">
+                    <div class="form-inline">
+                        
+                        <label for="cbinforme">Desde &nbsp&nbsp</label>
+                        <div class="form-group">                             
+                            <div class="col-md-11 form-group has-feedback">
+                                <input type="text" class="form-control has-feedback-left" id="idDesde" placeholder="Fecha" aria-describedby="inputSuccess2Status2">
+                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                            </div>
+                        </div> 
+                        
+                        <label for="cbinforme">Complejo &nbsp&nbsp</label>  
+                        <div class="form-group">                                                 
+                            <div class="col-md-11 form-group has-feedback">
+                                <select id="cbhoteles" class="col-md-11 form-control" tabindex="-1">
+                                </select>
+                            </div>  
+                        </div>	
+                        
+                        <div class="form-group">  
+                            <button id="idConsultar" type="button" onclick="query()" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Consultar
+                            </button> 
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                    
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                    <br />
+                    </p>
+                    <table id="datatable" class="table table-striped _table-bordered dt-responsive nowrap table-hover jambo_table" width="100%">
+                    
+                    <thead>
+                        <tr> <th>#</th> <th>ID Reserva</th> <th>Entrada</th> <th>Salida</th> <th>Email</th> <th>Huésped</th> </tr>
+                    </thead>                        
+
+                    <tbody>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
