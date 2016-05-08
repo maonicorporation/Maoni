@@ -108,6 +108,67 @@ app.use(function (req, res)
     }
 });
 
+
+function enviarMails()
+{
+    //Bucle de empresas
+    bbdd.sel_all_from_empresas (function (err, data1)
+    {
+        for (var i = 0; i < data1.length; i++)
+        {
+            utilities.logFile(data1[i].IDEMPRESA + " " + data1[i].DESCEMPRESA);
+            
+            //Bucle de hoteles de empresa
+            bbdd.sel_all_from_hoteles (data1[i].IDEMPRESA ,function (err, data2)
+            {
+                for (var j = 0; j <data2.length; j++)
+                {
+                    utilities.logFile("  " + data2[j].IDHOTEL + " " + data2[j].DESCHOTEL);
+                    
+                    //Bucle de encuestas
+                    bbdd.sel_all_from_parametrosMailing (data2[j].IDHOTEL ,function (err, data3)
+                    {
+                        for (var k = 0; k <data3.length; k++)
+                        {
+                            utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
+                            
+                            //Inmail
+                            if (data3[k].TIPO == 2)
+                            {
+                                //Hora del sistema
+                                var d = new Date();
+                                var hh = d.getHours();
+                                
+                                //Si podemos enviar la encuesta
+                                if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
+                                {
+                                    //Vamos a buscar reservas que cumplan:
+                                    //
+                                    // * Que sean del idioma de la encuesta
+                                    // * Que no se haya enviado ya el premail
+                                    // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+                                    //Bucle de encuestas
+                                    bbdd.sel_all_from_reservas (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
+                                    {
+                                        for (var l = 0; l <data4.length; l++)
+                                        {
+                                            utilities.logFile("      " + data4[l].IDRESERVA + " " + data4[l].ENTRADA);
+                                        }
+                                    });
+                                }
+                            }
+                        }                        
+                    });
+                }
+            });
+        }
+    });
+    
+    setTimeout (enviarMails, 1000 * 60 * 10); // 10 minutos
+}
+
+enviarMails();
+
 //https://localhost:4000
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
 

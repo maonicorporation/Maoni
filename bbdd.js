@@ -162,15 +162,17 @@ function sel_all_from_users (req, res, params, callback)
     }, callback);
 }
 
-/*
-function getpagospasarelapendientescontabilizar (user,empresa, tipo, callback)
+/**********************************************/
+//FUNCIONES INTERNAS DE BBDD
+
+exports.sel_all_from_empresas = sel_all_from_empresas;
+exports.sel_all_from_hoteles = sel_all_from_hoteles;
+exports.sel_all_from_parametrosMailing = sel_all_from_parametrosMailing;
+exports.sel_all_from_reservas = sel_all_from_reservas;
+
+function sel_all_from_empresas (callback)
 {
-    var sentencia = "";
-    
-    if (tipo == 1 || tipo == 2)
-    {       
-        sentencia = "Select ID, CODIGO_AUTORIZACION, NUM_TRANSACCION,year(fecha) as ANYO,month(fecha) as MES,day(fecha) as DIA, IMPORTE from GrupHotel.Pagos where codigo_autorizacion <> '' and datos_comercio = " + user + " and fecha > 20151101 order by fecha desc"; 
-    }
+    var sentencia = "SELECT * FROM gomaonis_maonibd.empresas where siactiva = 1";
     
     box.connect(function(conn, callback)
     {
@@ -181,18 +183,72 @@ function getpagospasarelapendientescontabilizar (user,empresa, tipo, callback)
             },
             function(res, cb) 
             {
-                var ret = [];
-                if (res != undefined && res.length >= 1)
-                {
-                    res.forEach(function(element, index)
-                    {
-                    });
-                }
-                else
-                {
-                     callback (null, ret);
-                }
+                callback (null, res);
             }
         ], callback);
     }, callback);
-};*/
+}
+
+function sel_all_from_hoteles (idempresa, callback)
+{
+    var sentencia = "SELECT * FROM gomaonis_maonibd.hoteles where idempresa = ? and siactivo = 1";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [idempresa], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function sel_all_from_parametrosMailing (idhotel, callback)
+{
+    var sentencia = "SELECT * FROM gomaonis_maonibd.parametrosMailing where idhotel = ? and siactiva = 1";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [idhotel], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+//Vamos a buscar reservas que cumplan:
+//
+// * Que sean del idioma de la encuesta
+// * Que no se haya enviado ya el premail
+// * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+
+function sel_all_from_reservas (idhotel, diasAlojados, idioma, callback)
+{
+    //SELECT DATE_ADD('2010-05-11', INTERVAL 1 DAY) AS Tomorrow;
+    var sentencia = "SELECT * FROM gomaonis_maonibd.reservas where idhotel = ? and iso_idioma = ? and si_in_enviado <> 1 and entrada <= DATE_ADD(CURDATE(), INTERVAL ? DAY) order by entrada asc";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [idhotel, idioma, diasAlojados], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}

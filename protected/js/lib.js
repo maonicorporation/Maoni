@@ -83,7 +83,7 @@ function login (user, pwd, callback)
 	})
 	.done(function( data )
 	{
-        if (data != undefined && data.length > 0)
+        if (data != undefined && data.length > 0 && data[0].SESSIONKEY != 0)
         {
             loginToMaoni(user,pwd,function()
             {
@@ -92,7 +92,6 @@ function login (user, pwd, callback)
                 setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
                 callback(null, data);
             });
-
         }
         else
         {
