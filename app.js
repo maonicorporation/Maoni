@@ -7,6 +7,8 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var fs = require('fs');
 var mime = require('mime');
+var nodemailer = require('nodemailer');
+
 var utilities = require("./utilities");
 var bbdd = require("./bbdd");
 
@@ -108,6 +110,52 @@ app.use(function (req, res)
     }
 });
 
+//INICIO NODEMAILER
+var smtpConfig =
+{
+    host: 'shx16.guebs.net',//mail.go.maoni.solutions
+    //port: 465 ,//587 465, 25
+    //secure: false,
+    auth: {
+        user: 'survei@go.maoni.solutions',
+        pass: '+A?51#[#Q5-W76'
+    }
+};
+  
+var transporter = nodemailer.createTransport(smtpConfig);
+
+transporter.verify(function(error, success) {
+   if (error) {
+        utilities.logFile(error);
+        //sendemail();
+   } else {
+        utilities.logFile('Server is ready to take our messages');
+        sendemail();
+   }
+});
+
+function sendemail ()
+{
+    var mailOptions = 
+    {
+        from:       'survei@go.maoni.solutions',
+        to:         'emilio@onacorporation.com,rafael.dejorge@onacorporation.com,xavier.camprubi@onacorporattion.com',
+        subject:    'Maoni primer email',
+        text:       'Hello world',
+        html:       '<b>Hello world</b>'
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info)
+    {
+        if(error)
+        {
+            return console.log(error);
+        }
+        utilities.logFile('Message sent: ' + info.response);
+    });
+}
+//sendemail ();
+//FIN NODEMAILER
 
 function enviarMails()
 {
@@ -167,7 +215,7 @@ function enviarMails()
     setTimeout (enviarMails, 1000 * 60 * 10); // 10 minutos
 }
 
-enviarMails();
+//enviarMails();
 
 //https://localhost:4000
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
