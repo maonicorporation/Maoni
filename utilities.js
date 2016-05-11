@@ -2,6 +2,11 @@
 var mime = require('mime');
 var path = require('path');
 
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
 function logFile(mess)
 {
     var today = new Date();

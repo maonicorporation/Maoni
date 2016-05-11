@@ -16,8 +16,8 @@ var box = new DB({
 });*/
 
 var box = new DB({
-    //host     : 'go.maoni.solutions',
-    host     : 'localhost',
+    host     : 'go.maoni.solutions',
+    //host     : 'localhost',
     user     : 'gomaonis_Aleix',
     password : 'Aleix.2302',
     database : 'gomaonis_maonibd'
@@ -169,7 +169,27 @@ function sel_all_from_users (req, res, params, callback)
 exports.sel_all_from_empresas = sel_all_from_empresas;
 exports.sel_all_from_hoteles = sel_all_from_hoteles;
 exports.sel_all_from_parametrosMailing = sel_all_from_parametrosMailing;
-exports.sel_all_from_reservas = sel_all_from_reservas;
+exports.sel_all_from_reservasImMail = sel_all_from_reservasImMail;
+exports.update_generico = update_generico;
+
+function update_generico (table, rowid, field, value, callback)
+{
+    var sentencia = "UPDATE " + table + " SET " + field + " = ? WHERE ROWID = ?";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [value, rowid], callback)
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
 
 function sel_all_from_empresas (callback)
 {
@@ -234,7 +254,7 @@ function sel_all_from_parametrosMailing (idhotel, callback)
 // * Que no se haya enviado ya el premail
 // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
 
-function sel_all_from_reservas (idhotel, diasAlojados, idioma, callback)
+function sel_all_from_reservasImMail (idhotel, diasAlojados, idioma, callback)
 {
     //SELECT DATE_ADD('2010-05-11', INTERVAL 1 DAY) AS Tomorrow;
     var sentencia = "SELECT * FROM gomaonis_maonibd.reservas where idhotel = ? and iso_idioma = ? and si_in_enviado <> 1 and entrada <= DATE_ADD(CURDATE(), INTERVAL ? DAY) order by entrada asc";

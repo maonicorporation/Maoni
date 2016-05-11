@@ -113,48 +113,53 @@ app.use(function (req, res)
 //INICIO NODEMAILER
 var smtpConfig =
 {
-    host: 'shx16.guebs.net',//mail.go.maoni.solutions
-    //port: 465 ,//587 465, 25
+    host: 'shx16.guebs.net',
+    port: 25 ,//587 465, 25
     //secure: false,
     auth: {
-        user: 'survei@go.maoni.solutions',
-        pass: '+A?51#[#Q5-W76'
+        user: 'no-reply@go.maoni.solutions',
+        pass: '4rfgtdidn6238e'
     }
 };
-  
+
 var transporter = nodemailer.createTransport(smtpConfig);
 
-transporter.verify(function(error, success) {
-   if (error) {
+transporter.verify(function(error, success)
+{
+   if (error)
+   {
         utilities.logFile(error);
-        //sendemail();
-   } else {
+   }
+   else
+   {
         utilities.logFile('Server is ready to take our messages');
-        sendemail();
    }
 });
 
-function sendemail ()
+function sendEmail (rowid, to, subject, html, callback)
 {
     var mailOptions = 
     {
-        from:       'survei@go.maoni.solutions',
-        to:         'emilio@onacorporation.com,rafael.dejorge@onacorporation.com,xavier.camprubi@onacorporattion.com',
-        subject:    'Maoni primer email',
-        text:       'Hello world',
-        html:       '<b>Hello world</b>'
+        from:       'no-reply@go.maoni.solutions',
+        to:         'xcastv@gmail.com',//to,
+        subject:    'Maoni survey',
+        html:       html
     };
     
     transporter.sendMail(mailOptions, function(error, info)
     {
-        if(error)
+        if (error)
         {
-            return console.log(error);
+            utilities.logFile('error: ' + error);
         }
-        utilities.logFile('Message sent: ' + info.response);
+        else
+        {
+            utilities.logFile('Message sent: ' + info.response);
+        }
+        
+        callback (error, rowid);
     });
 }
-//sendemail ();
 //FIN NODEMAILER
 
 function enviarMails()
@@ -162,60 +167,136 @@ function enviarMails()
     //Bucle de empresas
     bbdd.sel_all_from_empresas (function (err, data1)
     {
-        for (var i = 0; i < data1.length; i++)
+        if(data1 != undefined)
         {
-            utilities.logFile(data1[i].IDEMPRESA + " " + data1[i].DESCEMPRESA);
-            
-            //Bucle de hoteles de empresa
-            bbdd.sel_all_from_hoteles (data1[i].IDEMPRESA ,function (err, data2)
+            for (var i = 0; i < data1.length; i++)
             {
-                for (var j = 0; j <data2.length; j++)
+                utilities.logFile(data1[i].IDEMPRESA + " " + data1[i].DESCEMPRESA);
+                
+                //Bucle de hoteles de empresa
+                bbdd.sel_all_from_hoteles (data1[i].IDEMPRESA ,function (err, data2)
                 {
-                    utilities.logFile("  " + data2[j].IDHOTEL + " " + data2[j].DESCHOTEL);
-                    
-                    //Bucle de encuestas
-                    bbdd.sel_all_from_parametrosMailing (data2[j].IDHOTEL ,function (err, data3)
+                    for (var j = 0; j <data2.length; j++)
                     {
-                        for (var k = 0; k <data3.length; k++)
+                        utilities.logFile("  " + data2[j].IDHOTEL + " " + data2[j].DESCHOTEL);
+                        
+                        //Bucle de encuestas
+                        bbdd.sel_all_from_parametrosMailing (data2[j].IDHOTEL ,function (err, data3)
                         {
-                            utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
-                            
-                            //Inmail
-                            if (data3[k].TIPO == 2)
+                            for (var k = 0; k <data3.length; k++)
                             {
-                                //Hora del sistema
-                                var d = new Date();
-                                var hh = d.getHours();
+                                utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
                                 
-                                //Si podemos enviar la encuesta
-                                if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
+                                //Inmail
+                                if (data3[k].TIPO == 2)
                                 {
-                                    //Vamos a buscar reservas que cumplan:
-                                    //
-                                    // * Que sean del idioma de la encuesta
-                                    // * Que no se haya enviado ya el premail
-                                    // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
-                                    //Bucle de encuestas
-                                    bbdd.sel_all_from_reservas (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
+                                    //Hora del sistema
+                                    var d = new Date();
+                                    var hh = d.getHours();
+                                    
+                                    //Si podemos enviar la encuesta
+                                    if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
                                     {
-                                        for (var l = 0; l <data4.length; l++)
+                                        //Vamos a buscar reservas que cumplan:
+                                        //
+                                        // * Que sean del idioma de la encuesta
+                                        // * Que no se haya enviado ya el premail
+                                        // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+                                        //Bucle de encuestas
+                                        bbdd.sel_all_from_reservasImMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
                                         {
-                                            utilities.logFile("      " + data4[l].IDRESERVA + " " + data4[l].ENTRADA);
-                                        }
-                                    });
+                                            var step1 = function (x)
+                                            {
+                                                if (x < data4.length)
+                                                {
+                                                    utilities.logFile("      EMAIL TO: " + data4[x].MAIL_CARDEX);
+                                            
+                                                    //Preparamos la encuesta
+                                                    var menufilename = __dirname + "/public/mails/inmail_" + data4[x].ISO_IDIOMA + ".html";
+                                                    
+                                                    fs.stat(menufilename, function (errf, stat)
+                                                    {
+                                                        if (!errf)
+                                                        {
+                                                            sbuffer = fs.readFileSync(menufilename, "utf8");
+                                                            
+                                                            var shotel = "";
+                                                            for (var ht = 0; ht < data2.length; hy++)
+                                                            {
+                                                                if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
+                                                                {
+                                                                    shotel = data2[ht].DESCHOTEL;
+                                                                    break;
+                                                                }
+                                                            }
+                                                            
+                                                            var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
+                                                            body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
+                                                            body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
+                                                            
+                                                            sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
+                                                            {
+                                                                if (err == null)
+                                                                {
+                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
+                                                                    {
+                                                                        
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+
+                                                    step1(x + 1);
+                                                }
+                                            };
+
+                                            step1 (0);
+                                            
+                                            
+                                            /*
+                                            for (var l = 0; l < data4.length; l++)
+                                            {
+                                                utilities.logFile("      EMAIL TO: " + data4[l].MAIL_CARDEX);
+                                                
+                                                //Preparamos la encuesta
+                                                var menufilename = __dirname + "/mails/inmail_" + data4[l].ISO_IDIOMA + ".html";
+                                                
+                                                fs.stat(menufilename, function (errf, stat)
+                                                {
+                                                    if (!errf)
+                                                    {
+                                                        sbuffer = fs.readFileSync(menufilename, "utf8");
+                                                        var body = sbuffer;
+                                                        
+                                                        sendEmail (data4[l].ROWID, data4[l].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
+                                                        {
+                                                            if (err == null)
+                                                            {
+                                                                bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
+                                                                {
+                                                                    
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }*/
+                                        });
+                                    }
                                 }
-                            }
-                        }                        
-                    });
-                }
-            });
+                            }                        
+                        });
+                    }
+                });
+            }
         }
     });
     
     setTimeout (enviarMails, 1000 * 60 * 10); // 10 minutos
 }
 
-//enviarMails();
+enviarMails();
 
 //https://localhost:4000
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
