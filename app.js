@@ -141,7 +141,7 @@ function sendEmail (rowid, to, subject, html, callback)
     var mailOptions = 
     {
         from:       'no-reply@go.maoni.solutions',
-        to:         'xcastv@gmail.com',//to,
+        to:         to,//'xcastv@gmail.com',//to,
         subject:    'Maoni survey',
         html:       html
     };
@@ -190,6 +190,8 @@ function enviarMails()
                                 //Inmail
                                 if (data3[k].TIPO == 2)
                                 {
+                                    var IdEncuesta = data3[k].IDENCUESTA;
+                                    
                                     //Hora del sistema
                                     var d = new Date();
                                     var hh = d.getHours();
@@ -221,6 +223,7 @@ function enviarMails()
                                                             sbuffer = fs.readFileSync(menufilename, "utf8");
                                                             
                                                             var shotel = "";
+                                                            var IdHotel = data4[x].IDHOTEL;
                                                             for (var ht = 0; ht < data2.length; hy++)
                                                             {
                                                                 if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
@@ -232,16 +235,22 @@ function enviarMails()
                                                             
                                                             var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
                                                             body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
+                                                            body = body.replaceAll("@@IDHOTEL@@", IdHotel);
+                                                            body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
+                                                            body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
                                                             body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
+                                                            body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
+                                                            body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
+                                                            body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
                                                             
                                                             sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
                                                             {
                                                                 if (err == null)
                                                                 {
-                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
+                                                                    return;
+                                                                    /*bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
                                                                     {
-                                                                        
-                                                                    });
+                                                                    });*/
                                                                 }
                                                             });
                                                         }

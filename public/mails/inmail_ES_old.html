@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<script>
+	
+		var url = "http://wsreservas.go.maoni.solutions/EncuestaOk";
+		//var url = "localhost:3000/EncuestaOk/";
+		
+		var params = {
+			IDHOTEL:"1",
+			IDENCUESTA:"1000",
+			IDRESERVA:"1234",
+			FECHARESPUESTA:"2016-05-20"
+			}
+
+			
+		$.ajax({
+			url: url,
+			method: "POST",
+			data: JSON.stringify(params),
+			dataType: 'json',
+			contentType: "application/json",
+			success: function(result,status,jqXHR )
+			{
+				callback (null, result);
+			},
+			error(jqXHR, textStatus, errorThrown)
+			{
+				callback (errorThrown, null);
+			}
+		}); 
+			
+
+	</script>
+	
+	
+	</head>
+	<body>
+	
+	
+		
+
+	
+		<center>
+			<img src="http://go.maoni.solutions/img/mails/cabecera.jpg"/>
+		</center>
+		
+		<br />
+		<center><h3 style="font-family:Arial;color:#707173;font-size:180%">!Hola @@NOMBRE@@ @@APELLIDO1@@!</h3></center>
+		
+		<center><h3 style="font-family:Arial;color:#707173;font-size:280%">¿Estás disfrutando de tu estancia?</h3></center>
+		
+
+		<br />
+		
+		
+		<center>		
+			<a style="text-decoration: none !important;" href="http://go.maoni.solutions/mails/inmail_ES_ok.html?rowid=@@ROWID@@&lang=@@IDIOMA@@">
+			<img src = "http://go.maoni.solutions/mails/img/smilehappy.png" style="max-width:100% !important;"/>
+			</a>			
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+			<a style="text-decoration: none !important;" href="#">
+			<img src = "http://go.maoni.solutions/mails/img/smilesad.png" style="max-width:100% !important;"/>
+			</a>
+		</center>
+		
+		<br />
+		
+		<center>
+			<hr width = "580px" height="1px"/>
+		</center>
+		
+		<br />
+		
+		<center>
+			<a style="text-decoration: none !important;" href="#">
+			<img src = "http://go.maoni.solutions/mails/img/logomailGLS.png" style="max-width:100% !important;"/>
+			</a>
+		</center>
+		
+		<br />
+		
+		
+		
+	</body>
+</html>
