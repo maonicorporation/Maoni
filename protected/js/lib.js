@@ -34,6 +34,24 @@ function ddmmyyToUnix (date)
 	return year + month + day;	
 }
 
+var meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+function getMonthName (i)
+{
+	return meses[i-1];
+}
+
+function extractMonthFromYYYYMMDDstring (strDate)
+{
+	//"2016-05-14T07:46:44.000Z"
+	return  parseInt(strDate.split("-")[1]); 
+}
+
+function extractDayFromYYYYMMDDstring (strDate)
+{
+	//"2016-05-14T07:46:44.000Z"
+	return  parseInt(strDate.replace('T',' ').split("-")[2]); 
+}
+
 function dateToddmmyy(date)
 {
     var dd = date.getDate();
@@ -47,6 +65,33 @@ function dateToddmmyy(date)
         mm='0'+mm
     } 
     return dd+'/'+mm+'/'+yyyy;
+}
+
+function secondsToString(seconds)
+{
+	var numyears = Math.floor(seconds / 31536000);
+	var numdays = Math.floor((seconds % 31536000) / 86400); 
+	var numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
+	var numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
+	var numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
+	//return numyears + " years " +  numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
+	
+	var ret = "";
+	
+	if (numdays != 0)
+	{
+		ret += numdays + " dias ";
+	}
+	if (numhours != 0)
+	{
+		ret += numhours + "h ";
+	}
+	if (numminutes != 0)
+	{
+		ret += numminutes + "min ";
+	}
+	
+	return ret;
 }
 
 /******************************************************************************************************************/
@@ -121,6 +166,38 @@ function getReservas (idhotel, entrada, callback)
 	//app.get('/Reservas/:IDHOTEL/:ENTRADA', bbdd.getReservas, function(err,data){});
 
     var url = "http://wsreservas.go.maoni.solutions/Reservas/" + idhotel + "/" + entrada;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getEncuestasResumen (idhotel, entrada, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/EncuestasResumen/" + idhotel + "/" + entrada;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getIncidenciasLast5 (idhotel, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/incidenciasLast5/" + idhotel;
 	$.get(url)
 	.fail(function() 
     {

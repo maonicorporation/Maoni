@@ -162,6 +162,28 @@ function sendEmail (rowid, to, subject, html, callback)
 }
 //FIN NODEMAILER
 
+function todatToyyyymmdd_hhmmss()
+{
+    var date = new Date();
+    var dd = date.getDate();
+    var mm = date.getMonth()+1;
+    
+    h = date.getHours(), 
+    m = date.getMinutes(), 
+    s = date.getSeconds();
+
+    var yyyy = date.getFullYear();
+    if(dd<10)
+    {
+        dd='0'+dd
+    } 
+    if(mm<10)
+    {
+        mm='0'+mm
+    } 
+    return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
+}
+        
 function enviarMails()
 {
     //Bucle de empresas
@@ -247,10 +269,12 @@ function enviarMails()
                                                             {
                                                                 if (err == null)
                                                                 {
-                                                                    return;
-                                                                    /*bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
+                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
                                                                     {
-                                                                    });*/
+                                                                    });
+                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAINENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
+                                                                    {
+                                                                    });
                                                                 }
                                                             });
                                                         }
@@ -260,37 +284,7 @@ function enviarMails()
                                                 }
                                             };
 
-                                            step1 (0);
-                                            
-                                            
-                                            /*
-                                            for (var l = 0; l < data4.length; l++)
-                                            {
-                                                utilities.logFile("      EMAIL TO: " + data4[l].MAIL_CARDEX);
-                                                
-                                                //Preparamos la encuesta
-                                                var menufilename = __dirname + "/mails/inmail_" + data4[l].ISO_IDIOMA + ".html";
-                                                
-                                                fs.stat(menufilename, function (errf, stat)
-                                                {
-                                                    if (!errf)
-                                                    {
-                                                        sbuffer = fs.readFileSync(menufilename, "utf8");
-                                                        var body = sbuffer;
-                                                        
-                                                        sendEmail (data4[l].ROWID, data4[l].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
-                                                        {
-                                                            if (err == null)
-                                                            {
-                                                                bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
-                                                                {
-                                                                    
-                                                                });
-                                                            }
-                                                        });
-                                                    }
-                                                });
-                                            }*/
+                                            step1 (0);                                            
                                         });
                                     }
                                 }
@@ -302,7 +296,7 @@ function enviarMails()
         }
     });
     
-    setTimeout (enviarMails, 1000 * 60 * 10); // 10 minutos
+    setTimeout (enviarMails, 1000 * 60 * 30); // 30 minutos
 }
 
 enviarMails();

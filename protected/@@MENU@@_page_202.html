@@ -12,24 +12,7 @@ $(function ()
 
 $(function ()
 { 
-    getHoteles (function(err, data)
-    {
-        $('#cbhoteles').empty();
-        
-        for (var i = 0; i < data.length; i++)
-        {
-            var option = $('<option />');
-            option.attr('value', data[i].IDHOTEL).text(data[i].DESCHOTEL);
-
-            $('#cbhoteles').append(option);
-        }
-        
-        $("#cbhoteles").select2
-        ({
-            placeholder: "Seleccione un complejo...",
-            allowClear: true
-        });
-    });
+    
     //$("#datepicker").datepicker("setDate", new Date());
     $('#idDesde').daterangepicker
     ({
@@ -105,7 +88,7 @@ function query ()
                 <div class="x_content">
                     <div class="form-inline">
                         
-                        <label for="cbinforme">Desde &nbsp&nbsp</label>
+                        <label for="idDesde">Desde &nbsp&nbsp</label>
                         <div class="form-group">                             
                             <div class="col-md-11 form-group has-feedback">
                                 <input type="text" class="form-control has-feedback-left" id="idDesde" placeholder="Fecha" aria-describedby="inputSuccess2Status2">
@@ -113,14 +96,6 @@ function query ()
                                 <span id="inputSuccess2Status2" class="sr-only">(success)</span>
                             </div>
                         </div> 
-                        
-                        <label for="cbinforme">Complejo &nbsp&nbsp</label>  
-                        <div class="form-group">                                                 
-                            <div class="col-md-11 form-group has-feedback">
-                                <select id="cbhoteles" class="col-md-11 form-control" tabindex="-1">
-                                </select>
-                            </div>  
-                        </div>	
                         
                         <div class="form-group">  
                             <button id="idConsultar" type="button" onclick="query()" class="btn btn-primary">

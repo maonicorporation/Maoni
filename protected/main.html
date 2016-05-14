@@ -23,7 +23,7 @@
     <!-- jVectorMap -->
     <link href="./css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
 	
-	  <link href="./vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+	<link href="./vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 
     <link href="./css/toastr.css" rel="stylesheet">
     <!-- Custom Theme Style -->
@@ -75,9 +75,9 @@
               <div class="menu_section">
                 
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Principal <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_000.html');">Vista general</a>
+                  <li id="grp1"><a><i class="fa fa-home"></i> Principal <span class="fa fa-chevron-down"></span></a>
+                    <ul id="menu1" class="nav child_menu">
+                      <li id="page000"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_000.html');">Vista general</a>
                       </li>
                       <li><a href="#">Índice de satisfacción</a>
                       </li>
@@ -147,6 +147,9 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">
+			  
+				
+				
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt=""><small id="idUser2">xxx</small>
@@ -239,6 +242,30 @@
                     </li>
                   </ul>
                 </li>
+				
+				
+				<li class="" style="margin-top: 12px; margin-right: 20px;">
+				
+					<div class="form-inline">
+					
+						<div class="form-group">                       
+							<div class="col-md-11 form-group has-feedback">
+								<input type="text" class="form-control has-feedback-left" id="mainFechaDesde" placeholder="Hoy" aria-describedby="inputSuccess2Status2">
+								<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+								<span id="inputSuccess2Status2" class="sr-only">(success)</span>
+							</div>                        
+						</div> 
+						
+						<div class="form-group">
+							<div class="col-md-11 form-group has-feedback" style="padding-left:20px">
+								<select id="cbhoteles" class=" col-md-11 form-control" tabindex="-1" >
+								</select>								
+							</div>  
+						</div>							
+						
+					</div> 
+					
+				</li>
 
               </ul>
             </nav>
@@ -249,7 +276,7 @@
 
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" _style="height:100vh;">
 			    @@EMBEDED@@			
         </div>
         <!-- /page content -->
@@ -338,10 +365,14 @@
     <!-- bootstrap-daterangepicker -->
     <script src="js/moment/moment.min.js"></script>
     <script src="js/datepicker/daterangepicker.js"></script>
-	  <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+	<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.js"></script>
-	  <script src="./js/lib.js"></script>
+	<script src="./js/lib.js"></script>
+	
+	<!-- ECharts -->
+    <script src="../vendors/echarts/dist/echarts.min.js"></script>
+    <script src="../vendors/echarts/map/js/world.js"></script>
 	
 
     <script>
@@ -365,16 +396,77 @@
           "showMethod": "fadeIn",
           "hideMethod": "fadeOut"
       };
+	  
+	  $('#mainFechaDesde').daterangepicker
+	  ({
+			singleDatePicker: true,
+			format:'DD/MM/YYYY',
+			calender_style: "picker_2"
+	  }, 
+	  function(start, end, label)
+	  {
+			//console.log(start.toISOString(), end.toISOString(), label);
+			if (typeof query == 'function')
+			{
+				query();
+			}
+	  });
+	  
+	  $('#mainFechaDesde').val(dateToddmmyy(new Date()));
+	  
+	  getHoteles (function(err, data)
+	  {
+		$('#cbhoteles').empty();
+		
+		var found = false;
+		
+		for (var i = 0; i < data.length; i++)
+		{
+			var option = $('<option />');
+			option.attr('value', data[i].IDHOTEL).text(data[i].DESCHOTEL);			
+			
+			if (getCookie("IDHOTEL") == data[i].IDHOTEL)
+			{
+				found = true;
+				option.attr('selected', 'true');
+			}
+
+			$('#cbhoteles').append(option);
+		}
+		
+		if (found == false)
+		{
+			setCookie("IDHOTEL", data[0].IDHOTEL);
+		}
+		
+		if (typeof query == 'function')
+		{
+			query();
+		}
+		
+		$("#cbhoteles").select2
+		({
+			placeholder: "Seleccione un complejo...",
+			allowClear: true
+		});
+	  });
             
-      $('#single_cal3').daterangepicker({
-        singleDatePicker: true,
-        calender_style: "picker_2"
-        }, function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
-      });
+      $(".right_col").show();
       
       $('#idUser').html(getCookie('DESCUSUARIO'));
       $('#idUser2').html(getCookie('DESCUSUARIO'));
+
+	  $('#cbhoteles').on('change', function()
+	  {
+	    setCookie("IDHOTEL", this.value);
+		
+		if (typeof query == 'function')
+		{
+			query();
+		}
+      });
+	  
+	 
       
     });
     </script>

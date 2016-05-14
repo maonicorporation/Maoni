@@ -4,38 +4,192 @@
 
 
 $(function ()
-{ 
-    getHoteles (function(err, data)
-    {
-        $('#cbhoteles').empty();
-        
-        for (var i = 0; i < data.length; i++)
-        {
-            var option = $('<option />');
-            option.attr('value', data[i].IDHOTEL).text(data[i].DESCHOTEL);
+{     
+    $('#grp1').addClass('active');
+    $('#menu1').show();
+    $('#page000').addClass('current-page');
+	
+	
+	
+	
+	var echartGauge = echarts.init(document.getElementById('echart_guage'), null);
 
-            $('#cbhoteles').append(option);
-        }
-        
-        $("#cbhoteles").select2
-        ({
-            placeholder: "Seleccione un complejo...",
-            allowClear: true
-        });
-    });
-    
-    $('#single_cal2').daterangepicker
-    ({
-        singleDatePicker: true,
-        format:'DD/MM/YYYY',
-        calender_style: "picker_2"
-    }, 
-    function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
-    });
-    
-		
+      echartGauge.setOption({
+        tooltip: {
+          formatter: "{a} <br/>{b} : {c}%"
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            restore: {
+              show: true,
+              title: "Restore"
+            },
+            saveAsImage: {
+              show: true,
+              title: "Save Image"
+            }
+          }
+        },
+        series: [{
+          name: 'Performance',
+          type: 'gauge',
+          center: ['50%', '50%'],
+          startAngle: 140,
+          endAngle: -140,
+          min: 0,
+          max: 100,
+          precision: 0,
+          splitNumber: 10,
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: [
+                [0.2, 'lightgreen'],
+                [0.4, 'orange'],
+                [0.8, 'skyblue'],
+                [1, '#ff4500']
+              ],
+              width: 30
+            }
+          },
+          axisTick: {
+            show: true,
+            splitNumber: 5,
+            length: 8,
+            lineStyle: {
+              color: '#eee',
+              width: 1,
+              type: 'solid'
+            }
+          },
+          axisLabel: {
+            show: true,
+            formatter: function(v) {
+              switch (v + '') {
+                case '10':
+                  return 'a';
+                case '30':
+                  return 'b';
+                case '60':
+                  return 'c';
+                case '90':
+                  return 'd';
+                default:
+                  return '';
+              }
+            },
+            textStyle: {
+              color: '#333'
+            }
+          },
+          splitLine: {
+            show: true,
+            length: 30,
+            lineStyle: {
+              color: '#eee',
+              width: 2,
+              type: 'solid'
+            }
+          },
+          pointer: {
+            length: '80%',
+            width: 8,
+            color: 'auto'
+          },
+          title: {
+            show: true,
+            offsetCenter: ['-65%', -10],
+            textStyle: {
+              color: '#333',
+              fontSize: 15
+            }
+          },
+          detail: {
+            show: true,
+            backgroundColor: 'rgba(0,0,0,0)',
+            borderWidth: 0,
+            borderColor: '#ccc',
+            width: 100,
+            height: 40,
+            offsetCenter: ['-60%', 10],
+            formatter: '{value}%',
+            textStyle: {
+              color: 'auto',
+              fontSize: 30
+            }
+          },
+          data: [{
+            value: 50,
+            name: 'Performance'
+          }]
+        }]
+      });
 });
+
+function query ()
+{    
+    var idhotel = getCookie("IDHOTEL");
+    var entrada = ddmmyyToUnix($('#mainFechaDesde').val());
+    
+	$("#cnt1").html("0");
+	$("#cnt2").html("0");
+	$("#cnt3").html("0");
+	$("#cnt4").html("0");
+	
+    getEncuestasResumen (idhotel, entrada, function(err, data)
+    {        
+        if (data.length == 1)		
+		{
+			$("#cnt1").html(data[0].ENVIADAS);
+			$("#cnt2").html(data[0].OK);
+			$("#cnt3").html(data[0].KO);
+			$("#cnt4").html(data[0].RATIO.toFixed(2) + " %");
+		}
+    });
+	
+	getIncidenciasLast5 (idhotel, function(err, data)
+    {        		
+		$('#idListaTop5').hide (100);
+		$('#idListaTop5').empty();
+		
+        for (var i=0 ; i < data.length; i++)
+		{		
+			var row = "";
+			
+			var mm = extractMonthFromYYYYMMDDstring(data[i].FECHACREACION);
+			var dd = extractDayFromYYYYMMDDstring(data[i].FECHACREACION);
+			
+			row += '<article class="media event">';
+			row += '	<a class="pull-left date">';
+			
+			if (data[i].SOLUCIONADA != null)
+			{
+				row += '		<p class="month" style="color:rgb(97,202,66);"><b>' + getMonthName(mm) + '</b></p>';
+				row += '		<p class="day" style="color:rgb(97,202,66);">' + dd + '</p>';
+			}
+			else
+			{
+				row += '		<p class="month" style="color:rgb(238,91,85);"><b>' + getMonthName(mm) + '</b></p>';
+				row += '		<p class="day" style="color:rgb(238,91,85);">' + dd + '</p>';
+			}
+			
+			row += '	</a>';
+			row += '	<div class="media-body">';
+			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
+			row += '		<p>' + data[i].DESCHOTEL + '</p>';
+			row += '		<p>' + data[i].DESCRIPCION + '<a href="#">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
+			row += '	</div>';
+			row += '</article>';
+			
+			$('#idListaTop5').append(row);
+		}
+		
+		$('#idListaTop5').show (200);
+    });
+}
+
+
 </script>
 
 
@@ -43,37 +197,109 @@ $(function ()
     
     <div class="row">
         <div class="col-md-2">
-            <h4>Overview</h4>
+            <h4>Vista general</h4>
         </div>
-        <div class="col-md-10">
-            <div class="pull-right">
+        
+		<div class="clearfix"></div>
+		
+		<div class="row top_tiles">
+			<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="tile-stats">
+				  <div class="icon"><img src="/img/redondaamarilla.png"></img>
+				  </div>
+				  <div id="cnt1" class="count">0</div>
 
+				  <h3>Enviadas</h3>
+				  <p>Total de encuestas enviadas</p>
+				</div>
+			</div>
+			<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="tile-stats">
+				  <div class="icon"><img src="/img/redondaverde.png"></img>
+				  </div>
+				  <div id="cnt2" class="count">0</div>
 
+				  <h3>Positivas</h3>
+				  <p>Total de respuestas positivas</p>
+				</div>
+			</div>
+			<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="tile-stats">
+				  <div class="icon"><img src="/img/redondaroja.png"></img>
+				  </div>
+				  <div id="cnt3" class="count">0</div>
 
+				  <h3>Negativas</h3>
+				  <p>Total de respuestas negativas</p>
+				</div>
+			</div>
+			<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="tile-stats">
+				  <div class="icon"><img src="/img/redondagris.png"></img>
+				  </div>
+				  <div id="cnt4" class="count">0</div>
 
-                <div class="form-inline">
-                    
-                    <div class="form-group">
-							  
-                        <label for="cbinforme">Desde &nbsp&nbsp</label>                         
-                        <div class="col-md-11 form-group has-feedback">
-                            <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="Fecha" aria-describedby="inputSuccess2Status2">
-                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
-                        </div>
-                        
-				    </div> 
-                    
-                    <div class="form-group">
-					    <label for="cbinforme">Complejo &nbsp&nbsp</label> 
-                        <div class="col-md-11 form-group has-feedback">
-                            <select id="cbhoteles" class=" col-md-11 form-control" tabindex="-1">
-                            </select>
-						</div>  
-					</div>	 
-                    
+				  <h3>Ratio de conversión</h3>
+				  <p>% respuestas del total de enviadas</p>
+				</div>
+			</div>
+		
+		
+		
+			<div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>GIS - Global Index Sentiment</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div id="echart_guage" style="height:370px;"></div>
+                  </div>
                 </div>
             </div>
-        </div>
+		
+			<div class="col-md-4">
+				<div class="x_panel">
+				  <div class="x_title">
+					<h2>Últimas incidencias <small></small></h2>
+					<ul class="nav navbar-right panel_toolbox">
+					  <small>Abiertas | Solucionadas</small>
+					</ul>
+					<div class="clearfix"></div>
+				  </div>
+				  <div class="x_content" id="idListaTop5">
+					
+					
+				  </div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			  
+			  
+			  
+			  
+			
+			
+			</div>
+			
     </div>
 </div>
