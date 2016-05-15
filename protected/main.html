@@ -118,7 +118,7 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
+            <!-- /menu footer buttons --
             <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Ajustes">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -133,7 +133,7 @@
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
-            <!-- /menu footer buttons -->
+            -- /menu footer buttons -->
           </div>
         </div>
 
@@ -284,7 +284,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Maoni solutions by <a href="http://maoni.solutions/">Maoni</a>
+            <a href="http://maoni.solutions/">Maoni - Hotel Intelligence Solutions </a>|<a href="mailto:support@maoni.soltions"> support@maoni.soltions</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -399,13 +399,13 @@
 	  
 	  $('#mainFechaDesde').daterangepicker
 	  ({
-			singleDatePicker: true,
+			//singleDatePicker: true,
 			format:'DD/MM/YYYY',
 			calender_style: "picker_2"
 	  }, 
 	  function(start, end, label)
 	  {
-			//console.log(start.toISOString(), end.toISOString(), label);
+			console.log(start.toISOString(), end.toISOString(), label);
 			if (typeof query == 'function')
 			{
 				query();

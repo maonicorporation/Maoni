@@ -130,14 +130,29 @@ $(function ()
 function query ()
 {    
     var idhotel = getCookie("IDHOTEL");
-    var entrada = ddmmyyToUnix($('#mainFechaDesde').val());
+    var fecha = $('#mainFechaDesde').val();
+	var desde = null;
+	var hasta = null;
+	
+	
+	if (fecha.indexOf("-") != -1)
+	{
+		var strSplit = fecha.split("-");
+		desde = ddmmyyToUnix(strSplit[0]);
+		hasta = ddmmyyToUnix(strSplit[1]);
+	}
+	else
+	{
+		desde = ddmmyyToUnix(fecha);
+		hasta = desde;
+	}
     
 	$("#cnt1").html("0");
 	$("#cnt2").html("0");
 	$("#cnt3").html("0");
 	$("#cnt4").html("0");
 	
-    getEncuestasResumen (idhotel, entrada, function(err, data)
+    getEncuestasResumenRango (idhotel, desde, hasta, function(err, data)
     {        
         if (data.length == 1)		
 		{
@@ -239,7 +254,7 @@ function query ()
 				  </div>
 				  <div id="cnt4" class="count">0</div>
 
-				  <h3>Ratio de conversión</h3>
+				  <h3>Conversión</h3>
 				  <p>% respuestas del total de enviadas</p>
 				</div>
 			</div>

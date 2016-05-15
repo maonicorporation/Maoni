@@ -25,7 +25,7 @@ function getCookie(cname)
 
 function ddmmyyToUnix (date)
 {
-	var sp = date.split("/");
+	var sp = date.trim().split("/");
 	
 	var year = sp[2];
 	var month = pad(sp[1], 2, 0);
@@ -182,6 +182,22 @@ function getEncuestasResumen (idhotel, entrada, callback)
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
     var url = "http://wsreservas.go.maoni.solutions/EncuestasResumen/" + idhotel + "/" + entrada;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getEncuestasResumenRango (idhotel, desde, hasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/EncuestasResumenRango/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {

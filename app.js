@@ -186,6 +186,8 @@ function todatToyyyymmdd_hhmmss()
         
 function enviarMails()
 {
+    utilities.logFile("INICIO ENVIO EMAILS....");
+    
     //Bucle de empresas
     bbdd.sel_all_from_empresas (function (err, data1)
     {
