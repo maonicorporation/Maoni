@@ -46,6 +46,12 @@ function extractMonthFromYYYYMMDDstring (strDate)
 	return  parseInt(strDate.split("-")[1]); 
 }
 
+function extractDateFromYYYYMMDDHHMMSSstring (strDate)
+{
+	//"2016-05-14T07:46:44.000Z"
+	return  dateToddmmyy (new Date(strDate));
+}
+
 function extractDayFromYYYYMMDDstring (strDate)
 {
 	//"2016-05-14T07:46:44.000Z"
@@ -62,6 +68,21 @@ function dateToddmmyy(date)
         dd='0'+dd
     } 
     if(mm<10){
+        mm='0'+mm
+    } 
+    return dd+'/'+mm+'/'+yyyy;
+}
+
+function firstDayOfMonth()
+{
+	var date = new Date();
+    var dd = "01";
+    var mm = date.getMonth()+1; 
+
+    var yyyy = date.getFullYear();
+    
+    if(mm<10)
+	{
         mm='0'+mm
     } 
     return dd+'/'+mm+'/'+yyyy;
@@ -214,6 +235,22 @@ function getIncidenciasLast5 (idhotel, callback)
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
     var url = "http://wsreservas.go.maoni.solutions/incidenciasLast5/" + idhotel;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getIncidenciasRango (idhotel, desde, hasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/IncidenciasRango/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {

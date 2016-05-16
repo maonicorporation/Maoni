@@ -56,7 +56,7 @@
             <div class="profile" style="margin-top: 6px">
               <div class="profile_pic">
                 <div>
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img" >
+                <img src="" alt="..." class="img-circle profile_img classCurrentUser" >
                 </div>
               </div>
               <div class="profile_info">
@@ -77,22 +77,22 @@
                 <ul class="nav side-menu">
                   <li id="grp1"><a><i class="fa fa-home"></i> Principal <span class="fa fa-chevron-down"></span></a>
                     <ul id="menu1" class="nav child_menu">
-                      <li id="page000"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_000.html');">Vista general</a>
+                      <li id="page000"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_000.html');"> Vista general</a>
                       </li>
-                      <li><a href="#">Índice de satisfacción</a>
+                      <li><a href="#"> Índice de satisfacción</a>
                       </li>
-                      <li><a href="#">Incidencias</a>
+                      <li id="page002"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_002.html');"> Incidencias</a>
                       </li>
-					              <li><a href="#">Encuestas</a>
+					  <li><a href="#"> Encuestas</a>
                       </li>
                     </ul>
                   </li>
                   <li id="grp2"><a><i class="fa fa-list"></i> Reserva <span class="fa fa-chevron-down"></span></a>
                     <ul id="menu2" class="nav child_menu">
-                      <li id="page201"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_201.html');">Introducción manual</a>
+                      <li id="page201"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_201.html');"> Introducción manual</a>
                       </li>
                       
-                      <li id="page202"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_202.html');">Consultar</a>
+                      <li id="page202"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_202.html');"> Consultar</a>
                       </li>
                     </ul>
                   </li>
@@ -152,7 +152,7 @@
 				
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""><small id="idUser2">xxx</small>
+                    <img class="classCurrentUser" src="" alt=""><small id="idUser2"></small>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -412,7 +412,7 @@
 			}
 	  });
 	  
-	  $('#mainFechaDesde').val(dateToddmmyy(new Date()));
+	  $('#mainFechaDesde').val(firstDayOfMonth() + "-" + dateToddmmyy(new Date()));
 	  
 	  getHoteles (function(err, data)
 	  {
@@ -455,6 +455,11 @@
       
       $('#idUser').html(getCookie('DESCUSUARIO'));
       $('#idUser2').html(getCookie('DESCUSUARIO'));
+	  
+	  
+	  $(".classCurrentUser").attr("src","http://go.maoni.solutions/users/" + getCookie("IDUSUARIO") + ".jpg");
+	  
+	  //<img id="idCurrentUser" src="http://go.maoni.solutions/users/1.jpg" alt="..." class="img-circle profile_img" >
 
 	  $('#cbhoteles').on('change', function()
 	  {

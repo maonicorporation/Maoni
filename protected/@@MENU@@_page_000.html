@@ -156,10 +156,22 @@ function query ()
     {        
         if (data.length == 1)		
 		{
-			$("#cnt1").html(data[0].ENVIADAS);
-			$("#cnt2").html(data[0].OK);
-			$("#cnt3").html(data[0].KO);
-			$("#cnt4").html(data[0].RATIO.toFixed(2) + " %");
+			if(data[0].ENVIADAS != null)
+			{
+				$("#cnt1").html(data[0].ENVIADAS);
+			}
+			if(data[0].OK != null)
+			{
+				$("#cnt2").html(data[0].OK);
+			}
+			if(data[0].KO != null)
+			{
+				$("#cnt3").html(data[0].KO);
+			}
+			if(data[0].RATIO != null)
+			{
+				$("#cnt4").html(data[0].RATIO.toFixed(2) + " %");
+			}
 		}
     });
 	
@@ -175,25 +187,24 @@ function query ()
 			var mm = extractMonthFromYYYYMMDDstring(data[i].FECHACREACION);
 			var dd = extractDayFromYYYYMMDDstring(data[i].FECHACREACION);
 			
-			row += '<article class="media event">';
-			row += '	<a class="pull-left date">';
+			row += '<article class="media event">';			
 			
-			if (data[i].SOLUCIONADA != null)
+			if (data[i].SOLUCIONADA != 0)
 			{
-				row += '		<p class="month" style="color:rgb(97,202,66);"><b>' + getMonthName(mm) + '</b></p>';
-				row += '		<p class="day" style="color:rgb(97,202,66);">' + dd + '</p>';
+				row += '	<a class="pull-left date dateok">';
 			}
 			else
 			{
-				row += '		<p class="month" style="color:rgb(238,91,85);"><b>' + getMonthName(mm) + '</b></p>';
-				row += '		<p class="day" style="color:rgb(238,91,85);">' + dd + '</p>';
+				row += '	<a class="pull-left date dateko">';
 			}
-			
+		
+			row += '		<p class="month"><b>' + getMonthName(mm) + '</b></p>';
+			row += '		<p class="day">' + dd + '</p>';			
 			row += '	</a>';
 			row += '	<div class="media-body">';
 			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
 			row += '		<p>' + data[i].DESCHOTEL + '</p>';
-			row += '		<p>' + data[i].DESCRIPCION + '<a href="#">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
+			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '<a href="#">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
 			row += '	</div>';
 			row += '</article>';
 			
@@ -202,6 +213,8 @@ function query ()
 		
 		$('#idListaTop5').show (200);
     });
+	
+	
 }
 
 
@@ -292,8 +305,8 @@ function query ()
 				<div class="x_panel">
 				  <div class="x_title">
 					<h2>Últimas incidencias <small></small></h2>
-					<ul class="nav navbar-right panel_toolbox">
-					  <small>Abiertas | Solucionadas</small>
+					<ul class="nav navbar-right panel_toolbox"><br/>
+					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Abierta&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Solucionadas </small>
 					</ul>
 					<div class="clearfix"></div>
 				  </div>
@@ -305,7 +318,35 @@ function query ()
 			</div>
 			
 			
-			
+			<div class="col-md-4">
+				<div class="x_panel">
+				  <div class="x_title">
+					<h2>Top resolutivos <small></small></h2>
+					<ul class="nav navbar-right panel_toolbox">
+					  <small></small>
+					</ul>
+					<div class="clearfix"></div>
+				  </div>
+				  <div class="x_content" id="idListaTop5Resolutivos">
+					
+					<article class="media event">
+                      <a class="pull-right date">
+                        <p class="month">Nota</p>
+                        <p class="day">9.3</p>
+                      </a>
+					  <a class="pull-left">
+                        <img src="http://go.maoni.solutions/users/maoni.jpg" style="max-width: 50%;" alt="..." class="img-rounded img-responsive profile_img" >
+                      </a>
+					  
+                      <div class="media-body">
+                        <a class="title" href="#">Item One Title</a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                    </article>
+					
+				  </div>
+				</div>
+			</div>
 			
 			
 			  

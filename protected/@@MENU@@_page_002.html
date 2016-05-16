@@ -1,11 +1,143 @@
-﻿<div class="card-body card-padding">
-    <div class="jumbotron">
-        <img src="img/menuheader.png" alt="" class="img-rounded">
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
 
-        <h1>¡Hola!</h1>
-        <br />
-        <p>DOS</p>
-        <br />
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a></p>
+<script>
+
+
+$(function ()
+{     
+    $('#grp1').addClass('active');
+    $('#menu1').show();
+    $('#page002').addClass('current-page');
+});
+
+function query ()
+{    
+    var idhotel = getCookie("IDHOTEL");
+    var fecha = $('#mainFechaDesde').val();
+	var desde = null;
+	var hasta = null;
+	
+	
+	if (fecha.indexOf("-") != -1)
+	{
+		var strSplit = fecha.split("-");
+		desde = ddmmyyToUnix(strSplit[0]);
+		hasta = ddmmyyToUnix(strSplit[1]);
+	}
+	else
+	{
+		desde = ddmmyyToUnix(fecha);
+		hasta = desde;
+	}
+	
+	getIncidenciasRango (idhotel, desde, hasta, function(err, data)
+    {        		
+		$('#idLista').hide (100);
+		$('#idLista').empty();
+		
+        for (var i=0 ; i < data.length; i++)
+		{		
+			var row = "";
+			
+			var mm = extractMonthFromYYYYMMDDstring(data[i].FECHACREACION);
+			var dd = extractDayFromYYYYMMDDstring(data[i].FECHACREACION);
+			
+			row += '<article class="media event">';			
+			
+			if (data[i].SOLUCIONADA != 0)
+			{
+				row += '	<a class="pull-left date dateok">';
+			}
+			else
+			{
+				row += '	<a class="pull-left date dateko">';
+			}
+		
+			row += '		<p class="month"><b>' + getMonthName(mm) + '</b></p>';
+			row += '		<p class="day">' + dd + '</p>';			
+			row += '	</a>';			
+			
+			row += '	<div class="row"><div class="col-md-3">';
+			
+			row += '	<div class="media-body">';
+			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
+			row += '		<p>' + data[i].DESCHOTEL + '</p>';
+			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '</p>';
+			row += '	</div>';
+			
+			row += '	</div>';
+			
+			row += '	<div class="col-md-3">';			
+			row += '	<div class="media-body">';
+			row += '		<a class="title" href="#">ID Reserva: ' + data[i].IDRESERVA + '</a>';
+			row += '		<a class="title" href="#"> | ID Incidencia: ' + data[i].ROWID + '</a>';
+			row += '		<p>' + data[i].MAIL_CARDEX + '</p>';
+			row += '		<p>Periodo estancia: ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].ENTRADA) + ' - ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].SALIDA) + '</p>';
+			row += '	</div>'
+			
+			row += '	</div>';
+			
+			if (data[i].SOLUCIONADA != 0)
+			{
+				row += '<a class="pull-left">';
+				row += '            <img src="http://go.maoni.solutions/users/' + data[i].IDUSUARIOSOLUCION + '.jpg" style="max-width: 50%;" alt="..." class="img-rounded img-responsive profile_img" >';
+				row += '          </a>';
+					  
+				row += '	<div class="col-md-3">';			
+				row += '	<div class="media-body">';
+				row += '		<a class="title" href="#">Solucionado por: ' + data[i].DESCUSUARIO + '</a>';
+				row += '		<p>Fecha solución: ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].FECHASOLUCION) + '</p>';
+				row += '		<p>Observaciones: ' + data[i].OBSERVACIONES + '</p>';
+				row += '	</div>'
+				
+				row += '	</div>';
+			}
+			
+			row += '	</div></div>';
+			
+			row += '</article>';
+			
+			$('#idLista').append(row);
+		}
+		
+		$('#idLista').show (200);
+    });
+	
+	
+}
+
+
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Vista general</h4>
+        </div>
+        
+		<div class="clearfix"></div>
+		
+		<div class="row top_tiles">
+		
+			<div class="col-md-12">
+				<div class="x_panel">
+				  <div class="x_title">
+					<h2>Incidencias <small></small></h2>
+					<ul class="nav navbar-right panel_toolbox"><br/>
+					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Abierta&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Solucionadas </small>
+					</ul>
+					<div class="clearfix"></div>
+				  </div>
+				  <div class="x_content" id="idLista">
+					
+					
+				  </div>
+				</div>
+			</div>
+			
+	    </div>
+			
     </div>
 </div>

@@ -1,3 +1,11 @@
+.inline { float:left; }
+
+
+
+
+
+
+
 .nav-sm .container.body .left_col {
   width: 70px;
   padding: 0;
@@ -1631,6 +1639,32 @@ ul.top_profiles li:nth-child(odd) {
   margin-right: 10px;
   border-radius: 10px;
   padding: 5px;
+}
+.media .dateko {
+  background: #ee5b55;
+  width: 52px;
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.boxko {
+    border-radius: 2px;
+    background: #ee5b55;
+    width: 12px;
+    height: 12px;    
+}
+.media .dateok {
+  background: #61ca42 ;
+  width: 52px;
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.boxok {
+    border-radius: 2px;
+    background: #61ca42;
+    width: 12px;
+    height: 12px;    
 }
 .media .date .month {
   margin: 0;
