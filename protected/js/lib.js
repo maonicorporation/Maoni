@@ -23,6 +23,14 @@ function getCookie(cname)
     return "";
 }
 
+function getParameterByName(name)
+{
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 function ddmmyyToUnix (date)
 {
 	var sp = date.trim().split("/");
@@ -230,6 +238,22 @@ function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 	});
 }
 
+function getIncidencia (rowid, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/incidencia/" + rowid;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
 function getIncidenciasLast5 (idhotel, callback)
 {
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
@@ -270,9 +294,16 @@ function logout()
     window.location.href = "index.html";
 }
 
-function navigateTo (url)
+function navigateTo (url, suffix)
 {
-    return url + "?SESSIONKEY=" + getCookie("SESSIONKEY");
+	if (typeof suffix == 'undefined')
+	{
+		return url + "?SESSIONKEY=" + getCookie("SESSIONKEY");
+	}
+	else
+	{
+		return url + "?SESSIONKEY=" + getCookie("SESSIONKEY") + "&" + suffix;
+	}
 }
 
 /******************************************************************************************************************/

@@ -197,6 +197,8 @@ function query ()
 			{
 				row += '	<a class="pull-left date dateko">';
 			}
+			
+			var ref = navigateTo ('@@MENU@@_page_010.html', 'rowid=' + data[i].ROWID);
 		
 			row += '		<p class="month"><b>' + getMonthName(mm) + '</b></p>';
 			row += '		<p class="day">' + dd + '</p>';			
@@ -204,7 +206,7 @@ function query ()
 			row += '	<div class="media-body">';
 			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
 			row += '		<p>' + data[i].DESCHOTEL + '</p>';
-			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '<a href="#">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
+			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '<a href="' + ref + '">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
 			row += '	</div>';
 			row += '</article>';
 			
