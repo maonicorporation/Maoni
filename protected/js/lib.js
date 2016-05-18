@@ -81,6 +81,28 @@ function dateToddmmyy(date)
     return dd+'/'+mm+'/'+yyyy;
 }
 
+function todatToyyyymmdd_hhmmss()
+{
+	var date = new Date();
+	var dd = date.getDate();
+	var mm = date.getMonth()+1;
+	
+	h = date.getHours(), 
+	m = date.getMinutes(), 
+	s = date.getSeconds();
+
+	var yyyy = date.getFullYear();
+	if(dd<10)
+	{
+		dd='0'+dd
+	} 
+	if(mm<10)
+	{
+		mm='0'+mm
+	} 
+	return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
+}
+
 function firstDayOfMonth()
 {
 	var date = new Date();
@@ -323,6 +345,7 @@ function pad(n, width, z)
 
 function postData(url, data, callback)
 {
+	try{
 	$.ajax({
 		url: url,
 		method: "POST",
@@ -338,6 +361,36 @@ function postData(url, data, callback)
 			callback (errorThrown, null);
 		}
     }); 
+	}
+	catch (err)
+	{
+		alert(err);
+	}
+}
+
+function putData(url, data, callback)
+{
+	try{
+	$.ajax({
+		url: url,
+		method: "PUT",
+		data: JSON.stringify(data),
+		dataType: 'json',
+		contentType: "application/json",
+		success: function(result,status,jqXHR )
+		{
+			callback (null, result);
+		},
+		error(jqXHR, textStatus, errorThrown)
+		{
+			callback (errorThrown, null);
+		}
+    }); 
+	}
+	catch (err)
+	{
+		alert(err);
+	}
 }
 
 function fillComboCountry(selector)

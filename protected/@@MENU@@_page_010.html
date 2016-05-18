@@ -13,6 +13,26 @@ $(function ()
 		//http://wsreservas.go.maoni.solutions/incidencia/45
         if (data.length == 1)
 		{		
+			if (data[0].SOLUCIONADA == 1)			
+			{
+				$("#idButEstado").addClass("btn-success");
+				$("#idEstado").html("Incidencia solucionada");
+				$("#idButSolucionar").hide();
+				
+				$("#idField10").val(data[0].DESCUSUARIO);
+				$("#idField11").val(extractDateFromYYYYMMDDHHMMSSstring(data[0].FECHASOLUCION));
+				$("#idField12").val(data[0].OBSERVACIONES);
+				
+				$("#idField12").prop("disabled",true);
+			}
+			else
+			{
+				$("#idButEstado").addClass("btn-danger");
+				$("#idEstado").html("Incidencia abierta");
+			}
+			
+			$("#idElapsed").html("Hace " + secondsToString (data[0].ELAPSED));
+			
 			$("#idField1").val(data[0].DESCHOTEL);
 			$("#idField2").val(data[0].NOMBRE + " " + data[0].APELLIDO1 + " " + data[0].APELLIDO2);
 			$("#idField3").val(data[0].MAIL_CARDEX);
@@ -26,13 +46,47 @@ $(function ()
     });
 });
 
+function solucionar ()
+{
+	//app.put('/Incidencias/:ROWID',bbdd.updateIncidencia, function(err,data){});
+	
+	var rowid = getParameterByName('rowid');
+	
+	var data = {
+		"OBSERVACIONES": $("#idField12").val(),
+		"SOLUCIONADA": "1",
+		"FECHASOLUCION": todatToyyyymmdd_hhmmss(),
+		"IDUSUARIOSOLUCION" : getCookie("IDUSUARIO")
+		};
+		
+	putData ("http://wsreservas.go.maoni.solutions/Incidencias/" + rowid, data, function (err, data)
+	{	
+		if (data != null)	
+		{
+			if (data.result == 1)
+			{
+				toastr["success"]("Incidencia modificada");
+			}
+			else if (data.result == 0)
+			{
+				toastr["error"]("Error al modificar incidencia");
+			}
+		}
+		
+		location.reload();
+	});
+		
+		
+	
+}
+
 </script>
 
 <div class="">
 	<div class="page-title">
 		<div class="title_left">
 			<h3>
-				<span class="glyphicon glyphicon-chevron-left inline" aria-hidden="true"></span> <u> Volver</u>
+				<button type="button" class="btn btn-primary" onclick="window.history.back();"><span class="glyphicon glyphicon-chevron-left inline" aria-hidden="true"></span> Volver</button>
 			</h3>
 		</div>
 	</div>
@@ -54,8 +108,8 @@ $(function ()
 					</div>
 					<div class="col-sm-10">					
 						<div class="btn-group" role="group" aria-label="...">
-							<button type="button" class="btn btn-danger"><b>Incidencia abierta</b></button>
-							<button type="button" class="btn btn-default"><b>hace 1 hora y 23 minutos</b></button>
+							<button id="idButEstado" type="button" class="btn"><b id="idEstado"></b></button>
+							<button type="button" class="btn btn-default"><b id="idElapsed"></b></button>
 						</div>
 					</div>
 					
@@ -66,46 +120,46 @@ $(function ()
 					
 					
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Complejo</label>
-							<div class="col-sm-5">
+							<label for="" class="col-xs-2 control-label">Complejo</label>
+							<div class="col-xs-10 col-md-5">
 								<input id="idField1" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Nombre y apellidos</label>
-							<div class="col-sm-5">
+							<label for="" class="col-xs-2 control-label">Nombre</label>
+							<div class="col-xs-10 col-md-5">
 								<input id="idField2" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-5">
+							<label for="" class="col-xs-2 control-label">Email</label>
+							<div class="col-xs-10 col-md-5">
 								<input id="idField3" type="email" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Nº reserva</label>
-							<div class="col-sm-2">
+							<label for="" class="col-xs-2 control-label">Nº reserva</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField4" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 							
-							<label for="" class="col-sm-1 control-label">Nº habitación</label>
-							<div class="col-sm-2">
+							<label for="" class="col-md-1 col-xs-2 control-label">Nº habitación</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField5" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Fecha entrada</label>
-							<div class="col-sm-2">
+							<label for="" class="col-xs-2 control-label">Fecha entrada</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField6" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 							
-							<label for="" class="col-sm-1 control-label">Fecha salida</label>
-							<div class="col-sm-2">
+							<label for="" class="col-md-1 col-xs-2 control-label">Fecha salida</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField7" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
@@ -120,37 +174,37 @@ $(function ()
 						
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Tipo de incidencia</label>
-							<div class="col-sm-2">
+							<label for="" class="col-xs-2 control-label">Tipo de incidencia</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField8" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
-							<label for="" class="col-sm-1 control-label">Fecha creación</label>
-							<div class="col-sm-2">
+							<label for="" class="col-md-1 col-xs-2 control-label">Fecha creación</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField8bis" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Descripción de la incidencia</label>
-							<div class="col-sm-5">
+							<label for="" class="col-xs-2 control-label">Descripción de la incidencia</label>
+							<div class="col-xs-10 col-md-5">
 								<textarea id="idField9" class="form-control" disabled rows="2"></textarea>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Solucionada por</label>
-							<div class="col-sm-2">
+							<label for="" class="col-xs-2 control-label">Solucionada por</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField10" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
-							<label for="" class="col-sm-1 control-label">Fecha solución</label>
-							<div class="col-sm-2">
+							<label for="" class="col-md-1 col-xs-2 control-label">Fecha solución</label>
+							<div class="col-xs-4 col-md-2">
 								<input id="idField11" type="text" disabled class="form-control" id="" placeholder="">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Solución adoptada</label>
-							<div class="col-sm-5">
+							<label for="" class="col-xs-2 control-label">Solución adoptada</label>
+							<div class="col-xs-10 col-md-5">
 								<textarea id="idField12" class="form-control" rows="2"></textarea>
 							</div>
 						</div>
@@ -164,7 +218,7 @@ $(function ()
 					<div class="col-sm-6">	
 						<div class="pull-right">
 							<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar PDF</button>
-							<button class="btn btn-success" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Marcar solucionada</button>
+							<button id="idButSolucionar" class="btn btn-success" type="button" onclick="solucionar();"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Marcar solucionada</button>
 						</div>
 					</div>
 				
