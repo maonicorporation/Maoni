@@ -1,11 +1,38 @@
-﻿<div class="card-body card-padding">
-    <div class="jumbotron">
-        <img src="img/menuheader.png" alt="" class="img-rounded">
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
 
-        <h1>¡Hola!</h1>
-        <br />
-        <p>UNO</p>
-        <br />
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a></p>
+<script>
+
+
+$(function ()
+{     
+    $('#grp1').addClass('active');
+    $('#menu1').show();
+    $('#page001').addClass('current-page');
+	
+	jQuery("#idContainer1").load("EMB_indices.html?IDHOTEL=1");
+});
+
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Índice de satisfacción</h4>
+        </div>
+        
+		<div class="clearfix"></div>
+		
+		<div class="row top_tiles">
+		
+			<div id="idContainer1" class="col-md-12">
+				<div class="x_panel">
+					<!--<OBJECT data="EMB_indices.html?IDHOTEL=1" style="width:100%;height:100%"></OBJECT>-->
+				</div>
+			</div>
+			
+	    </div>
+			
     </div>
 </div>

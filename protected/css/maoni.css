@@ -1,20 +1,55 @@
 @import url(http://fonts.googleapis.com/css?family=Lato|Raleway&subset=latin,latin-ext);
-
+/*
 html
 {
     font-size: 62.5%;
 }
+*/
+.inline { float:left; }
 
+/*
 body
 {
-    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.5em; 
     line-height: 1.6;
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /*font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     color: #222;
+}*/
+
+.butgreen
+{
+    background-color: #00d640 !important;
+	color: #fff;
+	/*.button-variant(@custom-color, @custom-color-bg, @custom-color-border);*/
+	/*.button-variant(#00d640,#00d640,#00d640);*/
 }
 
+.butred
+{
+    background-color: #ee5b55 !important;
+	color: #fff;
+}
+
+.bkwhite
+{
+    background-color: #fff !important;
+}
+
+.fontgreen
+{
+    color: #00d640;
+}
+
+.fontred
+{
+    color: #ee5b55;
+}
+
+.cursorpointer
+{
+	cursor: pointer;
+}
 
 /*https://bootstrapbay.com/blog/bootstrap-button-styles/*/
 

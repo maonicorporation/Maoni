@@ -127,6 +127,11 @@ $(function ()
       });
 });
 
+function openi (rowid) 
+{
+	window.location.href = navigateTo ('@@MENU@@_page_010.html', 'rowid=' + rowid);	
+}
+
 function query ()
 {    
     var idhotel = getCookie("IDHOTEL");
@@ -187,7 +192,7 @@ function query ()
 			var mm = extractMonthFromYYYYMMDDstring(data[i].FECHACREACION);
 			var dd = extractDayFromYYYYMMDDstring(data[i].FECHACREACION);
 			
-			row += '<article class="media event">';			
+			row += '<article class="media event cursorpointer" onclick="openi(' + data[i].ROWID + ');">';
 			
 			if (data[i].SOLUCIONADA != 0)
 			{
@@ -197,19 +202,32 @@ function query ()
 			{
 				row += '	<a class="pull-left date dateko">';
 			}
-			
-			var ref = navigateTo ('@@MENU@@_page_010.html', 'rowid=' + data[i].ROWID);
 		
 			row += '		<p class="month"><b>' + getMonthName(mm) + '</b></p>';
 			row += '		<p class="day">' + dd + '</p>';			
-			row += '	</a>';
-			row += '	<div class="media-body">';
-			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
-			row += '		<p>' + data[i].DESCHOTEL + '</p>';
-			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '<a href="' + ref + '">&nbsp;&nbsp;&nbsp;<u>más información</u></a></p>';
-			row += '	</div>';
-			row += '</article>';
+			row += '	</a>';			
 			
+			//row += '	<div class="row"><div class="col-md-4">';
+			
+			row += '	<div class="media-body">';
+			row += '		<h4 class="title inline" href="#"><b>' + data[i].NOMBRE +'</b> | </h4>';
+			
+			if (data[i].SOLUCIONADA != 0)
+			{
+				row += '		<h4 class="fontgreen"><b>&nbsp; ' + secondsToString (data[i].ELAPSED) + '</b></h4>';
+			}
+			else
+			{
+				row += '		<h4 class="fontred"><b>&nbsp; ' + secondsToString (data[i].ELAPSED) + '</b></h4>';
+			}
+			
+			row += ' 		<div class="clearfix"></div>';
+			row += '		<p>' + data[i].DESCHOTEL + '</p>';
+			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '</p>';
+			//row += '	</div>';
+			//row += '<hr/>';
+			row += '</article>';
+			row += '<hr style="margin-top:4px;margin-bottom:4px;"/>';
 			$('#idListaTop5').append(row);
 		}
 		
@@ -308,7 +326,7 @@ function query ()
 				  <div class="x_title">
 					<h2>Últimas incidencias <small></small></h2>
 					<ul class="nav navbar-right panel_toolbox"><br/>
-					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Abierta&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Solucionadas </small>
+					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Solucionada&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Abierta </small>
 					</ul>
 					<div class="clearfix"></div>
 				  </div>
@@ -331,31 +349,10 @@ function query ()
 				  </div>
 				  <div class="x_content" id="idListaTop5Resolutivos">
 					
-					<article class="media event">
-                      <a class="pull-right date">
-                        <p class="month">Nota</p>
-                        <p class="day">9.3</p>
-                      </a>
-					  <a class="pull-left">
-                        <img src="http://go.maoni.solutions/users/maoni.jpg" style="max-width: 50%;" alt="..." class="img-rounded img-responsive profile_img" >
-                      </a>
-					  
-                      <div class="media-body">
-                        <a class="title" href="#">Item One Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                      </div>
-                    </article>
 					
 				  </div>
 				</div>
 			</div>
-			
-			
-			  
-			  
-			  
-			  
-			
 			
 			</div>
 			

@@ -10,6 +10,11 @@ $(function ()
     $('#page002').addClass('current-page');
 });
 
+function openi (rowid) 
+{
+	window.location.href = navigateTo ('@@MENU@@_page_010.html', 'rowid=' + rowid);	
+}
+
 function query ()
 {    
     var idhotel = getCookie("IDHOTEL");
@@ -42,7 +47,7 @@ function query ()
 			var mm = extractMonthFromYYYYMMDDstring(data[i].FECHACREACION);
 			var dd = extractDayFromYYYYMMDDstring(data[i].FECHACREACION);
 			
-			row += '<article class="media event">';			
+			row += '<article id="id' + data[i].ROWID + '" class="media event cursorpointer" onclick="openi(' + data[i].ROWID + ');">';			
 			
 			if (data[i].SOLUCIONADA != 0)
 			{
@@ -53,39 +58,51 @@ function query ()
 				row += '	<a class="pull-left date dateko">';
 			}
 			
-			var ref = navigateTo ('@@MENU@@_page_010.html', 'rowid=' + data[i].ROWID);
+			
 		
 			row += '		<p class="month"><b>' + getMonthName(mm) + '</b></p>';
 			row += '		<p class="day">' + dd + '</p>';			
 			row += '	</a>';			
 			
-			row += '	<div class="row"><div class="col-md-3">';
+			row += '	<div class="row"><div class="col-md-4">';
 			
 			row += '	<div class="media-body">';
-			row += '		<a class="title" href="#">' + data[i].NOMBRE + ' ' + data[i].APELLIDO1 + ' | ' + secondsToString (data[i].ELAPSED) + '</a>';
-			row += '		<p>' + data[i].DESCHOTEL + '</p>';
-			row += '		<p><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '</p><a href="' + ref + '">&nbsp;&nbsp;&nbsp;<u>más información</u></a>';
+			row += '		<h4 class="title inline" href="#"><b>' + data[i].NOMBRE +'</b> | </h4>';
+			
+			if (data[i].SOLUCIONADA != 0)
+			{
+				row += '		<h4 class="fontgreen"><b>&nbsp; ' + secondsToString (data[i].ELAPSED) + '</b></h4>';
+			}
+			else
+			{
+				row += '		<h4 class="fontred"><b>&nbsp; ' + secondsToString (data[i].ELAPSED) + '</b></h4>';
+			}
+			
+			row += ' 		<div class="clearfix"></div>';
+			
+			row += '		<h4>' + data[i].DESCHOTEL + '</h4>';
+			row += '		<h4><b>' + data[i].NOMBRETIPO + ':</b> ' + data[i].DESCRIPCION + '</h4>';
 			row += '	</div>';
 			
 			row += '	</div>';
 			
 			row += '	<div class="col-md-3">';			
 			row += '	<div class="media-body">';
-			row += '		<a class="title" href="#">ID Reserva: ' + data[i].IDRESERVA + '</a>';
-			row += '		<a class="title" href="#"> | ID Incidencia: ' + data[i].ROWID + '</a>';
-			row += '		<p>' + data[i].MAIL_CARDEX + '</p>';
-			row += '		<p>Periodo estancia: ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].ENTRADA) + ' - ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].SALIDA) + '</p>';
+			row += '		<h4 class="title" href="#"><b>ID Reserva: ' + data[i].IDRESERVA + ' | ID Incidencia: ' + data[i].ROWID + '</b></h4>';
+			row += ' 		<div class="clearfix"></div>';
+			row += '		<a onclick="event.stopPropagation();window.event.cancelBubble = true;" href="mailto:support@maoni.soltions"><h4><i class="fa fa-envelope-o"></i> ' + data[i].MAIL_CARDEX + '</h4></a>';
+			row += '		<h4>Periodo estancia: ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].ENTRADA) + ' - ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].SALIDA) + '</h4>';
 			row += '	</div>'
 			
 			row += '	</div>';
 			
-			if (data[i].SOLUCIONADA != 0)
+			if (false&&data[i].SOLUCIONADA != 0)
 			{
 				row += '<a class="pull-left">';
 				row += '            <img src="http://go.maoni.solutions/users/' + data[i].IDUSUARIOSOLUCION + '.jpg" style="max-width: 50%;" alt="..." class="img-rounded img-responsive profile_img" >';
 				row += '          </a>';
 					  
-				row += '	<div class="col-md-3">';			
+				row += '	<div class="col-md-4">';			
 				row += '	<div class="media-body">';
 				row += '		<a class="title" href="#">Solucionado por: ' + data[i].DESCUSUARIO + '</a>';
 				row += '		<p>Fecha solución: ' + extractDateFromYYYYMMDDHHMMSSstring(data[i].FECHASOLUCION) + '</p>';
@@ -95,14 +112,39 @@ function query ()
 				row += '	</div>';
 			}
 			
+			if (data[i].SOLUCIONADA != 0)
+			{
+				row += '	<div class="col-md-4">';			
+				row += '		<div class="media-body">';
+				row += '			<button type="button" class="btn btn-default butgreen"><i class="fa fa-check-circle"></i><b> Solucionada</b></button>';
+				row += '		</div>'				
+				row += '	</div>';
+			}
+			else
+			{
+				row += '	<div class="col-md-4">';			
+				row += '		<div class="media-body">';
+				row += '			<button type="button" class="btn btn-default butred"><i class="fa fa-plus-square"></i><b> Solucionar</b></button>';
+				row += '		</div>'				
+				row += '	</div>';
+			}
+			
 			row += '	</div></div>';
 			
+			row += '<hr/>';
 			row += '</article>';
 			
 			$('#idLista').append(row);
 		}
 		
-		$('#idLista').show (200);
+		$('#idLista').show (200, function()
+		{		
+			var rowid = getParameterByName('rowid');
+			
+			location.hash = '#id' + rowid;
+			
+			$('#id' + rowid).addClass('animated flipInY');			
+		});
     });
 	
 	
@@ -128,11 +170,15 @@ function query ()
 				  <div class="x_title">
 					<h2>Incidencias <small></small></h2>
 					<ul class="nav navbar-right panel_toolbox"><br/>
-					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Abierta&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Solucionadas </small>
+					  <div class="inline boxok"></div><small class="inline">&nbsp;&nbsp;Solucionada&nbsp;&nbsp;&nbsp;&nbsp;</small><div class="inline boxko"></div><small class="inline">&nbsp;&nbsp;Abierta </small>
 					</ul>
 					<div class="clearfix"></div>
 				  </div>
+				  
+
 				  <div class="x_content" id="idLista">
+				  
+				  
 					
 					
 				  </div>

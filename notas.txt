@@ -1,0 +1,24 @@
+select count(distinct R.IDRESERVA) as ENVIADAS, count(distinct OK.IDRESERVA) as OK, count(distinct KO.IDRESERVA) as KO,
+count(distinct KO10.IDRESERVA) as KO_HABITACION,
+count(distinct KO20.IDRESERVA) as KO_LIMPIEZA,
+count(distinct KO30.IDRESERVA) as KO_PERSONAL,
+count(distinct KO40.IDRESERVA) as KO_WIFI,
+count(distinct KO50.IDRESERVA) as KO_RESTAURANTE,
+count(distinct KO60.IDRESERVA) as KO_CALIDADPRECIO
+
+from gomaonis_maonibd.reservas R 
+
+left join gomaonis_maonibd.encuestaOk as OK on R.IDRESERVA = OK.IDRESERVA and R.IDHOTEL = OK.IDHOTEL
+
+left join gomaonis_maonibd.Incidencias as KO on R.IDRESERVA = KO.IDRESERVA and R.IDHOTEL = KO.IDHOTEL
+
+left join gomaonis_maonibd.Incidencias as KO10 on R.IDRESERVA = KO10.IDRESERVA and R.IDHOTEL = KO10.IDHOTEL and KO10.IDTIPO = 10
+left join gomaonis_maonibd.Incidencias as KO20 on R.IDRESERVA = KO20.IDRESERVA and R.IDHOTEL = KO20.IDHOTEL and KO20.IDTIPO = 20
+left join gomaonis_maonibd.Incidencias as KO30 on R.IDRESERVA = KO30.IDRESERVA and R.IDHOTEL = KO30.IDHOTEL and KO30.IDTIPO = 30
+left join gomaonis_maonibd.Incidencias as KO40 on R.IDRESERVA = KO40.IDRESERVA and R.IDHOTEL = KO40.IDHOTEL and KO40.IDTIPO = 40
+left join gomaonis_maonibd.Incidencias as KO50 on R.IDRESERVA = KO50.IDRESERVA and R.IDHOTEL = KO50.IDHOTEL and KO50.IDTIPO = 50
+left join gomaonis_maonibd.Incidencias as KO60 on R.IDRESERVA = KO60.IDRESERVA and R.IDHOTEL = KO60.IDHOTEL and KO60.IDTIPO = 60
+
+where R.si_in_enviado = 1 
+and R.IDHOTEL = 1
+and R.fechainenviado >= '20160501' and R.fechainenviado <= '20160531

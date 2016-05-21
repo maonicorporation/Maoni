@@ -131,7 +131,14 @@ function secondsToString(seconds)
 	
 	if (numdays != 0)
 	{
-		ret += numdays + " dias ";
+		if (numdays == 1)
+		{
+			ret += numdays + "día ";
+		}
+		else
+		{
+			ret += numdays + "días ";
+		}
 	}
 	if (numhours != 0)
 	{
@@ -139,7 +146,7 @@ function secondsToString(seconds)
 	}
 	if (numminutes != 0)
 	{
-		ret += numminutes + "min ";
+		ret += numminutes + "min";
 	}
 	
 	return ret;

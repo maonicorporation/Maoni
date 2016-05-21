@@ -67,7 +67,7 @@ app.use(function (req, res)
         utilities.logFile("filename: " + filename);
         utilities.logFile("ext: " + path.extname(filename).toUpperCase());
         
-        if (path.extname(filename).toUpperCase() == ".HTML")
+        if (path.extname(filename).toUpperCase() == ".HTML" && filename.indexOf("EMB_") == -1)
         {
             //Hemos de emmbeberlo en un menú?            
             if (filename.indexOf("@@MENU@@") != -1)
