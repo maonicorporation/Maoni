@@ -31,6 +31,11 @@ body
 	color: #fff;
 }
 
+.bkcolor
+{
+    background-color: #f7f7f7 !important;
+}
+
 .bkwhite
 {
     background-color: #fff !important;

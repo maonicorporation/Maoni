@@ -8,10 +8,34 @@ $(function ()
     $('#grp1').addClass('active');
     $('#menu1').show();
     $('#page001').addClass('current-page');
-	
-	jQuery("#idContainer1").load("EMB_indices.html?IDHOTEL=1");
 });
 
+function query ()
+{
+    var fecha = $('#mainFechaDesde').val();
+	var desde = null;
+	var hasta = null;
+	
+	
+	if (fecha.indexOf("-") != -1)
+	{
+		var strSplit = fecha.split("-");
+		desde = ddmmyyToUnix(strSplit[0]);
+		hasta = ddmmyyToUnix(strSplit[1]);
+	}
+	else
+	{
+		desde = ddmmyyToUnix(fecha);
+		hasta = desde;
+	}
+	
+	setCookie("FDESDE", desde);
+	setCookie("FHASTA", hasta);
+	jQuery("#idContainer2").load("EMB_graph1.html");
+	jQuery("#idContainer1").load("EMB_indices.html");
+	
+	
+}
 </script>
 
 
@@ -26,12 +50,23 @@ $(function ()
 		
 		<div class="row top_tiles">
 		
-			<div id="idContainer1" class="col-md-12">
-				<div class="x_panel">
-					<!--<OBJECT data="EMB_indices.html?IDHOTEL=1" style="width:100%;height:100%"></OBJECT>-->
-				</div>
+			<div id="idContainer1" class="col-md-12">				
 			</div>
 			
+			<div class="clearfix"></div>
+			
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>Índice de satisfacción por áreas (semanal)</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div id="idContainer2" class="col-md-12">
+						</div>
+					</div>
+				</div>
+			</div>
 	    </div>
 			
     </div>

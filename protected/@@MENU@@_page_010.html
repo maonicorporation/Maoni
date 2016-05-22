@@ -6,7 +6,7 @@ $(function ()
 {
 	var rowid = getParameterByName('rowid');
 	
-	//var rowid = getParameterByName('rowid');
+	$('.x_panel').hide();
 	
 	$("#idTitulo").html("Incidencia " + rowid);
 	
@@ -46,6 +46,7 @@ $(function ()
 			$("#idField9").val(data[0].DESCRIPCION);
 		}
 		
+		$('.x_panel').show();
 		$('.x_panel').addClass('animated flipInY');
     });
 });

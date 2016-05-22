@@ -81,6 +81,21 @@ function dateToddmmyy(date)
     return dd+'/'+mm+'/'+yyyy;
 }
 
+function dateToUnix(date)
+{
+    var dd = date.getDate();
+    var mm = date.getMonth()+1; 
+
+    var yyyy = date.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    return yyyy+mm+dd;
+}
+
 function todatToyyyymmdd_hhmmss()
 {
 	var date = new Date();
@@ -102,6 +117,14 @@ function todatToyyyymmdd_hhmmss()
 	} 
 	return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
 }
+
+function getWeekNumber (date)
+{
+    var d = new Date(date);
+    d.setHours(0,0,0);
+    d.setDate(d.getDate()+4-(d.getDay()||7));
+    return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
+};
 
 function firstDayOfMonth()
 {
@@ -267,6 +290,22 @@ function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 	});
 }
 
+function getIndicesSatisfaccion (idhotel, desde, hasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccion/" + idhotel + "/" + desde + "/" + hasta;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
 function getIncidencia (rowid, callback)
 {
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
@@ -304,6 +343,22 @@ function getIncidenciasRango (idhotel, desde, hasta, callback)
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
     var url = "http://wsreservas.go.maoni.solutions/IncidenciasRango/" + idhotel + "/" + desde + "/" + hasta;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getIncidenciasPorSemana (idhotel, desde, hasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/1/10/20
+
+    var url = "http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
