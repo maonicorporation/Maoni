@@ -13,12 +13,18 @@
     <link href="./css/custom.css" rel="stylesheet">
     <link href="./css/maoni.css" rel="stylesheet">
     <link href="./css/animate.min.css" rel="stylesheet">
+	<!-- Switchery -->
+	<link href="./vendors/switchery/dist/switchery.min.css" rel="stylesheet">
 	
 	<script src="./vendors/jquery/dist/jquery.min.js"></script>
     <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Switchery -->
+    <script src="./vendors/switchery/dist/switchery.min.js"></script>
+	<script src="./js/custom.js"></script>
 	<script src="./vendors/raphael/raphael.min.js"></script>
     <script src="./vendors/morris.js/morris.min.js"></script>
 	<script src="./js/lib.js"></script>
+	
 	
   </head>
 
@@ -29,13 +35,87 @@
 			<div class="x_content2 col-md-10">
 				<div id="graph_area" style="width:100%; height:450px;"></div>
 			</div>
-			<div class="x_content2 col-md-2">
-				legend
+			<div class="col-md-2">
+				<br/><br/>
+				<div class="row">
+					<div class="col-md-4">
+						<label>
+							<input id="chk1" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxgis" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;GIS&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					
+					<div class="clearfix"></div>
+					<br/>
+					
+					<div class="col-md-4">
+						<label>
+							<input id="chk2" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxhab" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;Habitación&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					
+					<div class="clearfix"></div>
+					<br/>
+					
+					<div class="col-md-4">
+						<label>
+							<input id="chk3" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxlim" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;Limpieza&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					
+					<div class="clearfix"></div>
+					<br/>
+					
+					<div class="col-md-4">
+						<label>
+							<input id="chk4" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxper" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;Personal&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					
+					<div class="clearfix"></div>
+					<br/>
+					
+					<div class="col-md-4">
+						<label>
+							<input id="chk5" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxwif" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;Wifi&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					
+					<div class="clearfix"></div>
+					<br/>
+					
+					<div class="col-md-4">
+						<label>
+							<input id="chk6" type="checkbox" class="js-switch" checked />
+						</label>					
+					</div>
+					<div class="col-md-8">
+						<div class="inline vcenter boxrte" style="margin-top:-2px" ></div><p class="inline vcenter" style="margin-top:8px">&nbsp;&nbsp;Restaurante&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+				</div>
 			</div>
 		</div>
     </div>
 	
 	<script>
+	
+	var qdata = [];
+	var qmorris = null;
+	
 	function loadDatag()
 	{
 		//http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/1/10/20
@@ -54,62 +134,116 @@
 		var wdesde = getWeekNumber (dt1);
 		var whasta = getWeekNumber (dt2);
 		
-		getIncidenciasPorSemana (idhotel, wdesde, whasta, function(err, data)
+		getIndicesSatisfaccionSemana (idhotel, wdesde, whasta, function(err, data)
 		{
 			if (data != null)
 			{	
-				Morris.Area({
-				  element: 'graph_area',
-				  data: [
-					{period: '2014 Q1', iphone: 2666, ipad: null, itouch: 2647},
-					{period: '2014 Q2', iphone: 2778, ipad: 2294, itouch: 2441},
-					{period: '2014 Q3', iphone: 4912, ipad: 1969, itouch: 2501},
-					{period: '2014 Q4', iphone: 3767, ipad: 3597, itouch: 5689},
-					{period: '2015 Q1', iphone: 6810, ipad: 1914, itouch: 2293},
-					{period: '2015 Q2', iphone: 5670, ipad: 4293, itouch: 1881},
-					{period: '2015 Q3', iphone: 4820, ipad: 3795, itouch: 1588},
-					{period: '2015 Q4', iphone: 15073, ipad: 5967, itouch: 5175},
-					{period: '2016 Q1', iphone: 10687, ipad: 4460, itouch: 2028},
-					{period: '2016 Q2', iphone: 8432, ipad: 5713, itouch: 1791}
-				  ],
-				  xkey: 'semana',
-				  ykeys: ['iphone', 'ipad', 'itouch'],
-				  lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-				  labels: ['iPhone', 'iPad', 'iPod Touch'],
-				  pointSize: 2,
-				  hideHover: 'auto',
-				  resize: true
+				/*
+				[{"SEMANA":19,"ENVIADAS":23,"OK":21,"KO":13,"KO_HABITACION":2,"KO_LIMPIEZA":4,"KO_PERSONAL":4,"KO_WIFI":4,"KO_RESTAURANTE":6,"KO_CALIDADPRECIO":4},
+				 {"SEMANA":20,"ENVIADAS":8,"OK":3,"KO":5,"KO_HABITACION":1,"KO_LIMPIEZA":0,"KO_PERSONAL":3,"KO_WIFI":0,"KO_RESTAURANTE":2,"KO_CALIDADPRECIO":1}]
+				*/
+				
+				for (var i=0; i <data.length; i++)
+				{
+					var qty = data[i].OK + data[i].KO;
+					
+					if (qty > 0)
+					{
+						var semana = data[i].SEMANA;
+						var hab = 100 * (1 - (data[i].KO_HABITACION / qty));
+						var lim = 100 * (1 - (data[i].KO_LIMPIEZA / qty));
+						var per = 100 * (1 - (data[i].KO_PERSONAL / qty));
+						var wif = 100 * (1 - (data[i].KO_WIFI / qty));
+						var rte = 100 * (1 - (data[i].KO_RESTAURANTE / qty));						
+						
+						var gis = (hab + lim + per + wif + rte) / 5;
+						
+						qdata.push ({semana: semana, GIS: gis.toFixed(0), HAB: hab.toFixed(0), LIM: lim.toFixed(0), PER: per.toFixed(0), WIF: wif.toFixed(0), RTE: rte.toFixed(0) });
+					}				
+				}
+			
+				qmorris = Morris.Area({
+					element: 'graph_area',
+					data: null,
+					xkey: 'semana',
+					ykeys: ['GIS', 'HAB', 'LIM', 'PER', 'WIF', 'RTE'],
+					lineColors: ['#1abb9c', '#73879c', '#ee5b55', '#f8bc32', '#a94067', '#0b96df'],
+					labels: ['GIS', 'Habitación', 'Limpieza', 'Personal', 'Wifi', 'Restaurante'],
+					pointSize: 2,
+					hideHover: 'auto',
+					behaveLikeLine:true,
+					resize: true
 				});
 				
-/*			
-				Morris.Area({
-				  element: 'graph_area',
-				  data: [
-					{period: '2014 Q1', iphone: 2666, ipad: null, itouch: 2647},
-					{period: '2014 Q2', iphone: 2778, ipad: 2294, itouch: 2441},
-					{period: '2014 Q3', iphone: 4912, ipad: 1969, itouch: 2501},
-					{period: '2014 Q4', iphone: 3767, ipad: 3597, itouch: 5689},
-					{period: '2015 Q1', iphone: 6810, ipad: 1914, itouch: 2293},
-					{period: '2015 Q2', iphone: 5670, ipad: 4293, itouch: 1881},
-					{period: '2015 Q3', iphone: 4820, ipad: 3795, itouch: 1588},
-					{period: '2015 Q4', iphone: 15073, ipad: 5967, itouch: 5175},
-					{period: '2016 Q1', iphone: 10687, ipad: 4460, itouch: 2028},
-					{period: '2016 Q2', iphone: 8432, ipad: 5713, itouch: 1791}
-				  ],
-				  xkey: 'period',
-				  ykeys: ['iphone', 'ipad', 'itouch'],
-				  lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-				  labels: ['iPhone', 'iPad', 'iPod Touch'],
-				  pointSize: 2,
-				  hideHover: 'auto',
-				  resize: true
-				});*/
+				presentData ();
 				
 				$('.x_content2').addClass('animated flipInY');
 			}
 		});
 	}
 	
+	$('#chk1').click(function() { presentData (); });
+	$('#chk2').click(function() { presentData (); });
+	$('#chk3').click(function() { presentData (); });
+	$('#chk4').click(function() { presentData (); });
+	$('#chk5').click(function() { presentData (); });
+	$('#chk6').click(function() { presentData (); });
+	
+	function presentData()
+	{
+		var copyqdata = JSON.parse(JSON.stringify(qdata));
+		
+		if ( $("#chk1").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].GIS;
+			}
+		}
+		
+		if ( $("#chk2").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].HAB;
+			}
+		}
+		
+		if ( $("#chk3").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].LIM;
+			}
+		}
+		
+		if ( $("#chk4").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].PER;
+			}
+		}
+		
+		if ( $("#chk5").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].WIF;
+			}
+		}
+		
+		if ( $("#chk6").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].RTE;
+			}
+		}
+  
+		qmorris.setData(copyqdata);
+	}
+
     $(document).ready(function()
     {
 		loadDatag();

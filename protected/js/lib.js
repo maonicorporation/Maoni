@@ -292,9 +292,25 @@ function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 
 function getIndicesSatisfaccion (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
+	//http://wsreservas.go.maoni.solutions/IndicesSatisfaccion/1/20160501/20160531
 
     var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccion/" + idhotel + "/" + desde + "/" + hasta;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getIndicesSatisfaccionSemana (idhotel, wdesde, whasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/1/10/20
+
+    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/" + idhotel + "/" + wdesde + "/" + whasta;
 	$.get(url)
 	.fail(function() 
     {

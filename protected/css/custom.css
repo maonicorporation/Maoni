@@ -1647,12 +1647,7 @@ ul.top_profiles li:nth-child(odd) {
   border-radius: 10px;
   padding: 5px;
 }
-.boxko {
-    border-radius: 2px;
-    background: #ee5b55;
-    width: 12px;
-    height: 12px;    
-}
+
 .media .dateok {
   background: #61ca42 ;
   width: 52px;
@@ -1660,12 +1655,7 @@ ul.top_profiles li:nth-child(odd) {
   border-radius: 10px;
   padding: 5px;
 }
-.boxok {
-    border-radius: 2px;
-    background: #61ca42;
-    width: 12px;
-    height: 12px;    
-}
+
 .media .date .month {
   margin: 0;
   text-align: center;

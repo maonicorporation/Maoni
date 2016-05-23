@@ -46,6 +46,77 @@ body
     color: #00d640;
 }
 
+.boxko
+{
+    border-radius: 2px;
+    background: #ee5b55;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxok
+{
+    border-radius: 2px;
+    background: #61ca42;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxgis
+{
+    border-radius: 2px;
+    background: #1abb9c;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxhab
+{
+    border-radius: 2px;
+    background: #73879c;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxlim
+{
+    border-radius: 2px;
+    background: #ee5b55;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxper
+{
+    border-radius: 2px;
+    background: #f8bc32;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxwif
+{
+    border-radius: 2px;
+    background: #a94067;
+    width: 12px;
+    height: 12px;    
+}
+
+.boxrte
+{
+    border-radius: 2px;
+    background: #0b96df;
+    width: 12px;
+    height: 12px;    
+}
+
+.vcenter
+{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 .fontred
 {
     color: #ee5b55;
