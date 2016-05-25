@@ -306,11 +306,11 @@ function getIndicesSatisfaccion (idhotel, desde, hasta, callback)
 	});
 }
 
-function getIndicesSatisfaccionSemana (idhotel, wdesde, whasta, callback)
+function getIndicesSatisfaccionSemana (idhotel, pyear,wdesde, whasta, callback)
 {
 	//http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/1/10/20
 
-    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/" + idhotel + "/" + wdesde + "/" + whasta;
+    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/" + idhotel + "/" + pyear + "/" + wdesde + "/" + whasta;
 	$.get(url)
 	.fail(function() 
     {

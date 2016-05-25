@@ -1,0 +1,750 @@
+21:11:10	INICIO ENVIO EMAILS....
+21:11:10	INICIO maoni. Escuchando en el puerto: 5555
+21:11:11	Server is ready to take our messages
+21:11:12	1 EMPRESA DEMO
+21:11:12	  1 Hotel Princesa Sofía
+21:11:12	  2 Hotel Barcelona Mar
+21:11:12	    ES \inmail\inmail_es.html
+21:35:38	Request file: /
+21:35:38	Request file: /js/sha256.js
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\js\sha256.js
+21:35:38	ext: .JS
+21:35:38	Request file: /css/signin.css
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\css\signin.css
+21:35:38	ext: .CSS
+21:35:38	ext: .JS
+21:35:38	Request file: /vendors/jquery/dist/jquery.min.js
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:38	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:35:38	ext: .JS
+21:35:38	Request file: /js/toastr.js
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:35:38	ext: .JS
+21:35:38	Request file: /js/lib.js
+21:35:38	ext: .JS
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\css\bootstrap.min.css
+21:35:38	ext: .CSS
+21:35:38	Request file: /vendors/bootstrap/dist/css/bootstrap.min.css
+21:35:38	Request file: /css/maoni.css
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:35:38	ext: .CSS
+21:35:38	ext: .CSS
+21:35:38	Request file: /css/animate.min.css
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:35:38	Request file: /img/logoGo.png
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\img\logoGo.png
+21:35:38	ext: .PNG
+21:35:38	Request file: /css/toastr.css
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:35:38	ext: .CSS
+21:35:38	Request file: /css/custom.css
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\css\custom.css
+21:35:38	ext: .CSS
+21:35:38	Request file: /img/fondo.png
+21:35:38	filename: c:\projectes\Maoni\Maoni\protected\img\fondo.png
+21:35:38	ext: .PNG
+21:35:40	Request file: /BBDD
+21:35:40	login -> {"f":"login","user":"emilio","pwd":"99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201"}
+21:35:40	Request file: /@@MENU@@_page_000.html?SESSIONKEY=384518
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_000.html
+21:35:40	ext: .HTML
+21:35:40	Request file: /vendors/bootstrap/dist/css/bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\css\bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /css/toastr.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /css/custom.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\css\custom.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /css/maoni.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:35:40	ext: .CSS
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:35:40	Request file: /css/animate.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/jquery/dist/jquery.min.js
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:40	ext: .JS
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:35:40	ext: .JS
+21:35:40	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js
+21:35:40	Request file: /js/toastr.js
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:35:40	ext: .JS
+21:35:40	Request file: /js/lib.js
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:35:40	ext: .JS
+21:35:40	Request file: /vendors/font-awesome/css/font-awesome.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\font-awesome\css\font-awesome.min.css
+21:35:40	ext: .CSS
+21:35:40	ext: .CSS
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\iCheck\skins\flat\green.css
+21:35:40	Request file: /vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/iCheck/skins/flat/green.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\css\maps\jquery-jvectormap-2.0.3.css
+21:35:40	Request file: /css/maps/jquery-jvectormap-2.0.3.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/select2/dist/css/select2.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\css\select2.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/datatables.net-bs/css/dataTables.bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\css\dataTables.bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\css\buttons.bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader-bs\css\fixedHeader.bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\css\responsive.bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller-bs\css\scroller.bootstrap.min.css
+21:35:40	ext: .CSS
+21:35:40	Request file: /vendors/parsleyjs/dist/parsley.min.js
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\vendors\parsleyjs\dist\parsley.min.js
+21:35:40	ext: .JS
+21:35:40	Request file: /img/redondaamarilla.png
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\img\redondaamarilla.png
+21:35:40	ext: .PNG
+21:35:40	Request file: /img/redondaverde.png
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\img\redondaverde.png
+21:35:40	ext: .PNG
+21:35:40	Request file: /img/redondaroja.png
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\img\redondaroja.png
+21:35:40	ext: .PNG
+21:35:40	Request file: /img/redondagris.png
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\img\redondagris.png
+21:35:40	ext: .PNG
+21:35:40	Request file: /img/logoGowhite.png
+21:35:40	filename: c:\projectes\Maoni\Maoni\protected\img\logoGowhite.png
+21:35:40	ext: .PNG
+21:35:41	Request file: /images/img.jpg
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\images\img.jpg
+21:35:41	ext: .JPG
+21:35:41	Request file: /vendors/fastclick/lib/fastclick.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\fastclick\lib\fastclick.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.1
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\font-awesome\fonts\fontawesome-webfont.woff2
+21:35:41	ext: .WOFF2
+21:35:41	Request file: /vendors/nprogress/nprogress.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\nprogress\nprogress.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net/js/jquery.dataTables.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net\js\jquery.dataTables.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-bs/js/dataTables.bootstrap.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\js\dataTables.bootstrap.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-buttons/js/dataTables.buttons.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\dataTables.buttons.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\js\buttons.bootstrap.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-buttons/js/buttons.flash.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.flash.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-buttons/js/buttons.html5.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.html5.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-buttons/js/buttons.print.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.print.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader\js\dataTables.fixedHeader.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-keytable/js/dataTables.keyTable.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-keytable\js\dataTables.keyTable.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-responsive/js/dataTables.responsive.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive\js\dataTables.responsive.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/jquery/dist/jquery.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\js\responsive.bootstrap.js
+21:35:41	ext: .JS
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/datatables.net-scroller/js/datatables.scroller.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller\js\datatables.scroller.min.js
+21:35:41	Request file: /vendors/jszip/dist/jszip.min.js
+21:35:41	ext: .JS
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\jszip\dist\jszip.min.js
+21:35:41	Request file: /vendors/pdfmake/build/pdfmake.min.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\pdfmake.min.js
+21:35:41	ext: .JS
+21:35:41	Request file: /vendors/pdfmake/build/vfs_fonts.js
+21:35:41	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\vfs_fonts.js
+21:35:41	ext: .JS
+21:35:42	Request file: /js/moment/moment.min.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\js\moment\moment.min.js
+21:35:42	ext: .JS
+21:35:42	Request file: /js/datepicker/daterangepicker.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\js\datepicker\daterangepicker.js
+21:35:42	ext: .JS
+21:35:42	Request file: /vendors/select2/dist/js/select2.full.min.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\js\select2.full.min.js
+21:35:42	ext: .JS
+21:35:42	Request file: /js/custom.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:35:42	ext: .JS
+21:35:42	Request file: /vendors/echarts/dist/echarts.min.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\dist\echarts.min.js
+21:35:42	ext: .JS
+21:35:42	Request file: /vendors/echarts/map/js/world.js
+21:35:42	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\map\js\world.js
+21:35:42	ext: .JS
+21:35:47	Request file: /@@MENU@@_page_001.html?SESSIONKEY=384518
+21:35:47	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_001.html
+21:35:47	ext: .HTML
+21:35:48	Request file: /vendors/bootstrap/dist/css/bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\css\bootstrap.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/font-awesome/css/font-awesome.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\font-awesome\css\font-awesome.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/iCheck/skins/flat/green.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\iCheck\skins\flat\green.css
+21:35:48	ext: .CSS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.min.css
+21:35:48	Request file: /vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css
+21:35:48	ext: .CSS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\css\maps\jquery-jvectormap-2.0.3.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /css/maps/jquery-jvectormap-2.0.3.css
+21:35:48	Request file: /vendors/select2/dist/css/select2.min.css
+21:35:48	ext: .CSS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\css\select2.min.css
+21:35:48	Request file: /css/toastr.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /css/custom.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\css\custom.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /css/maoni.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /css/animate.min.css
+21:35:48	Request file: /vendors/datatables.net-bs/css/dataTables.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\css\dataTables.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:35:48	ext: .CSS
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\css\buttons.bootstrap.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader-bs\css\fixedHeader.bootstrap.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\css\responsive.bootstrap.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller-bs\css\scroller.bootstrap.min.css
+21:35:48	ext: .CSS
+21:35:48	Request file: /vendors/jquery/dist/jquery.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js
+21:35:48	Request file: /vendors/parsleyjs/dist/parsley.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\parsleyjs\dist\parsley.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /js/toastr.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/fastclick/lib/fastclick.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\fastclick\lib\fastclick.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\nprogress\nprogress.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/nprogress/nprogress.js
+21:35:48	Request file: /vendors/datatables.net/js/jquery.dataTables.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net\js\jquery.dataTables.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-bs/js/dataTables.bootstrap.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\js\dataTables.bootstrap.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-buttons/js/dataTables.buttons.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\dataTables.buttons.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\js\buttons.bootstrap.min.js
+21:35:48	Request file: /vendors/datatables.net-buttons/js/buttons.flash.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.flash.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-buttons/js/buttons.html5.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.html5.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-buttons/js/buttons.print.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.print.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader\js\dataTables.fixedHeader.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-keytable/js/dataTables.keyTable.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-keytable\js\dataTables.keyTable.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-responsive/js/dataTables.responsive.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive\js\dataTables.responsive.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\js\responsive.bootstrap.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller\js\datatables.scroller.min.js
+21:35:48	Request file: /vendors/datatables.net-scroller/js/datatables.scroller.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/jszip/dist/jszip.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\jszip\dist\jszip.min.js
+21:35:48	Request file: /vendors/pdfmake/build/pdfmake.min.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\pdfmake.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/pdfmake/build/vfs_fonts.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\vfs_fonts.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\js\moment\moment.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /js/datepicker/daterangepicker.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\js\datepicker\daterangepicker.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/select2/dist/js/select2.full.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\js\select2.full.min.js
+21:35:48	ext: .JS
+21:35:48	Request file: /js/moment/moment.min.js
+21:35:48	Request file: /js/custom.js
+21:35:48	ext: .JS
+21:35:48	Request file: /js/lib.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:35:48	ext: .JS
+21:35:48	Request file: /vendors/echarts/dist/echarts.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\dist\echarts.min.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\map\js\world.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:35:48	Request file: /vendors/echarts/map/js/world.js
+21:35:48	Request file: /vendors/jquery/dist/jquery.min.js
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:48	ext: .JS
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\img\logoGowhite.png
+21:35:48	ext: .PNG
+21:35:48	Request file: /img/logoGowhite.png
+21:35:48	Request file: /images/img.jpg
+21:35:48	filename: c:\projectes\Maoni\Maoni\protected\images\img.jpg
+21:35:48	ext: .JPG
+21:35:50	Request file: /EMB_graph1.html
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\EMB_graph1.html
+21:35:50	ext: .HTML
+21:35:50	Request file: /EMB_indices.html
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\EMB_indices.html
+21:35:50	ext: .HTML
+21:35:50	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032148736
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032148737
+21:35:50	Request file: /vendors/switchery/dist/switchery.min.css
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.css
+21:35:50	ext: .CSS
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032148738
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /js/lib.js?_=1464032148739
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:35:50	ext: .JS
+21:35:50	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032148740
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /vendors/switchery/dist/switchery.min.js?_=1464032148741
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /js/custom.js?_=1464032148742
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:35:50	ext: .JS
+21:35:50	Request file: /vendors/raphael/raphael.min.js?_=1464032148743
+21:35:50	ext: .JS
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\raphael\raphael.min.js
+21:35:50	Request file: /vendors/morris.js/morris.min.js?_=1464032148744
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\vendors\morris.js\morris.min.js
+21:35:50	ext: .JS
+21:35:50	Request file: /js/lib.js?_=1464032148745
+21:35:50	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:35:50	ext: .JS
+21:39:8	Request file: /@@MENU@@_page_001.html?SESSIONKEY=384518
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_001.html
+21:39:8	ext: .HTML
+21:39:8	Request file: /vendors/bootstrap/dist/css/bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\css\bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\font-awesome\css\font-awesome.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/iCheck/skins/flat/green.css
+21:39:8	Request file: /vendors/font-awesome/css/font-awesome.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.min.css
+21:39:8	ext: .CSS
+21:39:8	ext: .CSS
+21:39:8	ext: .CSS
+21:39:8	Request file: /css/maps/jquery-jvectormap-2.0.3.css
+21:39:8	Request file: /vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\iCheck\skins\flat\green.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\css\maps\jquery-jvectormap-2.0.3.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/select2/dist/css/select2.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\css\select2.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /css/toastr.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /css/custom.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\css\custom.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /css/maoni.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /css/animate.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/datatables.net-bs/css/dataTables.bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\css\dataTables.bootstrap.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\css\buttons.bootstrap.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader-bs\css\fixedHeader.bootstrap.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\css\responsive.bootstrap.min.css
+21:39:8	ext: .CSS
+21:39:8	Request file: /vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller-bs\css\scroller.bootstrap.min.css
+21:39:8	ext: .CSS
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:39:8	Request file: /vendors/jquery/dist/jquery.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/parsleyjs/dist/parsley.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\parsleyjs\dist\parsley.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /js/toastr.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/fastclick/lib/fastclick.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\fastclick\lib\fastclick.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/nprogress/nprogress.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\nprogress\nprogress.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net/js/jquery.dataTables.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net\js\jquery.dataTables.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-bs/js/dataTables.bootstrap.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\js\dataTables.bootstrap.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-buttons/js/dataTables.buttons.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\dataTables.buttons.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\js\buttons.bootstrap.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-buttons/js/buttons.flash.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.flash.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-buttons/js/buttons.html5.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.html5.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-buttons/js/buttons.print.min.js
+21:39:8	ext: .JS
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.print.min.js
+21:39:8	Request file: /vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader\js\dataTables.fixedHeader.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-keytable/js/dataTables.keyTable.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-keytable\js\dataTables.keyTable.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-responsive/js/dataTables.responsive.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive\js\dataTables.responsive.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js
+21:39:8	ext: .JS
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\js\responsive.bootstrap.js
+21:39:8	Request file: /vendors/datatables.net-scroller/js/datatables.scroller.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller\js\datatables.scroller.min.js
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/jszip/dist/jszip.min.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\jszip\dist\jszip.min.js
+21:39:8	ext: .JS
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\pdfmake.min.js
+21:39:8	Request file: /vendors/pdfmake/build/pdfmake.min.js
+21:39:8	ext: .JS
+21:39:8	ext: .JS
+21:39:8	Request file: /vendors/pdfmake/build/vfs_fonts.js
+21:39:8	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\vfs_fonts.js
+21:39:9	Request file: /js/moment/moment.min.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\js\moment\moment.min.js
+21:39:9	ext: .JS
+21:39:9	Request file: /js/datepicker/daterangepicker.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\js\datepicker\daterangepicker.js
+21:39:9	ext: .JS
+21:39:9	Request file: /vendors/select2/dist/js/select2.full.min.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\js\select2.full.min.js
+21:39:9	ext: .JS
+21:39:9	Request file: /js/custom.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:39:9	ext: .JS
+21:39:9	ext: .JS
+21:39:9	Request file: /js/lib.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\dist\echarts.min.js
+21:39:9	Request file: /vendors/echarts/dist/echarts.min.js
+21:39:9	ext: .JS
+21:39:9	Request file: /vendors/echarts/map/js/world.js
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\map\js\world.js
+21:39:9	ext: .JS
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:39:9	ext: .JS
+21:39:9	Request file: /vendors/jquery/dist/jquery.min.js
+21:39:9	Request file: /img/logoGowhite.png
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\img\logoGowhite.png
+21:39:9	ext: .PNG
+21:39:9	Request file: /images/img.jpg
+21:39:9	filename: c:\projectes\Maoni\Maoni\protected\images\img.jpg
+21:39:9	ext: .JPG
+21:39:10	Request file: /EMB_graph1.html
+21:39:10	filename: c:\projectes\Maoni\Maoni\protected\EMB_graph1.html
+21:39:10	ext: .HTML
+21:39:10	Request file: /EMB_indices.html
+21:39:10	filename: c:\projectes\Maoni\Maoni\protected\EMB_indices.html
+21:39:10	ext: .HTML
+21:39:10	Request file: /vendors/switchery/dist/switchery.min.css
+21:39:10	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.css
+21:39:10	ext: .CSS
+21:39:10	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032349374
+21:39:10	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:39:10	ext: .JS
+21:39:10	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032349375
+21:39:10	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:39:10	ext: .JS
+21:39:11	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032349376
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:39:11	ext: .JS
+21:39:11	Request file: /js/lib.js?_=1464032349377
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:39:11	ext: .JS
+21:39:11	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032349378
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:39:11	ext: .JS
+21:39:11	Request file: /vendors/switchery/dist/switchery.min.js?_=1464032349379
+21:39:11	ext: .JS
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.js
+21:39:11	Request file: /js/custom.js?_=1464032349380
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:39:11	ext: .JS
+21:39:11	Request file: /vendors/raphael/raphael.min.js?_=1464032349381
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\vendors\raphael\raphael.min.js
+21:39:11	ext: .JS
+21:39:11	Request file: /vendors/morris.js/morris.min.js?_=1464032349382
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\vendors\morris.js\morris.min.js
+21:39:11	ext: .JS
+21:39:11	Request file: /js/lib.js?_=1464032349383
+21:39:11	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:39:11	ext: .JS
+21:41:3	Request file: /@@MENU@@_page_001.html?SESSIONKEY=384518
+21:41:3	ext: .HTML
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\@@MENU@@_page_001.html
+21:41:3	Request file: /vendors/bootstrap/dist/css/bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\css\bootstrap.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/font-awesome/css/font-awesome.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\font-awesome\css\font-awesome.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/iCheck/skins/flat/green.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\iCheck\skins\flat\green.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /css/maps/jquery-jvectormap-2.0.3.css
+21:41:3	ext: .CSS
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\css\maps\jquery-jvectormap-2.0.3.css
+21:41:3	Request file: /vendors/select2/dist/css/select2.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\css\select2.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /css/toastr.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\css\toastr.css
+21:41:3	Request file: /css/custom.css
+21:41:3	ext: .CSS
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\css\custom.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /css/maoni.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\css\maoni.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /css/animate.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\css\animate.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/datatables.net-bs/css/dataTables.bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\css\dataTables.bootstrap.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\css\buttons.bootstrap.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader-bs\css\fixedHeader.bootstrap.min.css
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\css\responsive.bootstrap.min.css
+21:41:3	Request file: /vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller-bs\css\scroller.bootstrap.min.css
+21:41:3	ext: .CSS
+21:41:3	ext: .CSS
+21:41:3	Request file: /vendors/jquery/dist/jquery.min.js
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:41:3	ext: .JS
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:41:3	ext: .JS
+21:41:3	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js
+21:41:3	Request file: /vendors/parsleyjs/dist/parsley.min.js
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\parsleyjs\dist\parsley.min.js
+21:41:3	ext: .JS
+21:41:3	Request file: /js/toastr.js
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\js\toastr.js
+21:41:3	ext: .JS
+21:41:3	filename: c:\projectes\Maoni\Maoni\protected\vendors\fastclick\lib\fastclick.js
+21:41:3	Request file: /vendors/fastclick/lib/fastclick.js
+21:41:3	ext: .JS
+21:41:4	Request file: /vendors/nprogress/nprogress.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\nprogress\nprogress.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net/js/jquery.dataTables.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net\js\jquery.dataTables.min.js
+21:41:4	ext: .JS
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-bs/js/dataTables.bootstrap.min.js
+21:41:4	Request file: /vendors/datatables.net-buttons/js/dataTables.buttons.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\dataTables.buttons.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-bs\js\dataTables.bootstrap.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons-bs\js\buttons.bootstrap.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-buttons/js/buttons.flash.min.js
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.flash.min.js
+21:41:4	Request file: /vendors/datatables.net-buttons/js/buttons.html5.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.html5.min.js
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-buttons\js\buttons.print.min.js
+21:41:4	Request file: /vendors/datatables.net-buttons/js/buttons.print.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-fixedheader\js\dataTables.fixedHeader.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-keytable/js/dataTables.keyTable.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-keytable\js\dataTables.keyTable.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-responsive/js/dataTables.responsive.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive\js\dataTables.responsive.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-responsive-bs\js\responsive.bootstrap.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/datatables.net-scroller/js/datatables.scroller.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\datatables.net-scroller\js\datatables.scroller.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/jszip/dist/jszip.min.js
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\jszip\dist\jszip.min.js
+21:41:4	Request file: /vendors/pdfmake/build/pdfmake.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\pdfmake.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/pdfmake/build/vfs_fonts.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\pdfmake\build\vfs_fonts.js
+21:41:4	ext: .JS
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\js\moment\moment.min.js
+21:41:4	Request file: /js/datepicker/daterangepicker.js
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\js\datepicker\daterangepicker.js
+21:41:4	Request file: /js/moment/moment.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\select2\dist\js\select2.full.min.js
+21:41:4	Request file: /vendors/select2/dist/js/select2.full.min.js
+21:41:4	ext: .JS
+21:41:4	Request file: /js/custom.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:41:4	ext: .JS
+21:41:4	Request file: /js/lib.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:41:4	ext: .JS
+21:41:4	Request file: /vendors/echarts/dist/echarts.min.js
+21:41:4	ext: .JS
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\dist\echarts.min.js
+21:41:4	Request file: /vendors/echarts/map/js/world.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\echarts\map\js\world.js
+21:41:4	ext: .JS
+21:41:4	Request file: /img/logoGowhite.png
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\img\logoGowhite.png
+21:41:4	ext: .PNG
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\images\img.jpg
+21:41:4	ext: .JPG
+21:41:4	Request file: /images/img.jpg
+21:41:4	Request file: /vendors/jquery/dist/jquery.min.js
+21:41:4	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:41:4	ext: .JS
+21:41:5	Request file: /EMB_graph1.html
+21:41:5	ext: .HTML
+21:41:5	filename: c:\projectes\Maoni\Maoni\protected\EMB_graph1.html
+21:41:5	filename: c:\projectes\Maoni\Maoni\protected\EMB_indices.html
+21:41:5	Request file: /EMB_indices.html
+21:41:5	ext: .HTML
+21:41:5	Request file: /vendors/switchery/dist/switchery.min.css
+21:41:5	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.css
+21:41:5	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032464622
+21:41:5	ext: .CSS
+21:41:5	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:41:5	ext: .JS
+21:41:5	Request file: /vendors/jquery/dist/jquery.min.js?_=1464032464623
+21:41:5	filename: c:\projectes\Maoni\Maoni\protected\vendors\jquery\dist\jquery.min.js
+21:41:5	ext: .JS
+21:41:6	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032464624
+21:41:6	ext: .JS
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:41:6	Request file: /js/lib.js?_=1464032464625
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:41:6	ext: .JS
+21:41:6	Request file: /vendors/bootstrap/dist/js/bootstrap.min.js?_=1464032464626
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\vendors\bootstrap\dist\js\bootstrap.min.js
+21:41:6	ext: .JS
+21:41:6	Request file: /vendors/switchery/dist/switchery.min.js?_=1464032464627
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\vendors\switchery\dist\switchery.min.js
+21:41:6	ext: .JS
+21:41:6	Request file: /js/custom.js?_=1464032464628
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\js\custom.js
+21:41:6	ext: .JS
+21:41:6	ext: .JS
+21:41:6	Request file: /vendors/raphael/raphael.min.js?_=1464032464629
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\vendors\raphael\raphael.min.js
+21:41:6	Request file: /vendors/morris.js/morris.min.js?_=1464032464630
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\vendors\morris.js\morris.min.js
+21:41:6	ext: .JS
+21:41:6	Request file: /js/lib.js?_=1464032464631
+21:41:6	filename: c:\projectes\Maoni\Maoni\protected\js\lib.js
+21:41:6	ext: .JS
+21:41:10	INICIO ENVIO EMAILS....
+21:41:10	1 EMPRESA DEMO
+21:41:11	  2 Hotel Barcelona Mar
+21:41:11	  1 Hotel Princesa Sofía
+21:41:11	    ES \inmail\inmail_es.html

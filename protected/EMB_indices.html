@@ -10,12 +10,15 @@
 	 <!-- Bootstrap -->
     <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./css/custom.css" rel="stylesheet">
     <link href="./css/maoni.css" rel="stylesheet">
     <link href="./css/animate.min.css" rel="stylesheet">
 	
 	<script src="./vendors/jquery/dist/jquery.min.js"></script>
     <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="./js/lib.js"></script>
+
+	
 	
   </head>
 
@@ -169,6 +172,8 @@
 							$('#iddiff50').html('<i class="green"><i class="fa fa-sort-asc"></i>' + dif50.toFixed(0) + ' % </i> Esta semana');
 						else
 							$('#iddiff50').html('<i class="red"><i class="fa fa-sort-desc"></i>' + dif50.toFixed(0) + ' % </i> Esta semana');
+							
+						$('#iddiff1').html('<i class="green"><i class="fa fa-sort-desc"></i>' + 'unset' + ' % </i> Esta semana');
 						
 						$('.tile_stats_count').addClass('animated flipInY');
 						

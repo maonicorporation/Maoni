@@ -28,12 +28,12 @@
 	
   </head>
 
-  <body class="_nav-md bkwhite">
-    <div class="container-fluid body bkwhite">
+
+    <div class="container-fluid  bkwhite nomargins">
       
-		<div clss="row">
-			<div class="x_content2 col-md-10">
-				<div id="graph_area" style="width:100%; height:450px;"></div>
+		<div clss="row nomargins">
+			<div class="col-xs-12 col-md-10 nomargins">
+				<div class="nomargins" id="graph_area" style="width:100%; height:450px;"></div>
 			</div>
 			<div class="col-md-2">
 				<br/><br/>
@@ -131,10 +131,11 @@
 		var dt1 = new Date(desde.substring(0,4), parseInt (desde.substring(4,6)) - 1, desde.substring(6,8), 0, 0, 0, 0);
 		var dt2 = new Date(hasta.substring(0,4), parseInt (hasta.substring(4,6)) - 1, hasta.substring(6,8), 0, 0, 0, 0);
 		
+		var pyear = desde.substring(0,4);
 		var wdesde = getWeekNumber (dt1);
 		var whasta = getWeekNumber (dt2);
 		
-		getIndicesSatisfaccionSemana (idhotel, wdesde, whasta, function(err, data)
+		getIndicesSatisfaccionSemana (idhotel, pyear, wdesde, whasta, function(err, data)
 		{
 			if (data != null)
 			{	
@@ -162,7 +163,7 @@
 					}				
 				}
 			
-				qmorris = Morris.Area({
+				qmorris = Morris.Line({
 					element: 'graph_area',
 					data: null,
 					xkey: 'semana',
@@ -170,8 +171,9 @@
 					lineColors: ['#1abb9c', '#73879c', '#ee5b55', '#f8bc32', '#a94067', '#0b96df'],
 					labels: ['GIS', 'Habitación', 'Limpieza', 'Personal', 'Wifi', 'Restaurante'],
 					pointSize: 2,
-					hideHover: 'auto',
-					behaveLikeLine:true,
+					hideHover: 'always',//'auto',
+					axes: true,
+					//behaveLikeLine:true,
 					resize: true
 				});
 				
@@ -250,7 +252,6 @@
 	});
 	
 	</script>
-  </body>
 </html>
 
 
