@@ -141,6 +141,25 @@ body
     float: none;
 }
 
+
+
+
+.contenstar{
+    /*border:1px solid red;*/
+    text-align:center; /* solution */
+}
+
+.star{
+    display:inline-block;
+    padding:0px;
+    /*border:1px solid red;*/
+    margin:1px 1px;
+    overflow:hidden;
+}
+
+
+
+
 .fontred
 {
     color: #ee5b55;

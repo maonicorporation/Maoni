@@ -151,6 +151,8 @@ function query ()
 		desde = ddmmyyToUnix(fecha);
 		hasta = desde;
 	}
+	
+	var pyear = desde.substring(0,4);
     
 	$("#cnt1").html("0");
 	$("#cnt2").html("0");
@@ -234,7 +236,58 @@ function query ()
 		$('#idListaTop5').show (200);
     });
 	
-	
+	getTopResolutivos (idhotel, pyear, function(err, data)
+    {
+		$('#idListaTop5Resolutivos').hide (100);
+		$('#idListaTop5Resolutivos').empty();
+		
+		var stars = 3;
+		
+        for (var i=0 ; i < data.length; i++)
+		{		
+			if (i < 5 && data[i].IDUSUARIOSOLUCION != "")
+			{
+				var row = "";
+				
+				row += '<article class="media event cursorpointer" onclick="">';
+				
+				row += '<div class="row">';
+				row += '	<div class="col-md-4">';
+				
+				row += '	<div class="contenstar">';
+				row += '		<img src="./users/' + data[i].IDUSUARIOSOLUCION + '.jpg" alt="..." class="img-responsive img-circle profile_img" >';
+				row += '	</div>';
+				
+				row += '	<div class="contenstar">';
+				for (var j=0; j<stars; j++)
+				{
+					row += '    <div class="star"><img src="./img/star.png" alt="..." class=" img-responsive" ></div>';
+				}
+				row += '	</div>';	
+				row += '	</div>';
+				
+				row += '	<div class="col-md-4">';	
+				row += '		<h1>' + data[i].PUNTUACION.toFixed(2) + ' %</h1>';
+				row += '	</div>';	
+				
+				row += '	<div class="col-md-4">';	
+				row += '		<h3>' + data[i].DESCUSUARIO + '</h3>';
+				row += '	</div>';					
+
+				
+				row += '</div>';
+				
+				row += '</article>';
+				
+				row += '<hr style="margin-top:4px;margin-bottom:4px;"/>';
+				
+				$('#idListaTop5Resolutivos').append(row);
+				stars --;
+			}
+		}
+		
+		$('#idListaTop5Resolutivos').show (200);
+	});
 }
 
 
@@ -321,7 +374,7 @@ function query ()
                 </div>
             </div>
 		
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div class="x_panel animated flipInY">
 				  <div class="x_title">
 					<h2>Últimas incidencias <small></small></h2>
@@ -338,7 +391,7 @@ function query ()
 			</div>
 			
 			
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div class="x_panel animated flipInY">
 				  <div class="x_title">
 					<h2>Top resolutivos <small></small></h2>

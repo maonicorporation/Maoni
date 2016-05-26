@@ -322,6 +322,22 @@ function getIndicesSatisfaccionSemana (idhotel, pyear,wdesde, whasta, callback)
 	});
 }
 
+function getTopResolutivos (idhotel, anyo, callback)
+{
+	http://wsreservas.go.maoni.solutions/topResolutivos/1/2016
+
+    var url = "http://wsreservas.go.maoni.solutions/topResolutivos/" + idhotel + "/" + anyo;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
 function getIncidencia (rowid, callback)
 {
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
