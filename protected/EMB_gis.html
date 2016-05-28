@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Bootstrap -->
+		<link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="./css/maoni.css" rel="stylesheet">
+    
+
+		<!-- Custom Theme Style -->
+		<link href="css/custom.css" rel="stylesheet">
+	</head>
+
+	<body class="nav-md bkcolor">
+  
+		<div class="sidebar-widget bkcolor" style="width: 260px; height: 240px;">
+			<canvas width="250" height="120" id="idgis" class="" style="width: 260px; height: 130px;"></canvas>
+			<div class="goal-wrapper">
+				<span class="gauge-value pull-left"></span>
+				<h2 id="gauge-text" class="gauge-value pull-left">0 %</h2>
+				<h2 id="goal-text" class="goal-value pull-right">100 %</h2>
+			</div>
+		</div>
+
+
+
+    <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+    <!-- gauge.js -->
+    <script src="./vendors/bernii/gauge.js/dist/gauge.min.js"></script>
+    
+    <script src="js/custom.js"></script>
+
+
+    
+
+    <!-- gauge.js -->
+    <script>
+		var opts = {
+		  lines: 12,
+		  angle: 0,
+		  lineWidth: 0.4,
+		  pointer: {
+			  length: 0.75,
+			  strokeWidth: 0.042,
+			  color: '#1D212A'
+		  },
+		  limitMax: 'false',
+		  colorStart: '#00d640',
+		  colorStop: '#00d640',
+		  strokeColor: '#fff',
+		  generateGradient: true
+		};
+		var target = document.getElementById('idgis'), gauge = new Gauge(target).setOptions(opts);
+
+		gauge.maxValue = 100;
+		gauge.animationSpeed = 32;
+		gauge.set(45);
+		gauge.setTextField(document.getElementById("gauge-text"));
+    </script>
+    <!-- /gauge.js -->
+	</body>
+</html>
+

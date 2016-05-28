@@ -211,6 +211,9 @@ function login (user, pwd, callback)
 	{
         if (data != undefined && data.length > 0 && data[0].SESSIONKEY != 0)
         {
+			setCookie("IDEMPRESA", data[0].IDEMPRESA);
+			setCookie("DESCEMPRESA", data[0].DESCEMPRESA);
+			
             loginToMaoni(user,pwd,function()
             {
                 setCookie("SESSIONKEYBBDD", data[0].SESSIONKEY);
@@ -322,11 +325,11 @@ function getIndicesSatisfaccionSemana (idhotel, pyear,wdesde, whasta, callback)
 	});
 }
 
-function getTopResolutivos (idhotel, anyo, callback)
+function getTopResolutivos (idempresa, anyo, callback)
 {
 	http://wsreservas.go.maoni.solutions/topResolutivos/1/2016
 
-    var url = "http://wsreservas.go.maoni.solutions/topResolutivos/" + idhotel + "/" + anyo;
+    var url = "http://wsreservas.go.maoni.solutions/topResolutivos/" + idempresa + "/" + anyo;
 	$.get(url)
 	.fail(function() 
     {

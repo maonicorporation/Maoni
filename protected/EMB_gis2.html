@@ -1,0 +1,205 @@
+﻿<!-- Bootstrap -->
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+    <link href="./css/custom.css" rel="stylesheet">
+    <!-- Maoni Style -->
+    <link href="./css/maoni.css" rel="stylesheet">	
+	<!-- Animate -->
+    <link href="./css/animate.min.css" rel="stylesheet"> 
+	  <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+   <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.js"></script>
+	<script src="./js/lib.js"></script>
+	
+	<!-- ECharts -->
+    <script src="./vendors/echarts/dist/echarts.min.js"></script>
+    <script src="./vendors/echarts/map/js/world.js"></script>
+
+<script>
+
+$("#idgis").css( "background-color","white" );
+
+
+function configGauge (echartvalue)
+{ 
+	var echartGauge = echarts.init(document.getElementById('idgis'), null);
+
+      echartGauge.setOption({
+        tooltip: {
+          formatter: "{a} <br/>{b} : {c}%"
+        },
+        
+        series: [{
+          name: '',
+          type: 'gauge',
+          center: ['50%', '50%'],
+          startAngle: 140,
+          endAngle: -140,
+          min: 0,
+          max: 100,
+          precision: 0,
+          splitNumber: 10,
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: [
+                [0.699, '#ee5b55'],
+                [0.899, '#f8bc32'],
+                [1.00, '#00d640']
+              ],
+              width: 30
+            }
+          },
+          axisTick: {
+            show: true,
+            splitNumber: 5,
+            length: 8,
+            lineStyle: {
+              color: '#eee',
+              width: 1,
+              type: 'solid'
+            }
+          },
+          axisLabel: {
+            show: true,
+            formatter: function(v) {
+              switch (v + '') {
+                
+                case '70':
+                  return '70%';
+                case '90':
+                  return '90 %';
+                default:
+                  return '';
+              }
+            },
+            textStyle: {
+              color: '#333'
+            }
+          },
+          splitLine: {
+            show: true,
+            length: 30,
+            lineStyle: {
+              color: '#eee',
+              width: 2,
+              type: 'solid'
+            }
+          },
+          pointer: {
+            length: '80%',
+            width: 8,
+            color: 'auto'
+          },
+          title: {
+            show: true,
+            offsetCenter: ['-65%', -10],
+            textStyle: {
+              color: '#333',
+              fontSize: 15
+            }
+          },
+          detail: {
+            show: true,
+            backgroundColor: 'rgba(0,0,0,0)',
+            borderWidth: 0,
+            borderColor: '#ccc',
+            width: 100,
+            height: 40,
+            offsetCenter: ['-60%', 10],
+            formatter: '{value}%',
+            textStyle: {
+              color: 'auto',
+              fontSize: 30
+            }
+          },
+          data: [{
+            value: echartvalue,
+            name: ''
+          }]
+        }]
+      });
+	  
+	  $("#idgis").css( "background-color","white" );
+}
+
+</script>
+
+
+<script>
+	function loadData()
+	{
+		var idhotel = getParameterByName("IDHOTEL");
+		var desde = getParameterByName("DESDE");
+		var hasta = getParameterByName("HASTA");
+		
+		if (idhotel == "") idhotel = getCookie("IDHOTEL");
+		if (desde == "") desde = getCookie("FDESDE");
+		if (hasta == "") hasta = getCookie("FHASTA");
+		
+		
+				
+		getIndicesSatisfaccion (idhotel, desde, hasta, function(err, data)
+		{
+			if (data != null && data.length == 1)
+			{
+				var totOk = data[0].OK + data[0].KO;
+				
+				var p10 = 100;
+				var p20 = 100;
+				var p30 = 100;
+				var p40 = 100;
+				var p50 = 100;
+				
+				if (totOk)
+				{
+					p10 = 100 * (1 - (data[0].KO_HABITACION / totOk));
+				}
+				
+				if (totOk)
+				{
+					p20 = 100 * (1 - (data[0].KO_LIMPIEZA / totOk));
+				}	
+				
+				if (totOk)
+				{
+					p30 = 100 * (1 - (data[0].KO_PERSONAL / totOk));
+				}
+				
+				if (totOk)
+				{
+					p40 = 100 * (1 - (data[0].KO_WIFI / totOk));
+				}
+				
+				if (totOk)
+				{
+					p50 = 100 * (1 - (data[0].KO_RESTAURANTE / totOk));
+				}
+				
+				var ptot = (p10 + p20 + p30 + p40 + p50) / 5;	
+				
+				var f = parseFloat(ptot.toFixed(0));
+				configGauge(f);
+				
+			}
+		});
+	}
+	
+    $(document).ready(function()
+    {
+		loadData();
+	});
+	
+	</script>
+
+
+<div class="bkcolor">
+	<div id="idgis" style="height:370px;"></div>
+</div>

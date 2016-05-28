@@ -257,20 +257,25 @@
 				
 					<div class="form-inline">
 					
-						<div class="form-group">                       
-							<div class="col-md-11 form-group has-feedback">
-								<input type="text" class="form-control has-feedback-left" id="mainFechaDesde" placeholder="Hoy" aria-describedby="inputSuccess2Status2">
-								<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-								<span id="inputSuccess2Status2" class="sr-only">(success)</span>
-							</div>                        
-						</div> 
+						<div class="form-group">
+							<h1 id="iddescempresa">empresa</h1>
+						</div>						
+						
 						
 						<div class="form-group">
 							<div class="col-md-11 form-group has-feedback" style="padding-left:20px">
 								<select id="cbhoteles" class=" col-md-11 form-control" tabindex="-1" >
 								</select>								
 							</div>  
-						</div>							
+						</div>	
+
+						<div class="form-group">                       
+							<div class="col-md-11 form-group has-feedback">
+								<input type="text" class="form-control has-feedback-left" id="mainFechaDesde" placeholder="Hoy" aria-describedby="inputSuccess2Status2">
+								<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+								<span id="inputSuccess2Status2" class="sr-only">(success)</span>
+							</div>                        
+						</div> 						
 						
 					</div> 
 					
@@ -380,9 +385,7 @@
     <script src="js/custom.js"></script>
 	<script src="./js/lib.js"></script>
 	
-	<!-- ECharts -->
-    <script src="../vendors/echarts/dist/echarts.min.js"></script>
-    <script src="../vendors/echarts/map/js/world.js"></script>
+	
 	
 
     <script>
@@ -423,6 +426,8 @@
 	  });
 	  
 	  $('#mainFechaDesde').val(firstDayOfMonth() + "-" + dateToddmmyy(new Date()));
+	  
+	  $('#iddescempresa').html(getCookie("DESCEMPRESA"));
 	  
 	  getHoteles (function(err, data)
 	  {

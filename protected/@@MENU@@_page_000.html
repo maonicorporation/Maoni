@@ -8,123 +8,6 @@ $(function ()
     $('#grp1').addClass('active');
     $('#menu1').show();
     $('#page000').addClass('current-page');
-	
-	
-	
-	
-	var echartGauge = echarts.init(document.getElementById('echart_guage'), null);
-
-      echartGauge.setOption({
-        tooltip: {
-          formatter: "{a} <br/>{b} : {c}%"
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            restore: {
-              show: true,
-              title: "Restore"
-            },
-            saveAsImage: {
-              show: true,
-              title: "Save Image"
-            }
-          }
-        },
-        series: [{
-          name: 'Performance',
-          type: 'gauge',
-          center: ['50%', '50%'],
-          startAngle: 140,
-          endAngle: -140,
-          min: 0,
-          max: 100,
-          precision: 0,
-          splitNumber: 10,
-          axisLine: {
-            show: true,
-            lineStyle: {
-              color: [
-                [0.2, 'lightgreen'],
-                [0.4, 'orange'],
-                [0.8, 'skyblue'],
-                [1, '#ff4500']
-              ],
-              width: 30
-            }
-          },
-          axisTick: {
-            show: true,
-            splitNumber: 5,
-            length: 8,
-            lineStyle: {
-              color: '#eee',
-              width: 1,
-              type: 'solid'
-            }
-          },
-          axisLabel: {
-            show: true,
-            formatter: function(v) {
-              switch (v + '') {
-                case '10':
-                  return 'a';
-                case '30':
-                  return 'b';
-                case '60':
-                  return 'c';
-                case '90':
-                  return 'd';
-                default:
-                  return '';
-              }
-            },
-            textStyle: {
-              color: '#333'
-            }
-          },
-          splitLine: {
-            show: true,
-            length: 30,
-            lineStyle: {
-              color: '#eee',
-              width: 2,
-              type: 'solid'
-            }
-          },
-          pointer: {
-            length: '80%',
-            width: 8,
-            color: 'auto'
-          },
-          title: {
-            show: true,
-            offsetCenter: ['-65%', -10],
-            textStyle: {
-              color: '#333',
-              fontSize: 15
-            }
-          },
-          detail: {
-            show: true,
-            backgroundColor: 'rgba(0,0,0,0)',
-            borderWidth: 0,
-            borderColor: '#ccc',
-            width: 100,
-            height: 40,
-            offsetCenter: ['-60%', 10],
-            formatter: '{value}%',
-            textStyle: {
-              color: 'auto',
-              fontSize: 30
-            }
-          },
-          data: [{
-            value: 50,
-            name: 'Performance'
-          }]
-        }]
-      });
 });
 
 function openi (rowid) 
@@ -134,10 +17,13 @@ function openi (rowid)
 
 function query ()
 {    
+	var idempresa = getCookie("IDEMPRESA");
     var idhotel = getCookie("IDHOTEL");
     var fecha = $('#mainFechaDesde').val();
 	var desde = null;
 	var hasta = null;
+	
+	$("#idTitTopRes").html(" Top resolutivos - " + getCookie("DESCEMPRESA"))
 	
 	
 	if (fecha.indexOf("-") != -1)
@@ -236,7 +122,7 @@ function query ()
 		$('#idListaTop5').show (200);
     });
 	
-	getTopResolutivos (idhotel, pyear, function(err, data)
+	getTopResolutivos (idempresa, pyear, function(err, data)
     {
 		$('#idListaTop5Resolutivos').hide (100);
 		$('#idListaTop5Resolutivos').empty();
@@ -266,12 +152,20 @@ function query ()
 				row += '	</div>';	
 				row += '	</div>';
 				
-				row += '	<div class="col-md-4">';	
+				row += '	<div class="col-md-8">';	
 				row += '		<h1>' + data[i].PUNTUACION.toFixed(2) + ' %</h1>';
 				row += '	</div>';	
 				
-				row += '	<div class="col-md-4">';	
-				row += '		<h3>' + data[i].DESCUSUARIO + '</h3>';
+				row += '	<div class="col-md-8">';	
+				row += '		<h2><b>' + data[i].DESCHOTEL + '</b></h2>';
+				row += '	</div>';	
+
+				row += '	<div class="col-md-8">';	
+				row += '		<h2>' + data[i].DESCUSUARIO + '</h2>';
+				row += '	</div>';	
+
+				row += '	<div class="col-md-8">';	
+				row += '		<h4>' + data[i].CARGO + '</h4>';
 				row += '	</div>';					
 
 				
@@ -288,6 +182,8 @@ function query ()
 		
 		$('#idListaTop5Resolutivos').show (200);
 	});
+	
+	$("#idContainerGIS").load("EMB_gis2.html");
 }
 
 
@@ -368,8 +264,8 @@ function query ()
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    <div id="echart_guage" style="height:370px;"></div>
+                  <div class="x_content ">
+                    <div id="idContainerGIS" style="height:370px;"></div>
                   </div>
                 </div>
             </div>
@@ -394,7 +290,7 @@ function query ()
 			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div class="x_panel animated flipInY">
 				  <div class="x_title">
-					<h2>Top resolutivos <small></small></h2>
+					<h2 id="idTitTopRes"></h2>
 					<ul class="nav navbar-right panel_toolbox">
 					  <small></small>
 					</ul>
