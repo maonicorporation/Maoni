@@ -76,6 +76,33 @@ body
     color: #00d640;
 }
 
+.fontplantillacolor
+{
+	color: #73879C;
+}
+
+.select2-container .select2-selection--single
+{
+    height: 34px;
+	min-height:34px;
+	width:100%;
+}
+
+.fontwhite
+{
+    color: #eee;
+}
+
+.switchery
+{
+	margin-left: 4px;
+	margin-top: 4px;
+}
+.switcherygroup
+{
+	padding:4px;
+}
+
 .boxko
 {
     border-radius: 2px;
@@ -99,6 +126,11 @@ body
     width: 12px;
     height: 12px;    
 }
+.bkgis
+{
+    background-color: #1abb9c;
+	border-radius: 4px;
+}
 
 .boxhab
 {
@@ -106,6 +138,11 @@ body
     background: #73879c;
     width: 12px;
     height: 12px;    
+}
+.bkhab
+{
+    background-color: #73879c;
+	border-radius: 4px;
 }
 
 .boxlim
@@ -115,6 +152,11 @@ body
     width: 12px;
     height: 12px;    
 }
+.bklim
+{
+    background-color: #ee5b55;
+	border-radius: 4px;
+}
 
 .boxper
 {
@@ -122,6 +164,11 @@ body
     background: #f8bc32;
     width: 12px;
     height: 12px;    
+}
+.bkper
+{
+    background-color: #f8bc32;
+	border-radius: 4px;
 }
 
 .boxwif
@@ -131,6 +178,11 @@ body
     width: 12px;
     height: 12px;    
 }
+.bkwif
+{
+    background-color: #a94067;
+	border-radius: 4px;
+}
 
 .boxrte
 {
@@ -138,6 +190,11 @@ body
     background: #0b96df;
     width: 12px;
     height: 12px;    
+}
+.bkrte
+{
+    background-color: #0b96df;
+	border-radius: 4px;
 }
 
 .vcenter
