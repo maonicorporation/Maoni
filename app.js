@@ -303,6 +303,66 @@ function enviarMails()
 
 enviarMails();
 
+// ----------------------------------------------------------------------------------------------------------------------
+
+function notificarIncidencias()
+{
+    utilities.logFile("INICIO NOTIFICAR INCIDENCIAS....");
+    //Bucle de empresas
+    bbdd.sel_incidenciasNoNotificadas (function (err, data1)
+    {
+        if(data1 != undefined)
+        {
+            //Preparamos la notificación
+            var menufilename = __dirname + "/public/mails/notificacion.html";
+            
+            var step1 = function (x)
+            {
+                if (x < data1.length)
+                {
+                    utilities.logFile("INCIDENCIA: " + data1[x].ROWID);
+                    
+                    fs.stat(menufilename, function (errf, stat)
+                    {
+                        if (!errf)
+                        {
+                            sbuffer = fs.readFileSync(menufilename, "utf8");                        
+                            
+                            var fecha = utilities.formatearFecha(data1[x].FECHACREACION);
+                            
+                            var body = sbuffer.replaceAll("@@DESCHOTEL@@",data1[x].DESCHOTEL);
+                            body = body.replaceAll("@@ROWID@@", data1[x].ROWID);
+                            body = body.replaceAll("@@FECHA@@", fecha);
+                            body = body.replaceAll("@@IDRESERVA@@", data1[x].IDRESERVA);
+                            body = body.replaceAll("@@TIPOCOMENTARIO@@", data1[x].NOMBRETIPO);
+                            body = body.replaceAll("@@DESCRIPCION@@", data1[x].DESCRIPCION);
+                            
+                            sendEmail (data1[x].ROWID, data1[x].EMAIL, "VALORACIÓN NEGATIVA: " + data1[x].ROWID, body, function (err, rowid)
+                            {
+                                if (err == null)
+                                {
+                                    bbdd.update_generico ("gomaonis_maonibd.Incidencias", rowid, "NOTIFICADAAUSUARIO", 1, function(err,data)
+                                    {
+                                    });
+                                }
+                            });
+                        }
+                        
+                        step1(x + 1);
+                    });
+                    
+                }
+            };
+            step1 (0);
+            
+        }
+    });
+    
+    setTimeout (enviarMails, 1000 * 60 * 5); // 5 minutos
+}
+
+notificarIncidencias();
+
 //https://localhost:4000
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
 

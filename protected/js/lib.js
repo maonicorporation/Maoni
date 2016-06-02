@@ -261,6 +261,22 @@ function getReservas (idhotel, entrada, callback)
 	});
 }
 
+function getIncidenciasNoNotificadas (callback)
+{
+	//http://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas
+
+    var url = "http://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas";
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
 function getEncuestasResumen (idhotel, entrada, callback)
 {
 	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514

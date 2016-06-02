@@ -171,6 +171,7 @@ exports.sel_all_from_hoteles = sel_all_from_hoteles;
 exports.sel_all_from_parametrosMailing = sel_all_from_parametrosMailing;
 exports.sel_all_from_reservasImMail = sel_all_from_reservasImMail;
 exports.update_generico = update_generico;
+exports.sel_incidenciasNoNotificadas = sel_incidenciasNoNotificadas;
 
 function update_generico (table, rowid, field, value, callback)
 {
@@ -194,6 +195,25 @@ function update_generico (table, rowid, field, value, callback)
 function sel_all_from_empresas (callback)
 {
     var sentencia = "SELECT * FROM gomaonis_maonibd.empresas where siactiva = 1";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function sel_incidenciasNoNotificadas (callback)
+{
+    var sentencia = "select * from gomaonis_maonibd.INCIDENCIAS_NO_NOTIFICADAS order by ROWID";
     
     box.connect(function(conn, callback)
     {
