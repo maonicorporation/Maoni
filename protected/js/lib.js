@@ -48,6 +48,14 @@ function getMonthName (i)
 	return meses[i-1];
 }
 
+function extractDateFromYYYYMMDDTHHMMSSstring (strDate)
+{
+	//"2016-05-14T07:46:44.000Z"
+	var s = strDate.replace("T", "-"); 
+	var spl = s.split("-");
+	return  spl[0] + "-" + spl[1] + "-" + spl[2];
+}
+
 function extractMonthFromYYYYMMDDstring (strDate)
 {
 	//"2016-05-14T07:46:44.000Z"
@@ -244,6 +252,20 @@ function getHoteles (callback)
 	});
 }
 
+function getOrigen (callback)
+{
+    var url = "http://wsreservas.go.maoni.solutions/Origen";
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
 function getReservas (idhotel, entrada, callback)
 {
 	//http://wsreservas.go.maoni.solutions/Reservas/1/20160501
@@ -421,6 +443,11 @@ function getIncidenciasPorSemana (idhotel, desde, hasta, callback)
 	});
 }
 
+function deleteReserva (rowid, callback)
+{
+	deleteData("http://wsreservas.go.maoni.solutions/Reservas/" + rowid, {}, callback);
+}
+
 function logout()
 {
     setCookie("SESSIONKEY", 0);
@@ -487,6 +514,31 @@ function putData(url, data, callback)
 	$.ajax({
 		url: url,
 		method: "PUT",
+		data: JSON.stringify(data),
+		dataType: 'json',
+		contentType: "application/json",
+		success: function(result,status,jqXHR )
+		{
+			callback (null, result);
+		},
+		error(jqXHR, textStatus, errorThrown)
+		{
+			callback (errorThrown, null);
+		}
+    }); 
+	}
+	catch (err)
+	{
+		alert(err);
+	}
+}
+
+function deleteData(url, data, callback)
+{
+	try{
+	$.ajax({
+		url: url,
+		method: "DELETE",
 		data: JSON.stringify(data),
 		dataType: 'json',
 		contentType: "application/json",

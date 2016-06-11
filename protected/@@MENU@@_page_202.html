@@ -1,7 +1,9 @@
 ﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+ <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
     
 var table = null;
+var currentROWID = -1;
 
 $(function ()
 {     
@@ -11,8 +13,7 @@ $(function ()
 });
 
 $(function ()
-{ 
-    
+{    
     //$("#datepicker").datepicker("setDate", new Date());
     $('#idDesde').daterangepicker
     ({
@@ -30,6 +31,33 @@ $(document).ready(function()
     table = $('#datatable').DataTable();
     $('#idDesde').val(dateToddmmyy(new Date()));
 });
+
+function deleteReg (rowid, reserva)
+{
+    currentROWID = rowid;
+
+    $('#idnumres').html(reserva);
+
+    $('#confirmDelete').modal('show');
+}
+
+function doDelete()
+{
+    $('#confirmDelete').modal('hide');
+
+    deleteReserva (currentROWID, function(err, data)
+    {
+        if (data.result == 1)
+        {
+            query ();
+            toastr["success"]("Reserva eliminada");
+        }
+        else if (data.result == 0)
+        {
+            toastr["error"]("Error al eliminar reserva. Seguramente ha realizado ya una encuesta");
+        }
+    });
+}
       
 function query ()
 {
@@ -49,12 +77,13 @@ function query ()
         for (var i = 0; i < data.length; i++)
         {
             var row = "<tr>";
-            row += "<td><span class='badge'>" + i + "</span></td>";
+            row += "<td><span class='badge'>" + data[i].ROWID + "</span></td>";
             row += "<td>" + data[i].IDRESERVA + "</td>";
-            row += "<td>" + data[i].ENTRADA + "</td>";
-            row += "<td>" + data[i].SALIDA + "</td>";
+            row += "<td>" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].ENTRADA) + "</td>";
+            row += "<td>" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].SALIDA) + "</td>";
             row += "<td><a href='mailto:" + data[i].MAIL_CARDEX + "'>" + data[i].MAIL_CARDEX + "</a></td>";
             row += "<td>" + data[i].NOMBRE + " " +  data[i].APELLIDO1 + " " + data[i].APELLIDO2 + "</td>";
+            row += "<td href='#' onclick='deleteReg(" + data[i].ROWID + "," + data[i].IDRESERVA + ");' ><b class='red dedo'>ELIMINAR</b></td>";
             
             row += "</tr>";
     
@@ -113,15 +142,41 @@ function query ()
                     </p>
                     <table id="datatable" class="table table-striped _table-bordered dt-responsive nowrap table-hover jambo_table" width="100%">
                     
-                    <thead>
-                        <tr> <th>#</th> <th>ID Reserva</th> <th>Entrada</th> <th>Salida</th> <th>Email</th> <th>Huésped</th> </tr>
-                    </thead>                        
+                        <thead>
+                            <tr>  <th>ROWID</th> <th>ID Reserva</th> <th>Entrada</th> <th>Salida</th> <th>Email</th> <th>Huésped</th><th>Acción</th></tr>
+                        </thead>                        
 
-                    <tbody>
-                    </tbody>
+                        <tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirmación</h4>
+      </div>
+      <div class="modal-body">
+          <div class="clearfix"></div>
+            <br />
+                <h3 class="inline">¿Está seguro de que desea eliminar la reserva &nbsp;</h3><h3 id="idnumres" class="inline">2</h3> <h3 class="inline">&nbsp; ?</h3>
+                <div class="clearfix"></div>
+            <br />
+      </div>
+      <div class="modal-footer">
+        
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger" onclick="doDelete();">ELIMINAR</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

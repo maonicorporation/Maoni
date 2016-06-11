@@ -28,6 +28,25 @@ $(function ()
             allowClear: true
         });
     });
+
+    getOrigen (function(err, data)
+    {
+        $('#cbOrigen').empty();
+        
+        for (var i = 0; i < data.length; i++)
+        {
+            var option = $('<option />');
+            option.attr('value', data[i].IDORIGEN).text(data[i].DESCORIGEN);
+
+            $('#cbOrigen').append(option);
+        }
+        
+        $("#cbOrigen").select2
+        ({
+            placeholder: "Seleccione un orígen...",
+            allowClear: true
+        });
+    });
     
     fillComboCountry('#idPais');
     $("#idPais").val('ES');
@@ -79,17 +98,19 @@ function saveReserva()
         
         var data = {
             "IDRESERVA": $("#idReserva").val(),
+            "HABITACION": $("#idHabitacion").val(),
             "IDHOTEL": $('#cbhotelesA').find(":selected").val(),
             "ENTRADA": ddmmyyToUnix($('#idFechaEntrada').val()),
             "SALIDA": ddmmyyToUnix($('#idFechaSalida').val()),
             "SI_PRE_ENVIADO": "0",
 			"SI_IN_ENVIADO": "0",
 			"SI_POS_ENVIADO": "0",
+            "IDORIGEN": $('#cbOrigen').find(":selected").val(),
             "MAIL_CARDEX": $("#idEmail").val(),
             "NOMBRE": $("#idNombre").val(),
             "APELLIDO1": $("#idApellido1").val(),
             "APELLIDO2": $("#idApellido2").val(),
-			"ISO_IDIOMA": "ES";
+			"ISO_IDIOMA": "ES",
             "ISO_PAIS": $('#idPais').find(":selected").val()};
             
         postData ("http://wsreservas.go.maoni.solutions/Reservas", data, function (err, data)
@@ -141,6 +162,24 @@ function saveReserva()
                             </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                 <input type="text" id="idReserva" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idHabitacion">Habitación <span class="required">*</span>
+                            </label>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input type="text" id="idHabitacion" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cbOrigen">Origen <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <select id="cbOrigen" required="required" class="col-md-7 col-xs-12 form-control" tabindex="-1">
+                                </select>
                             </div>
                         </div>
                         
