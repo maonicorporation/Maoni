@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+	 <!-- Bootstrap -->
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+    <link href="./css/maoni.css" rel="stylesheet">
+    <link href="./css/animate.min.css" rel="stylesheet">
+	<!-- Switchery -->
+	<link href="./vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+	
+	<script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Switchery -->
+    <script src="./vendors/switchery/dist/switchery.min.js"></script>
+	<script src="./vendors/raphael/raphael.min.js"></script>
+    <script src="./vendors/morris.js/morris.min.js"></script>
+	<script src="./js/lib.js"></script>
+	
+	
+	
+	
+	
+    
+	
+  </head>
+
+
+    <body class="container-fluid  bkwhite nomargins">
+      
+		<div clss="row nomargins">
+			<div class="col-xs-12 col-md-12 nomargins">
+				<div class="nomargins" id="graph_area" style="width:100%; height:350px;"></div>
+			</div>
+			<div class="col-md-12">
+				<br/><br/>
+				<div class="row">
+					<div class="col-md-2 col-xs-6 switcherygroup">						
+						<div class="butyellow">
+							<label class="butyellow">
+								<input id="chk1" type="checkbox" class="butyellow js-switch" checked />
+							</label>
+							<h2 class="inline vcenter fontwhite" style="margin-top:8px">Enviadas</h2>
+						</div>
+					</div>
+					
+					<div class="col-md-2 col-xs-6 switcherygroup">
+						<div class="butgreen">
+							<label class="butgreen">
+								<input id="chk2" type="checkbox" class="butgreen js-switch" checked />
+							</label>
+							<h2 class="inline vcenter fontwhite" style="margin-top:8px">Positivas</h2>
+						</div>
+					</div>
+					
+					<div class="col-md-2 col-xs-6 switcherygroup">
+						<div class="butred">
+							<label class="butred">
+								<input id="chk3" type="checkbox" class="butred js-switch" checked />
+							</label>
+							<h2 class="inline vcenter fontwhite" style="margin-top:8px">Negativa</h2>
+						</div>
+					</div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+    </body>
+	
+	<script>
+	
+	var qdata = [];
+	var qmorris = null;
+	
+	$(document).ready(function()
+	{
+		if ($(".js-switch")[0])
+		{
+			var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+			elems.forEach(function (html)
+			{
+				var switchery = new Switchery(html,
+				{
+					color: '#aaa'
+				});
+			});
+		}
+	});
+	
+	function loadDatag()
+	{
+		//http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/1/10/20
+		
+		var idhotel = getParameterByName("IDHOTEL");
+		var desde = getParameterByName("DESDE");
+		var hasta = getParameterByName("HASTA");
+		
+		if (idhotel == "") idhotel = getCookie("IDHOTEL");
+		if (desde == "") desde = getCookie("FDESDE");
+		if (hasta == "") hasta = getCookie("FHASTA");
+		
+		getEncuestasResumenRangoSinAcumular (idhotel,  desde, hasta, function(err, data)
+		{
+			if (data != null)
+			{				
+				for (var i=0; i <data.length; i++)
+				{
+					var qty = data[i].OK + data[i].KO;
+					
+					if (qty > 0)
+					{
+						var fecha = data[i].FECHA;
+						
+						qdata.push ({fecha: fecha, SENT: data[i].ENVIADAS, OK: data[i].OK, KO: data[i].KO });
+					}				
+				}
+			
+				qmorris = Morris.Line({
+					element: 'graph_area',
+					data: null,
+					xkey: 'fecha',
+					ykeys: ['SENT', 'OK', 'KO'],
+					lineColors: ['#f8bc32', '#00d640', '#ee5b55'],
+					labels: ['Enviadas', 'Positivas', 'Negativas'],
+					pointSize: 2,
+					hideHover: 'always',//'auto',
+					axes: true,
+					smooth:true,
+					ymin:'auto',
+					//behaveLikeLine:true,
+					resize: true
+				});
+				
+				presentData ();
+				
+				$('.x_content2').addClass('animated flipInY');
+			}
+		});
+	}
+	
+	$('#chk1').click(function() { presentData (); });
+	$('#chk2').click(function() { presentData (); });
+	$('#chk3').click(function() { presentData (); });
+	
+	function presentData()
+	{
+		var copyqdata = JSON.parse(JSON.stringify(qdata));
+		
+		if ( $("#chk1").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].SENT;
+			}
+		}
+		
+		if ( $("#chk2").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].OK;
+			}
+		}
+		
+		if ( $("#chk3").prop("checked") == false)
+		{
+			for(var i = 0; i < copyqdata.length; i++)
+			{
+				delete copyqdata[i].KO;
+			}
+		}
+		
+  
+		qmorris.setData(copyqdata);
+	}
+
+    $(document).ready(function()
+    {
+		loadDatag();
+	});
+	
+	</script>
+</html>
+
+
+
+
+

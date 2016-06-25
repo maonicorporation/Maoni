@@ -63,6 +63,9 @@
                 $("#idPwd").val(getCookie("LASTPWD"));
                 
                 $("#idchkRecordar").prop('checked', getCookie("LASTCHK")=="1"?true:false);
+				
+				setCookie("FDESDECALENDAR", "");
+				setCookie("FHASTACALENDAR", "");
             });
             
             function dologin()

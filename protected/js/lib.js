@@ -190,8 +190,14 @@ function loginToMaoni (user, pwd, callback)
     var params = { f: "login", user: user, pwd: pwd };
 
 	$.post( "BBDD", JSON.stringify(params))
-	.fail(function() 
+	.fail(function(data) 
     {
+		alert(JSON.stringify(data));
+		if (data.length > 0)
+        {
+            setCookie("SESSIONKEY", data[0].SESSIONKEY);
+            callback();
+        }
 	})
 	.done(function( data )
 	{
@@ -320,6 +326,22 @@ function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 	//http://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
 
     var url = "http://wsreservas.go.maoni.solutions/EncuestasResumenRango/" + idhotel + "/" + desde + "/" + hasta;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getEncuestasResumenRangoSinAcumular (idhotel, desde, hasta, callback)
+{
+	//http://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/1/20160514
+
+    var url = "http://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {

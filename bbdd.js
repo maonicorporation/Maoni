@@ -66,7 +66,7 @@ function redirecciona(req, res)
             handle[params.f](req, res, params, function (err, ret)
             {
                 res.setHeader('Content-Length', ret.length);
-                res.setHeader('Content-Type', 'application/json');
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
             
                 res.end (ret);
             });

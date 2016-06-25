@@ -314,7 +314,7 @@ function notificarIncidencias()
         if(data1 != undefined)
         {
             //Preparamos la notificación
-            var menufilename = __dirname + "/public/mails/notificacion.html";
+            var menufilename = __dirname + "/public/mails/notificacion_ES_A.html";
             
             var step1 = function (x)
             {
@@ -336,14 +336,17 @@ function notificarIncidencias()
                             body = body.replaceAll("@@IDRESERVA@@", data1[x].IDRESERVA);
                             body = body.replaceAll("@@TIPOCOMENTARIO@@", data1[x].NOMBRETIPO);
                             body = body.replaceAll("@@DESCRIPCION@@", data1[x].DESCRIPCION);
+                            body = body.replaceAll("@@HABITACION@@", data1[x].HABITACION);
+                            body = body.replaceAll("@@NOMBRE@@", data1[x].NOMBRE);
+                            body = body.replaceAll("@@APELLIDO1@@", data1[x].APELLIDO1);
                             
                             sendEmail (data1[x].ROWID, data1[x].EMAIL, "VALORACIÓN NEGATIVA: " + data1[x].ROWID, body, function (err, rowid)
                             {
                                 if (err == null)
                                 {
-                                    bbdd.update_generico ("gomaonis_maonibd.Incidencias", rowid, "NOTIFICADAAUSUARIO", 1, function(err,data)
+                                    /*bbdd.update_generico ("gomaonis_maonibd.Incidencias", rowid, "NOTIFICADAAUSUARIO", 1, function(err,data)
                                     {
-                                    });
+                                    });*/
                                 }
                             });
                         }
@@ -361,13 +364,13 @@ function notificarIncidencias()
     setTimeout (enviarMails, 1000 * 60 * 5); // 5 minutos
 }
 
-notificarIncidencias();
+//notificarIncidencias();
 
-//https://localhost:4000
+// ----------------------------------------------------------------------------------------------------------------------
+
 var mess = "INICIO maoni. Escuchando en el puerto: " + g_port;
 
 utilities.logFile(mess);
 
-//https.createServer(options, app).listen(g_port);
 https.createServer(app).listen(g_port);
 

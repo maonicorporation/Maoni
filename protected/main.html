@@ -92,7 +92,7 @@
                       </li>
                       <li id="page002"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_002.html');"> Incidencias</a>
                       </li>
-					  <li><a href="#"> Encuestas</a>
+					  <li id="page003"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_003.html');"> Encuestas</a>
                       </li>
                     </ul>
                   </li>
@@ -113,10 +113,8 @@
                   </li>
                   <li><a><i class="fa fa-power-off"></i> Sesión <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-					            <li><a href="#">Mi perfil</a>
-                      </li>
-                      <li><a href="#">Cerrar</a>
-                      </li>
+					  <li><a href="#">Mi perfil</a></li>
+					  <li><a href="index.html"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>                      
                     </ul>
                   </li>
                   
@@ -178,7 +176,8 @@
 				
 				<div class="col-md-2 col-xs-3" style="margin-top: 8px;">
 					
-					
+					<h2 id="idUser2"></h2>
+					<!--
 					<div class="pull-right">
 					  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 						<img class="classCurrentUser" src="" alt=""><small id="idUser2"></small>
@@ -198,6 +197,7 @@
 						</li>
 					  </ul>
 					</div>
+					-->
 					
 				</div>
 				
@@ -286,41 +286,76 @@
     <script>
     $(document).ready(function()
     {
-      toastr.options =
-      {
-          "closeButton": true,
-          "debug": false,
-          "newestOnTop": false,
-          "progressBar": false,
-          "positionClass": "toast-bottom-full-width",
-          "preventDuplicates": false,
-          "onclick": null,
-          "showDuration": "300",
-          "hideDuration": "1000",
-          "timeOut": "5000",
-          "extendedTimeOut": "1000",
-          "showEasing": "swing",
-          "hideEasing": "linear",
-          "showMethod": "fadeIn",
-          "hideMethod": "fadeOut"
-      };
-	  
-	  $('#mainFechaDesde').daterangepicker
-	  ({
-			//singleDatePicker: true,
-			format:'DD/MM/YYYY',
-			calender_style: "picker_2"
-	  }, 
-	  function(start, end, label)
-	  {
-			console.log(start.toISOString(), end.toISOString(), label);
-			if (typeof query == 'function')
+		toastr.options =
+		{
+			"closeButton": true,
+			"debug": false,
+			"newestOnTop": false,
+			"progressBar": false,
+			"positionClass": "toast-bottom-full-width",
+			"preventDuplicates": false,
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		};
+		
+
+		if (getCookie("FDESDECALENDAR") != "" && getCookie("FHASTACALENDAR") != "")
+		{
+			$('#mainFechaDesde').daterangepicker
+			({
+				//singleDatePicker: true,
+				format:'DD/MM/YYYY',
+				calender_style: "picker_2",
+				startDate: getCookie("FDESDECALENDAR"),
+				endDate: getCookie("FHASTACALENDAR")
+			}, 
+			function(start, end, label)
 			{
-				query();
-			}
-	  });
+				setCookie("FDESDECALENDAR", start.format('DD/MM/YYYY'));
+				setCookie("FHASTACALENDAR", end.format('DD/MM/YYYY'));
+
+				if (typeof query == 'function')
+				{
+					query();
+				}
+			});
+		}
+		else
+		{
+			$('#mainFechaDesde').daterangepicker
+			({
+				//singleDatePicker: true,
+				format:'DD/MM/YYYY',
+				calender_style: "picker_2"
+			}, 
+			function(start, end, label)
+			{
+				setCookie("FDESDECALENDAR", start.format('DD/MM/YYYY'));
+				setCookie("FHASTACALENDAR", end.format('DD/MM/YYYY'));
+
+				if (typeof query == 'function')
+				{
+					query();
+				}
+			});
+		}
 	  
-	  $('#mainFechaDesde').val(firstDayOfMonth() + "-" + dateToddmmyy(new Date()));
+		if (getCookie("FDESDECALENDAR") != "" && getCookie("FHASTACALENDAR") != "")
+		{
+			$('#mainFechaDesde').val(getCookie("FDESDECALENDAR") + "-" + getCookie("FHASTACALENDAR"));
+		}
+		else
+		{
+			$('#mainFechaDesde').val(firstDayOfMonth() + "-" + dateToddmmyy(new Date()));
+		}
+	  
 	  
 	  $('#iddescempresa').html(getCookie("DESCEMPRESA"));
 	  

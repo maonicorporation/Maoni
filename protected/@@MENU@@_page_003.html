@@ -1,0 +1,69 @@
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+
+<script>
+
+
+$(function ()
+{     
+    $('#grp1').addClass('active');
+    $('#menu1').show();
+    $('#page001').addClass('current-page');
+});
+
+function query ()
+{
+    var fecha = $('#mainFechaDesde').val();
+	var desde = null;
+	var hasta = null;
+	
+	
+	if (fecha.indexOf("-") != -1)
+	{
+		var strSplit = fecha.split("-");
+		desde = ddmmyyToUnix(strSplit[0]);
+		hasta = ddmmyyToUnix(strSplit[1]);
+	}
+	else
+	{
+		desde = ddmmyyToUnix(fecha);
+		hasta = desde;
+	}
+	
+	setCookie("FDESDE", desde);
+	setCookie("FHASTA", hasta);
+	jQuery("#idContainer2").load("EMB_graph2.html");
+	
+	
+}
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Encuestas enviadas y conversión</h4>
+        </div>
+        
+		<div class="clearfix"></div>
+		
+		<div class="row top_tiles">
+			
+			<div class="clearfix"></div>
+			
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>TÍTULO</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div id="idContainer2" class="col-md-12">
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+			
+    </div>
+</div>
