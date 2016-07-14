@@ -100,6 +100,9 @@
                     <ul id="menu2" class="nav child_menu">
                       <li id="page201"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_201.html');"> Introducción manual</a>
                       </li>
+					  
+					  <li id="page201"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_203.html');"> Introducción csv</a>
+                      </li>
                       
                       <li id="page202"><a href="#" onclick="window.location.href=navigateTo('@@MENU@@_page_202.html');"> Consultar</a>
                       </li>
@@ -305,6 +308,14 @@
 			"hideMethod": "fadeOut"
 		};
 		
+    if (getCookie("FDESDECALENDAR") != "" && getCookie("FHASTACALENDAR") != "")
+		{
+    }
+    else
+    {
+        setCookie("FDESDECALENDAR", firstDayOfMonth());
+				setCookie("FHASTACALENDAR", dateToddmmyy(new Date()));
+    }
 
 		if (getCookie("FDESDECALENDAR") != "" && getCookie("FHASTACALENDAR") != "")
 		{

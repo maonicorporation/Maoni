@@ -12,6 +12,9 @@ var nodemailer = require('nodemailer');
 var utilities = require("./utilities");
 var bbdd = require("./bbdd");
 
+var formidable = require('formidable');
+var util = require('util');
+
 //Globals
 var g_root = __dirname;
 var g_port = 5555;
@@ -54,6 +57,18 @@ app.use(function (req, res)
     if (req.url == "/BBDD")
     {
         bbdd.redirecciona(req, res);
+    }
+    else if (req.url.toLowerCase() == '/upload' && req.method.toLowerCase() == 'post') 
+    {
+        // parse a file upload 
+        var form = new formidable.IncomingForm();
+    
+        form.parse(req, function(err, fields, files)
+        {
+            res.writeHead(200, {'content-type': 'text/plain'});
+            res.write('received upload:\n\n');
+            res.end(util.inspect({fields: fields, files: files}));
+        });
     }
     else if (req.url == "/" || req.url == "/index.html")
     {

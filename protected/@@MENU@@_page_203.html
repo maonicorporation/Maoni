@@ -1,0 +1,106 @@
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+<script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+
+$(function ()
+{     
+    $('#grp2').addClass('active');
+    $('#menu2').show();
+    $('#page203').addClass('current-page');
+});
+
+$(function ()
+{ 
+});
+
+$(document).ready(function()
+{
+	document.getElementById("uploadBtn").onchange = function ()
+	{
+		document.getElementById("uploadFile").value = this.value;
+	};
+});
+
+
+
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Reservas <small>Introducción csv</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+					
+					
+					<!--
+					<div class="_collapse" id="collapseupload">
+					<a href="#" class="list-group-item col-md-4">
+						<form id="uploadForm"
+							enctype="multipart/form-data"
+							action="/UPLOAD"
+							method="post"
+							onsubmit="setTimeout(function () { alert(\'El fichero está subiento al servidor...\');reloadData (true); }, 10)"
+							target="fileIframe">
+							<iframe 
+								name="fileIframe"
+								style="display:none"
+								_onload = "alert('Datos subidos');"
+								tabindex="-1">
+							</iframe>
+							<input style="width:100%" class="btn btn-primary upload2" id="uploadInput" type="file" name="myFiles" _multiple />
+							<input style="width:100%" class="btn btn-primary" type="submit" value="Subir">
+							<input hidden type="text" name="idtarea" value="333">
+						</form>
+					</a>
+					</div>
+					-->
+					
+					<hr/>
+					
+					
+					<form id="uploadForm"
+						enctype="multipart/form-data"
+						action="/UPLOAD"
+						method="post"
+						onsubmit="setTimeout(function () { alert(\'El fichero está subiento al servidor...\');reloadData (true); }, 10)"
+						target="fileIframe">
+						
+						
+						<iframe 
+							name="fileIframe"
+							style="display:none"
+							_onload = "alert('Datos subidos');"
+							tabindex="-1">
+						</iframe>
+							
+							
+						<input id="uploadFile" placeholder="<VACÍO>" disabled="disabled" class="inline" />
+						
+						<div class="fileUpload btn btn-primary inline">
+						<input id="uploadBtn" type="file" class="upload inline" accept=".xls,.xlsx,.css"/>	
+							<span class="glyphicon glyphicon glyphicon-folder-open inline" aria-hidden="true"></span>&nbsp;&nbsp;SELECCIONAR ARCHIVO...
+													
+						</div>
+						
+						
+						
+						<input class="btn btn-success _col-md-2 inline" type="submit" value="SUBIR">
+						
+					</form>
+	
+	
+                </div>             
+                
+            </div>
+        </div>
+    </div>
+</div>
