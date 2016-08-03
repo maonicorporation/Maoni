@@ -8,7 +8,7 @@ var favicon = require('serve-favicon');
 var fs = require('fs');
 var mime = require('mime');
 var nodemailer = require('nodemailer');
-
+var csvparse = require('csv-parse');
 var utilities = require("./utilities");
 var bbdd = require("./bbdd");
 
@@ -60,15 +60,88 @@ app.use(function (req, res)
     }
     else if (req.url.toLowerCase() == '/upload' && req.method.toLowerCase() == 'post') 
     {
-        // parse a file upload 
-        var form = new formidable.IncomingForm();
-    
-        form.parse(req, function(err, fields, files)
+        try
         {
-            res.writeHead(200, {'content-type': 'text/plain'});
-            res.write('received upload:\n\n');
-            res.end(util.inspect({fields: fields, files: files}));
-        });
+            var idhotel = -1;
+
+            var form = new formidable.IncomingForm();
+        
+            form.parse(req, function(err, fields, files)
+            {
+                utilities.logFile(util.inspect({fields: fields, files: files}));
+
+                //res.writeHead(200, {'content-type': 'text/plain'});
+                //res.write('received upload:\n\n');
+                //res.end(util.inspect({fields: fields, files: files}));
+            });
+            form.on('field', function (field, value)
+            {
+                if (field == "idhotel")
+                {
+                    idhotel = value;
+                }
+                utilities.logFile(field);
+                utilities.logFile(value);
+            });
+            form.on('file', function (name, file)
+            {
+                utilities.logFile(name);
+                utilities.logFile(file);
+            });
+            form.on('end', function ()
+            {   
+                try
+                {
+
+                    //http://csv.adaltas.com/parse/examples/
+                    var src = form.openedFiles[0].path; + "/" + form.openedFiles[0].name;    
+
+                    //res.writeHead(200, {'content-type': 'text/plain'});
+                    //res.write('received upload:');
+
+                    fs.readFile (src, 'utf8', function (err, data)
+                    {
+                        if (err)
+                        {
+                            utilities.logFile(err);
+                            res.end("ERROR fichero: " + err);
+                        }
+                        else
+                        {                            
+                            csvparse(data, {comment: '#', delimiter:','}, function(err, output)
+                            {
+                                function dobucle (x)
+                                {
+                                    if (x < output.length)
+                                    {
+                                        output[x].splice(0, 0, idhotel);
+                                        bbdd.insert_reservs_csv (output[x], function(err)
+                                        {
+                                            dobucle (x+1);
+                                        });
+                                    }
+                                }
+
+                                dobucle(0);
+
+                                utilities.logFile(output);
+                            });
+
+                            res.end("OK fichero: " + data);
+                        }
+                    });
+                }
+                catch (err)
+                {
+                    utilities.logFile(err);
+                    res.end("error gordo: " + err);
+                }    
+            });    
+        }
+        catch (err)
+        {
+            utilities.logFile(err);
+        }    
     }
     else if (req.url == "/" || req.url == "/index.html")
     {

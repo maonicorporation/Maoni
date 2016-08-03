@@ -16,8 +16,8 @@ var box = new DB({
 });*/
 
 var box = new DB({
-    host     : 'go.maoni.solutions',
-    //host     : 'localhost',
+    //host     : 'go.maoni.solutions',
+    host     : 'localhost',
     user     : 'gomaonis_Aleix',
     password : 'Aleix.2302',
     database : 'gomaonis_maonibd'
@@ -172,6 +172,7 @@ exports.sel_all_from_parametrosMailing = sel_all_from_parametrosMailing;
 exports.sel_all_from_reservasImMail = sel_all_from_reservasImMail;
 exports.update_generico = update_generico;
 exports.sel_incidenciasNoNotificadas = sel_incidenciasNoNotificadas;
+exports.insert_reservs_csv = insert_reservs_csv;
 
 function update_generico (table, rowid, field, value, callback)
 {
@@ -285,6 +286,26 @@ function sel_all_from_reservasImMail (idhotel, diasAlojados, idioma, callback)
             function(_, callback)
             {
                 conn.query (sentencia, [idhotel, idioma, diasAlojados], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function insert_reservs_csv (csvrow, callback)
+{
+    //SELECT DATE_ADD('2010-05-11', INTERVAL 1 DAY) AS Tomorrow;
+    var sentencia = "insert into gomaonis_maonibd.reservas (IDHOTEL,IDRESERVA,ENTRADA,SALIDA,MAIL_CARDEX,NOMBRE,APELLIDO1,APELLIDO2,ISO_PAIS,ISO_IDIOMA,HABITACION) values (?,?,?,?,?,?,?,?,?,?,?)";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, csvrow, callback);
             },
             function(res, cb) 
             {

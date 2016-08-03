@@ -19,8 +19,32 @@ $(document).ready(function()
 	{
 		document.getElementById("uploadFile").value = this.value;
 	};
-});
 
+	$('#uploadForm').submit(function(e)
+	{
+		e.preventDefault();
+		
+		$('#idhotel').val(getCookie("IDHOTEL"));
+
+		var formData = new FormData($(this)[0]);
+
+		$.ajax({
+			url: '/UPLOAD',
+			type: 'POST',
+			data: formData,
+			async: false,
+			success: function (data)
+			{
+				//console.log(data);
+				toastr["success"]("css subido con éxito");
+			},
+			cache: false,
+			contentType: false,
+			processData: false
+		});
+	});
+
+});
 
 
 </script>
@@ -41,63 +65,45 @@ $(document).ready(function()
                     <div class="clearfix"></div>
 					
 					
-					<!--
-					<div class="_collapse" id="collapseupload">
-					<a href="#" class="list-group-item col-md-4">
-						<form id="uploadForm"
-							enctype="multipart/form-data"
-							action="/UPLOAD"
-							method="post"
-							onsubmit="setTimeout(function () { alert(\'El fichero está subiento al servidor...\');reloadData (true); }, 10)"
-							target="fileIframe">
-							<iframe 
-								name="fileIframe"
-								style="display:none"
-								_onload = "alert('Datos subidos');"
-								tabindex="-1">
-							</iframe>
-							<input style="width:100%" class="btn btn-primary upload2" id="uploadInput" type="file" name="myFiles" _multiple />
-							<input style="width:100%" class="btn btn-primary" type="submit" value="Subir">
-							<input hidden type="text" name="idtarea" value="333">
-						</form>
-					</a>
-					</div>
-					-->
 					
 					<hr/>
+					
 					
 					
 					<form id="uploadForm"
 						enctype="multipart/form-data"
 						action="/UPLOAD"
-						method="post"
-						onsubmit="setTimeout(function () { alert(\'El fichero está subiento al servidor...\');reloadData (true); }, 10)"
-						target="fileIframe">
-						
-						
-						<iframe 
-							name="fileIframe"
-							style="display:none"
-							_onload = "alert('Datos subidos');"
-							tabindex="-1">
-						</iframe>
+						method="post">
 							
-							
-						<input id="uploadFile" placeholder="<VACÍO>" disabled="disabled" class="inline" />
+						<input style = "width:300px" id="uploadFile" placeholder="<VACÍO>" _disabled="disabled" class="inline form-control" name="varfilename"/>
+						
+						<input id="idhotel" type="text" name="idhotel" value="-1" hidden/>
 						
 						<div class="fileUpload btn btn-primary inline">
-						<input id="uploadBtn" type="file" class="upload inline" accept=".xls,.xlsx,.css"/>	
-							<span class="glyphicon glyphicon glyphicon-folder-open inline" aria-hidden="true"></span>&nbsp;&nbsp;SELECCIONAR ARCHIVO...
-													
+							<input id="uploadBtn" type="file" name="myFiles" class="upload inline" accept=".csv"/>	
+							
+							<span class="glyphicon glyphicon glyphicon-folder-open inline" aria-hidden="true"></span>&nbsp;&nbsp;SELECCIONAR ARCHIVO...													
 						</div>
-						
-						
 						
 						<input class="btn btn-success _col-md-2 inline" type="submit" value="SUBIR">
 						
 					</form>
-	
-	
+					
+					
+					<div class="page-header">
+					  <h1>Formato del csv <small></small></h1>
+					  <h4> - Los campos marcados con * son obligatorios</h4>
+					  <h4> - El separador de campo es la coma</h4>
+					  <h4> - Los campos del csv son los siguientes, en este orden:</h4>
+					  <h4>IDRESERVA(*),ENTRADA(*),SALIDA(*),MAIL_CARDEX(*),NOMBRE(*),APELLIDO1,APELLIDO2,ISO_PAIS,ISO_IDIOMA(*),HABITACION</h4>
+					  <br/>
+					  <h4> - Ejemplo:</h4>
+					  <h4>13245,2016/08/15,2016/08/21,miemail@gmail.com,Juan,Apellido,,ES,ES,0201</h4>
+					</div>
+					
+					
+					
+					
                 </div>             
                 
             </div>

@@ -20,6 +20,7 @@
     "serve-favicon": "~2.3.0",
     "compression": "~1.6.1",
     "cookie-session":"~2.0.0-alpha.1",
-    "formidable": "~1.0.17"
+    "formidable": "~1.0.17",
+    "csv-parse": "*"
   }
 }
