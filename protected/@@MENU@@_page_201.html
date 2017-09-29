@@ -113,7 +113,7 @@ function saveReserva()
 			"ISO_IDIOMA": "ES",
             "ISO_PAIS": $('#idPais').find(":selected").val()};
             
-        postData ("http://wsreservas.go.maoni.solutions/Reservas", data, function (err, data)
+        postData ("https://wsreservas.go.maoni.solutions/Reservas", data, function (err, data)
         {
             if (data.result == 1)
             {

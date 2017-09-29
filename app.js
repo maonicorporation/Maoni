@@ -29,7 +29,7 @@ var options = {
 };
 
 //Connect components
-app.use(favicon(__dirname + '/protected/img/ico.png'));
+app.use(favicon(__dirname + '/public/img/ico.png'));
 
 var compression = require('compression');
 app.use(compression())
@@ -93,7 +93,7 @@ app.use(function (req, res)
                 try
                 {
 
-                    //http://csv.adaltas.com/parse/examples/
+                    //https://csv.adaltas.com/parse/examples/
                     var src = form.openedFiles[0].path; + "/" + form.openedFiles[0].name;    
 
                     //res.writeHead(200, {'content-type': 'text/plain'});
@@ -299,8 +299,87 @@ function enviarMails()
                             {
                                 utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
                                 
+                                //Premail
+                                if (data3[k].TIPO == 1)
+                                {
+                                    var path = data3[k].PATH;
+                                    
+                                    //Hora del sistema
+                                    var d = new Date();
+                                    var hh = d.getHours();
+                                    
+                                    //Si podemos enviar la encuesta
+                                    if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
+                                    {
+                                        //Vamos a buscar reservas que cumplan:
+                                        //
+                                        // * Que sean del idioma de la encuesta
+                                        // * Que no se haya enviado ya el premail
+                                        // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+                                        //Bucle de encuestas
+                                        bbdd.sel_all_from_reservasPreMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
+                                        {
+                                            var step1 = function (x)
+                                            {
+                                                if (x < data4.length)
+                                                {
+                                                    utilities.logFile("      PREMAIL TO: " + data4[x].MAIL_CARDEX);
+                                            
+                                                    //Preparamos la encuesta                                                    
+                                                    var filename = __dirname + "/public/mails/pre/" + path;                                                    
+                                                    
+                                                    fs.stat(filename, function (errf, stat)
+                                                    {                                                        
+                                                        if (!errf)
+                                                        {
+                                                            var sbuffer = fs.readFileSync(filename, "utf8");
+                                                            var shotel = "";
+                                                            var IdHotel = data4[x].IDHOTEL;
+                                                            for (var ht = 0; ht < data2.length; hy++)
+                                                            {
+                                                                if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
+                                                                {
+                                                                    shotel = data2[ht].DESCHOTEL;
+                                                                    break;
+                                                                }
+                                                            }
+                                                            
+                                                            var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
+                                                            body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
+                                                            body = body.replaceAll("@@IDHOTEL@@", IdHotel);
+                                                            body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
+                                                            body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
+                                                            body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
+                                                            body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
+                                                            body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
+                                                            body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
+                                                            
+                                                            sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
+                                                            {
+                                                                if (err == null)
+                                                                {
+                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_PRE_ENVIADO", 1, function(err,data)
+                                                                    {
+                                                                    });
+                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAPREENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
+                                                                    {
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+
+                                                    step1(x + 1);
+                                                }
+                                            };
+
+                                            step1 (0);                                            
+                                        });
+                                    }
+                                }
+
                                 //Inmail
-                                if (data3[k].TIPO == 2)
+                                else if (data3[k].TIPO == 2)
                                 {
                                     var IdEncuesta = data3[k].IDENCUESTA;
                                     
@@ -317,7 +396,7 @@ function enviarMails()
                                         // * Que no se haya enviado ya el premail
                                         // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
                                         //Bucle de encuestas
-                                        bbdd.sel_all_from_reservasImMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
+                                        bbdd.sel_all_from_reservasInMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
                                         {
                                             var step1 = function (x)
                                             {
@@ -326,13 +405,13 @@ function enviarMails()
                                                     utilities.logFile("      EMAIL TO: " + data4[x].MAIL_CARDEX);
                                             
                                                     //Preparamos la encuesta
-                                                    var menufilename = __dirname + "/public/mails/inmail_" + data4[x].ISO_IDIOMA + ".html";
+                                                    var menufilename = __dirname + "/public/mails/in/inmail_" + data4[x].ISO_IDIOMA + ".html";
                                                     
                                                     fs.stat(menufilename, function (errf, stat)
                                                     {
                                                         if (!errf)
                                                         {
-                                                            sbuffer = fs.readFileSync(menufilename, "utf8");
+                                                            var sbuffer = fs.readFileSync(menufilename, "utf8");
                                                             
                                                             var shotel = "";
                                                             var IdHotel = data4[x].IDHOTEL;
@@ -414,7 +493,7 @@ function notificarIncidencias()
                     {
                         if (!errf)
                         {
-                            sbuffer = fs.readFileSync(menufilename, "utf8");                        
+                            var sbuffer = fs.readFileSync(menufilename, "utf8");                        
                             
                             var fecha = utilities.formatearFecha(data1[x].FECHACREACION);
                             

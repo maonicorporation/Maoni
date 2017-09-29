@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+		
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	
+	
+	<link rel="stylesheet" href="awesome-bootstrap-checkbox.css">
+	
+
+	</head>
+	<body>
+		
+		<br />		
+		
+		<center id = "idTitulo"><h3 style="font-family:Helvetica Neue, Roboto, Arial, Droid Sans, sans-serif;color:#5A7375;font-size:38px"><b>¿Te importaría decirnos qué no te gusta?</b></h3></center>
+		
+		<center id="idGracias" style="display: none;" ><h3 style="font-family:Helvetica Neue, Roboto, Arial, Droid Sans, sans-serif;color:#5A7375;font-size:38px"><b>Gracias por participar<br/>Nuestro equipo tratará de subsanar tralari tralara</b></h3></center>
+		
+		<div class="container-fluid" id="idEncuesta">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+				
+					<div class="row">
+						<div class="col-md-12" style="margin-left: 20px;margin-right: 20px;">
+						
+							<div class="checkbox checkbox-danger">
+								<input id="id10" type="checkbox">
+								<label for="id10">Habitación
+								</label>
+								<br/>
+								<textarea id="idMotivo10" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+							<br/>
+							<div class="checkbox checkbox-danger">
+								<input id="id20" type="checkbox">
+								<label for="id20">Limpieza
+								</label>
+								<br/>
+								<textarea id="idMotivo20" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+							<br/>
+							<div class="checkbox checkbox-danger">
+								<input id="id30" type="checkbox">
+								<label for="id30">Personal
+								</label>
+								<br/>
+								<textarea id="idMotivo30" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+							<br/>
+							<div class="checkbox checkbox-danger">
+								<input id="id40" type="checkbox">
+								<label for="id40">Wifi
+								</label>
+								<br/>
+								<textarea id="idMotivo40" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+							<br/>
+							<div class="checkbox checkbox-danger">
+								<input id="id50" type="checkbox">
+								<label for="id50">Restaurante
+								</label>
+								<br/>
+								<textarea id="idMotivo50" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+							<br/>
+							<div class="checkbox checkbox-danger">
+								<input id="id60" type="checkbox">
+								<label for="id60">Calidad / precio
+								</label>
+								<br/>
+								<textarea id="idMotivo60" style="display: none;" class="form-control" rows="3" placeholder="Puedes especificar un motivo"></textarea>
+							</div>
+	 
+						</div>
+						
+					</div>
+					<br/>
+					<br/>
+					
+					<div class="text-center">
+						<button type="button" class="btn btn-primary" onclick="subirencuesta()">
+							<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar
+						</button>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+		  </div>
+		</div>
+		
+		
+		<br />
+		<br />
+		<br />
+		
+		<center>
+			<a style="text-decoration: none !important;" href="#">
+			<img src = "http://go.maoni.solutions/mails/img/logomailGLS.png" style="max-width:100% !important;"/>
+			</a>
+		</center>
+		
+		<br />
+		
+		<script type='text/javascript'>
+		
+        $('#id10').click(function() { showhide ("#id10", "#idMotivo10"); });
+		$('#id20').click(function() { showhide ("#id20", "#idMotivo20"); });
+		$('#id30').click(function() { showhide ("#id30", "#idMotivo30"); });
+		$('#id40').click(function() { showhide ("#id40", "#idMotivo40"); });
+		$('#id50').click(function() { showhide ("#id50", "#idMotivo50"); });
+		$('#id60').click(function() { showhide ("#id60", "#idMotivo60"); });
+		
+		function showhide(idcheck, idtxt)
+		{
+			if( $( idcheck ).prop( "checked" ))
+			{
+                $( idtxt ).show(250);
+            }
+			else
+			{                
+				$( idtxt ).hide(50);
+            }
+		}
+		
+		</script>
+		
+		<script>
+	
+		//file:///C:/projectes/Maoni/Maoni/public/mails/inmail_ES_ok.html?rowid=7&lang=ES&idencuesta=1000&idhotel=1&idreserva=3333
+		
+		function todatToyyyymmdd_hhmmss()
+		{
+			var date = new Date();
+			var dd = date.getDate();
+			var mm = date.getMonth()+1;
+			
+			h = date.getHours(), 
+			m = date.getMinutes(), 
+			s = date.getSeconds();
+
+			var yyyy = date.getFullYear();
+			if(dd<10)
+			{
+				dd='0'+dd
+			} 
+			if(mm<10)
+			{
+				mm='0'+mm
+			} 
+			return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
+		}
+		
+		function getParameterByName(name)
+		{
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		
+		function subirencuesta()
+		{		
+			$( "#idGracias" ).show(250);
+			$( "#idTitulo" ).hide(100);
+			$( "#idEncuesta" ).hide(100);
+		
+			var idencuesta = getParameterByName("idencuesta");
+			var idhotel = getParameterByName("idhotel");
+			var idreserva = getParameterByName("idreserva");
+			var fecharespuesta = todatToyyyymmdd_hhmmss();
+			
+			
+			if( $("#id10").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 10, $("#idMotivo10").val() );
+			if( $("#id20").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 20, $("#idMotivo20").val() );
+			if( $("#id30").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 30, $("#idMotivo30").val() );
+			if( $("#id40").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 40, $("#idMotivo40").val() );
+			if( $("#id50").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 50, $("#idMotivo50").val() );
+			if( $("#id60").prop("checked")) subirqueja (idhotel, idencuesta, idreserva, fecharespuesta, 60, $("#idMotivo60").val() );
+		}
+		
+		function subirqueja(idhotel, idencuesta, idreserva, fecharespuesta,tipo,descr)
+		{
+			var url = "http://wsreservas.go.maoni.solutions/Incidencias";
+			
+			var params = {
+				IDHOTEL:idhotel,
+				IDENCUESTA:idencuesta,
+				IDRESERVA:idreserva,
+				FECHACREACION:fecharespuesta,
+				IDTIPO: tipo,
+				DESCRIPCION: descr
+				}
+				
+			$.ajax({
+				url: url,
+				method: "POST",
+				data: JSON.stringify(params),
+				dataType: 'json',
+				contentType: "application/json",
+				success: function(result,status,jqXHR )
+				{
+					//callback (null, result);
+				},
+				error(jqXHR, textStatus, errorThrown)
+				{
+					//callback (errorThrown, null);
+				}
+			});
+		}
+			
+
+	</script>
+		
+	</body>
+</html>

@@ -12,7 +12,7 @@ $(function ()
 	
 	getIncidencia (rowid, function(err, data)
     {		
-		//http://wsreservas.go.maoni.solutions/incidencia/45
+		//https://wsreservas.go.maoni.solutions/incidencia/45
         if (data.length == 1)
 		{		
 			if (data[0].SOLUCIONADA == 1)			
@@ -64,7 +64,7 @@ function solucionar ()
 		"IDUSUARIOSOLUCION" : getCookie("IDUSUARIO")
 		};
 		
-	putData ("http://wsreservas.go.maoni.solutions/Incidencias/" + rowid, data, function (err, data)
+	putData ("https://wsreservas.go.maoni.solutions/Incidencias/" + rowid, data, function (err, data)
 	{	
 		if (data != null)	
 		{

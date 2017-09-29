@@ -25,8 +25,8 @@ function logFile(mess)
     
     fs.appendFile(fpath, fmess, function (err)
     {        
-        console.dir(fmess2);
     });
+    console.dir(fmess2);
 }
 
 function servefile (res, filename)
@@ -55,6 +55,7 @@ function servefile (res, filename)
             res.setHeader('Content-Length', stat.size);
             var mimetype = mime.lookup(path.basename(filename));
             res.setHeader('content-type', mimetype);
+            res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Cache-Control','no-cache');
             
             var stream = fs.createReadStream(filename);

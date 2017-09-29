@@ -211,11 +211,11 @@ function loginToMaoni (user, pwd, callback)
 
 function login (user, pwd, callback)
 {
-    //http://wsreservas.go.maoni.solutions/Usuarios/maoni/99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201
+    //https://wsreservas.go.maoni.solutions/Usuarios/maoni/99390cfd08236787dbe95558846798013dcd060a1d6e6b49ad10a08f30eaf201
     
     if(user == "") user = "any";
     
-    var url = "http://wsreservas.go.maoni.solutions/Usuarios/" + user + "/"+ pwd;
+    var url = "https://wsreservas.go.maoni.solutions/Usuarios/" + user + "/"+ pwd;
 	$.get(url)
 	.fail(function() 
     {
@@ -245,8 +245,8 @@ function login (user, pwd, callback)
 
 function getHoteles (callback)
 {
-    //http://wsreservas.go.maoni.solutions/Hoteles/maoni
-    var url = "http://wsreservas.go.maoni.solutions/Hoteles/" + getCookie("IDUSUARIO");
+    //https://wsreservas.go.maoni.solutions/Hoteles/maoni
+    var url = "https://wsreservas.go.maoni.solutions/Hoteles/" + getCookie("IDUSUARIO");
 	$.get(url)
 	.fail(function() 
     {
@@ -260,7 +260,7 @@ function getHoteles (callback)
 
 function getOrigen (callback)
 {
-    var url = "http://wsreservas.go.maoni.solutions/Origen";
+    var url = "https://wsreservas.go.maoni.solutions/Origen";
 	$.get(url)
 	.fail(function() 
     {
@@ -274,10 +274,10 @@ function getOrigen (callback)
 
 function getReservas (idhotel, entrada, callback)
 {
-	//http://wsreservas.go.maoni.solutions/Reservas/1/20160501
+	//https://wsreservas.go.maoni.solutions/Reservas/1/20160501
 	//app.get('/Reservas/:IDHOTEL/:ENTRADA', bbdd.getReservas, function(err,data){});
 
-    var url = "http://wsreservas.go.maoni.solutions/Reservas/" + idhotel + "/" + entrada;
+    var url = "https://wsreservas.go.maoni.solutions/Reservas/" + idhotel + "/" + entrada;
 	$.get(url)
 	.fail(function() 
     {
@@ -291,9 +291,9 @@ function getReservas (idhotel, entrada, callback)
 
 function getIncidenciasNoNotificadas (callback)
 {
-	//http://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas
+	//https://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas
 
-    var url = "http://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas";
+    var url = "https://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas";
 	$.get(url)
 	.fail(function() 
     {
@@ -307,9 +307,9 @@ function getIncidenciasNoNotificadas (callback)
 
 function getEncuestasResumen (idhotel, entrada, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+	//https://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/EncuestasResumen/" + idhotel + "/" + entrada;
+    var url = "https://wsreservas.go.maoni.solutions/EncuestasResumen/" + idhotel + "/" + entrada;
 	$.get(url)
 	.fail(function() 
     {
@@ -323,9 +323,9 @@ function getEncuestasResumen (idhotel, entrada, callback)
 
 function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
+	//https://wsreservas.go.maoni.solutions/EncuestasResumenRango/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/EncuestasResumenRango/" + idhotel + "/" + desde + "/" + hasta;
+    var url = "https://wsreservas.go.maoni.solutions/EncuestasResumenRango/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -339,9 +339,9 @@ function getEncuestasResumenRango (idhotel, desde, hasta, callback)
 
 function getEncuestasResumenRangoSinAcumular (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/1/20160514
+	//https://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/" + idhotel + "/" + desde + "/" + hasta;
+    var url = "https://wsreservas.go.maoni.solutions/getEncuestasResumenRangoSinAcumular/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -355,9 +355,9 @@ function getEncuestasResumenRangoSinAcumular (idhotel, desde, hasta, callback)
 
 function getIndicesSatisfaccion (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/IndicesSatisfaccion/1/20160501/20160531
+	//https://wsreservas.go.maoni.solutions/IndicesSatisfaccion/1/20160501/20160531
 
-    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccion/" + idhotel + "/" + desde + "/" + hasta;
+    var url = "https://wsreservas.go.maoni.solutions/IndicesSatisfaccion/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -371,9 +371,9 @@ function getIndicesSatisfaccion (idhotel, desde, hasta, callback)
 
 function getIndicesSatisfaccionSemana (idhotel, pyear,wdesde, whasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/1/10/20
+	//https://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/1/10/20
 
-    var url = "http://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/" + idhotel + "/" + pyear + "/" + wdesde + "/" + whasta;
+    var url = "https://wsreservas.go.maoni.solutions/IndicesSatisfaccionSemana/" + idhotel + "/" + pyear + "/" + wdesde + "/" + whasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -387,9 +387,9 @@ function getIndicesSatisfaccionSemana (idhotel, pyear,wdesde, whasta, callback)
 
 function getTopResolutivos (idempresa, anyo, callback)
 {
-	http://wsreservas.go.maoni.solutions/topResolutivos/1/2016
+	https://wsreservas.go.maoni.solutions/topResolutivos/1/2016
 
-    var url = "http://wsreservas.go.maoni.solutions/topResolutivos/" + idempresa + "/" + anyo;
+    var url = "https://wsreservas.go.maoni.solutions/topResolutivos/" + idempresa + "/" + anyo;
 	$.get(url)
 	.fail(function() 
     {
@@ -403,9 +403,9 @@ function getTopResolutivos (idempresa, anyo, callback)
 
 function getIncidencia (rowid, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+	//https://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/incidencia/" + rowid;
+    var url = "https://wsreservas.go.maoni.solutions/incidencia/" + rowid;
 	$.get(url)
 	.fail(function() 
     {
@@ -419,9 +419,9 @@ function getIncidencia (rowid, callback)
 
 function getIncidenciasLast5 (idhotel, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+	//https://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/incidenciasLast5/" + idhotel;
+    var url = "https://wsreservas.go.maoni.solutions/incidenciasLast5/" + idhotel;
 	$.get(url)
 	.fail(function() 
     {
@@ -435,9 +435,9 @@ function getIncidenciasLast5 (idhotel, callback)
 
 function getIncidenciasRango (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
+	//https://wsreservas.go.maoni.solutions/EncuestasResumen/1/20160514
 
-    var url = "http://wsreservas.go.maoni.solutions/IncidenciasRango/" + idhotel + "/" + desde + "/" + hasta;
+    var url = "https://wsreservas.go.maoni.solutions/IncidenciasRango/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -451,9 +451,9 @@ function getIncidenciasRango (idhotel, desde, hasta, callback)
 
 function getIncidenciasPorSemana (idhotel, desde, hasta, callback)
 {
-	//http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/1/10/20
+	//https://wsreservas.go.maoni.solutions/IncidenciasPorSemana/1/10/20
 
-    var url = "http://wsreservas.go.maoni.solutions/IncidenciasPorSemana/" + idhotel + "/" + desde + "/" + hasta;
+    var url = "https://wsreservas.go.maoni.solutions/IncidenciasPorSemana/" + idhotel + "/" + desde + "/" + hasta;
 	$.get(url)
 	.fail(function() 
     {
@@ -467,7 +467,7 @@ function getIncidenciasPorSemana (idhotel, desde, hasta, callback)
 
 function deleteReserva (rowid, callback)
 {
-	deleteData("http://wsreservas.go.maoni.solutions/Reservas/" + rowid, {}, callback);
+	deleteData("https://wsreservas.go.maoni.solutions/Reservas/" + rowid, {}, callback);
 }
 
 function logout()

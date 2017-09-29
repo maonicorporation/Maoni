@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<script>
+	
+		//file:///C:/projectes/Maoni/Maoni/public/mails/inmail_ES_ok.html?rowid=7&lang=ES&idencuesta=1000&idhotel=1&idreserva=3333
+		
+		function todatToyyyymmdd_hhmmss()
+		{
+			var date = new Date();
+			var dd = date.getDate();
+			var mm = date.getMonth()+1;
+			
+			h = date.getHours(), 
+			m = date.getMinutes(), 
+			s = date.getSeconds();
+
+			var yyyy = date.getFullYear();
+			if(dd<10)
+			{
+				dd='0'+dd
+			} 
+			if(mm<10)
+			{
+				mm='0'+mm
+			} 
+			return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
+		}
+		
+		function getParameterByName(name)
+		{
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		
+		var idencuesta = getParameterByName("idencuesta");
+		var idhotel = getParameterByName("idhotel");
+		var idreserva = getParameterByName("idreserva");
+		var fecharespuesta = todatToyyyymmdd_hhmmss();
+		//alert(fecharespuesta);
+		
+		var url = "http://wsreservas.go.maoni.solutions/EncuestaOk";
+		
+		var params = {
+			IDHOTEL:idhotel,
+			IDENCUESTA:idencuesta,
+			IDRESERVA:idreserva,
+			FECHARESPUESTA:fecharespuesta
+			}
+			
+		$.ajax({
+			url: url,
+			method: "POST",
+			data: JSON.stringify(params),
+			dataType: 'json',
+			contentType: "application/json",
+			success: function(result,status,jqXHR )
+			{
+				//callback (null, result);
+			},
+			error(jqXHR, textStatus, errorThrown)
+			{
+				//callback (errorThrown, null);
+			}
+		}); 
+			
+
+	</script>
+	
+	
+
+	</head>
+	<body>
+	
+	
+		
+
+	
+
+		
+		<br />
+		
+		
+		<center><h3 style="font-family:Helvetica Neue, Roboto, Arial, Droid Sans, sans-serif;color:#5A7375;font-size:38px">
+		
+		Celebramos que tu estancia esté siendo de tu agrado. <br>No dudes en contactarnos si necesitas nuestra ayuda.</h3></center>
+		
+
+		<br />
+		
+		
+		
+		<br />
+		
+		
+		
+		<br />
+		
+		<center>
+			<a style="text-decoration: none !important;" href="#">
+			<img src = "http://go.maoni.solutions/mails/img/logomailGLS.png" style="max-width:100% !important;"/>
+			</a>
+		</center>
+		
+		<br />
+		
+		
+		
+	</body>
+</html>
