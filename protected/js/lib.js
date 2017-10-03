@@ -50,6 +50,7 @@ function getMonthName (i)
 
 function extractDateFromYYYYMMDDTHHMMSSstring (strDate)
 {
+	if (strDate == null) return "";
 	//"2016-05-14T07:46:44.000Z"
 	var s = strDate.replace("T", "-"); 
 	var spl = s.split("-");
@@ -58,18 +59,21 @@ function extractDateFromYYYYMMDDTHHMMSSstring (strDate)
 
 function extractMonthFromYYYYMMDDstring (strDate)
 {
+	if (strDate == null) return "";
 	//"2016-05-14T07:46:44.000Z"
 	return  parseInt(strDate.split("-")[1]); 
 }
 
 function extractDateFromYYYYMMDDHHMMSSstring (strDate)
 {
+	if (strDate == null) return "";
 	//"2016-05-14T07:46:44.000Z"
 	return  dateToddmmyy (new Date(strDate));
 }
 
 function extractDayFromYYYYMMDDstring (strDate)
 {
+	if (strDate == null) return "";
 	//"2016-05-14T07:46:44.000Z"
 	return  parseInt(strDate.replace('T',' ').split("-")[2]); 
 }
@@ -181,6 +185,11 @@ function secondsToString(seconds)
 	}
 	
 	return ret;
+}
+
+function bool2Text (b)
+{
+	return b?"Sí":"No";
 }
 
 /******************************************************************************************************************/

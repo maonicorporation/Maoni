@@ -11,7 +11,6 @@ var nodemailer = require('nodemailer');
 var csvparse = require('csv-parse');
 var utilities = require("./utilities");
 var bbdd = require("./bbdd");
-
 var formidable = require('formidable');
 var util = require('util');
 
@@ -44,7 +43,7 @@ app.use(function (req, res)
 {
     //dotest();
 
-    var home = g_root + "/protected/";
+    var home = path.join(g_root, "/protected/");
     var url = parse(req.url);
     var filename = path.join(home, url.pathname);
     var logOk = false;
@@ -94,7 +93,7 @@ app.use(function (req, res)
                 {
 
                     //https://csv.adaltas.com/parse/examples/
-                    var src = form.openedFiles[0].path; + "/" + form.openedFiles[0].name;    
+                    var src = path.join(form.openedFiles[0].path, form.openedFiles[0].name);
 
                     //res.writeHead(200, {'content-type': 'text/plain'});
                     //res.write('received upload:');
@@ -271,198 +270,233 @@ function todatToyyyymmdd_hhmmss()
     } 
     return yyyy + '-' + mm + '-' + dd + ' ' + h + ':' + m + ':' + s;
 }
-        
+
 function enviarMails()
 {
-    utilities.logFile("INICIO ENVIO EMAILS....");
-    
-    //Bucle de empresas
-    bbdd.sel_all_from_empresas (function (err, data1)
+    bbdd.sel_all_from_traducciones (function (err, dataTrans)
     {
-        if(data1 != undefined)
+        function translate (b, idioma)
         {
-            for (var i = 0; i < data1.length; i++)
+            var ret = b;
+            for (var i = 0; i < dataTrans.length; i++)
             {
-                utilities.logFile(data1[i].IDEMPRESA + " " + data1[i].DESCEMPRESA);
-                
-                //Bucle de hoteles de empresa
-                bbdd.sel_all_from_hoteles (data1[i].IDEMPRESA ,function (err, data2)
-                {
-                    for (var j = 0; j <data2.length; j++)
-                    {
-                        utilities.logFile("  " + data2[j].IDHOTEL + " " + data2[j].DESCHOTEL);
-                        
-                        //Bucle de encuestas
-                        bbdd.sel_all_from_parametrosMailing (data2[j].IDHOTEL ,function (err, data3)
-                        {
-                            for (var k = 0; k <data3.length; k++)
-                            {
-                                utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
-                                
-                                //Premail
-                                if (data3[k].TIPO == 1)
-                                {
-                                    var path = data3[k].PATH;
-                                    
-                                    //Hora del sistema
-                                    var d = new Date();
-                                    var hh = d.getHours();
-                                    
-                                    //Si podemos enviar la encuesta
-                                    if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
-                                    {
-                                        //Vamos a buscar reservas que cumplan:
-                                        //
-                                        // * Que sean del idioma de la encuesta
-                                        // * Que no se haya enviado ya el premail
-                                        // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
-                                        //Bucle de encuestas
-                                        bbdd.sel_all_from_reservasPreMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
-                                        {
-                                            var step1 = function (x)
-                                            {
-                                                if (x < data4.length)
-                                                {
-                                                    utilities.logFile("      PREMAIL TO: " + data4[x].MAIL_CARDEX);
-                                            
-                                                    //Preparamos la encuesta                                                    
-                                                    var filename = __dirname + "/public/mails/pre/" + path;                                                    
-                                                    
-                                                    fs.stat(filename, function (errf, stat)
-                                                    {                                                        
-                                                        if (!errf)
-                                                        {
-                                                            var sbuffer = fs.readFileSync(filename, "utf8");
-                                                            var shotel = "";
-                                                            var IdHotel = data4[x].IDHOTEL;
-                                                            for (var ht = 0; ht < data2.length; hy++)
-                                                            {
-                                                                if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
-                                                                {
-                                                                    shotel = data2[ht].DESCHOTEL;
-                                                                    break;
-                                                                }
-                                                            }
-                                                            
-                                                            var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
-                                                            body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
-                                                            body = body.replaceAll("@@IDHOTEL@@", IdHotel);
-                                                            body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
-                                                            body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
-                                                            body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
-                                                            body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
-                                                            body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
-                                                            body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
-                                                            
-                                                            sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
-                                                            {
-                                                                if (err == null)
-                                                                {
-                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_PRE_ENVIADO", 1, function(err,data)
-                                                                    {
-                                                                    });
-                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAPREENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
-                                                                    {
-                                                                    });
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-
-                                                    step1(x + 1);
-                                                }
-                                            };
-
-                                            step1 (0);                                            
-                                        });
-                                    }
-                                }
-
-                                //Inmail
-                                else if (data3[k].TIPO == 2)
-                                {
-                                    var IdEncuesta = data3[k].IDENCUESTA;
-                                    
-                                    //Hora del sistema
-                                    var d = new Date();
-                                    var hh = d.getHours();
-                                    
-                                    //Si podemos enviar la encuesta
-                                    if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
-                                    {
-                                        //Vamos a buscar reservas que cumplan:
-                                        //
-                                        // * Que sean del idioma de la encuesta
-                                        // * Que no se haya enviado ya el premail
-                                        // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
-                                        //Bucle de encuestas
-                                        bbdd.sel_all_from_reservasInMail (data3[k].IDHOTEL, data3[k].DIAS, data3[k].IDIOMA, function (err, data4)
-                                        {
-                                            var step1 = function (x)
-                                            {
-                                                if (x < data4.length)
-                                                {
-                                                    utilities.logFile("      EMAIL TO: " + data4[x].MAIL_CARDEX);
-                                            
-                                                    //Preparamos la encuesta
-                                                    var menufilename = __dirname + "/public/mails/in/inmail_" + data4[x].ISO_IDIOMA + ".html";
-                                                    
-                                                    fs.stat(menufilename, function (errf, stat)
-                                                    {
-                                                        if (!errf)
-                                                        {
-                                                            var sbuffer = fs.readFileSync(menufilename, "utf8");
-                                                            
-                                                            var shotel = "";
-                                                            var IdHotel = data4[x].IDHOTEL;
-                                                            for (var ht = 0; ht < data2.length; hy++)
-                                                            {
-                                                                if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
-                                                                {
-                                                                    shotel = data2[ht].DESCHOTEL;
-                                                                    break;
-                                                                }
-                                                            }
-                                                            
-                                                            var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
-                                                            body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
-                                                            body = body.replaceAll("@@IDHOTEL@@", IdHotel);
-                                                            body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
-                                                            body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
-                                                            body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
-                                                            body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
-                                                            body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
-                                                            body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
-                                                            
-                                                            sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
-                                                            {
-                                                                if (err == null)
-                                                                {
-                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
-                                                                    {
-                                                                    });
-                                                                    bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAINENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
-                                                                    {
-                                                                    });
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-
-                                                    step1(x + 1);
-                                                }
-                                            };
-
-                                            step1 (0);                                            
-                                        });
-                                    }
-                                }
-                            }                        
-                        });
-                    }
-                });
+                var col = "TEXT_" + idioma;
+                var key = "@@" + dataTrans[i].KEY + "@@";
+                var trans = dataTrans[i][col];
+                ret = ret.replaceAll(key, trans);
             }
+
+            return ret;
         }
+
+        utilities.logFile("INICIO ENVIO EMAILS....");
+
+        //Bucle de empresas
+        bbdd.sel_all_from_empresas (function (err, data1)
+        {
+            if(data1 != undefined)
+            {
+                for (var i = 0; i < data1.length; i++)
+                {
+                    utilities.logFile(data1[i].IDEMPRESA + " " + data1[i].DESCEMPRESA);
+                    
+                    //Bucle de hoteles de empresa
+                    bbdd.sel_all_from_hoteles (data1[i].IDEMPRESA ,function (err, data2)
+                    {
+                        for (var j = 0; j <data2.length; j++)
+                        {
+                            utilities.logFile("  " + data2[j].IDHOTEL + " " + data2[j].DESCHOTEL);
+                            
+                            //Bucle de encuestas
+                            bbdd.sel_all_from_parametrosMailing (data2[j].IDHOTEL ,function (err, data3)
+                            {
+                                for (var k = 0; k <data3.length; k++)
+                                {
+                                    utilities.logFile("    " + data3[k].IDIOMA + " " + data3[k].PATH);
+                                    
+                                    //Premail
+                                    if (data3[k].TIPO == 1)
+                                    {
+                                        //Hora del sistema
+                                        var d = new Date();
+                                        var hh = d.getHours();
+                                        
+                                        //Si podemos enviar la encuesta
+                                        if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
+                                        {
+                                            //Vamos a buscar reservas que cumplan:
+                                            //
+                                            // * Que sean del idioma de la encuesta
+                                            // * Que no se haya enviado ya el premail
+                                            // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+                                            //Bucle de encuestas
+                                            
+                                            contextOfK (k);
+
+                                            function contextOfK(contextualized_k)
+                                            {
+                                                var filePath = data3[contextualized_k].PATH;
+
+                                                bbdd.sel_all_from_reservasPreMail (data3[contextualized_k].IDHOTEL, data3[contextualized_k].DIAS, data3[contextualized_k].IDIOMA, function (err, data4)
+                                                {
+                                                    var step1 = function (x)
+                                                    {
+                                                        if (x < data4.length)
+                                                        {
+                                                            utilities.logFile("      PREMAIL TO: " + data4[x].MAIL_CARDEX);
+                                                    
+                                                            //Preparamos la encuesta
+                                                            var filename = path.join(__dirname , "public/mails/pre");
+                                                            filename = path.join(filename , filePath);
+                                                            
+                                                            fs.stat(filename, function (errf, stat)
+                                                            {                                                        
+                                                                if (!errf)
+                                                                {
+                                                                    var sbuffer = fs.readFileSync(filename, "utf8");
+                                                                    var shotel = "";
+                                                                    var IdHotel = data4[x].IDHOTEL;
+                                                                    for (var ht = 0; ht < data2.length; hy++)
+                                                                    {
+                                                                        if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
+                                                                        {
+                                                                            shotel = data2[ht].DESCHOTEL;
+                                                                            break;
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
+                                                                    body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
+                                                                    body = body.replaceAll("@@IDHOTEL@@", IdHotel);
+                                                                    body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
+                                                                    body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
+                                                                    body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
+                                                                    body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
+                                                                    body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
+                                                                    body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
+                                                                    
+                                                                    sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
+                                                                    {
+                                                                        if (err == null)
+                                                                        {
+                                                                            bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_PRE_ENVIADO", 1, function(err,data)
+                                                                            {
+                                                                            });
+                                                                            bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAPREENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
+                                                                            {
+                                                                            });
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+
+                                                            step1(x + 1);
+                                                        }
+                                                    };
+
+                                                    step1 (0);                                            
+                                                });
+                                            }
+                                        }
+                                    }
+
+                                    //Inmail
+                                    else if (data3[k].TIPO == 2)
+                                    {
+                                        var IdEncuesta = data3[k].IDENCUESTA;
+                                        
+                                        //Hora del sistema
+                                        var d = new Date();
+                                        var hh = d.getHours();
+                                        
+                                        //Si podemos enviar la encuesta
+                                        if (hh >= data3[k].HORAINICIO && hh <= data3[k].HORAFIN)
+                                        {
+                                            //Vamos a buscar reservas que cumplan:
+                                            //
+                                            // * Que sean del idioma de la encuesta
+                                            // * Que no se haya enviado ya el premail
+                                            // * Que lleven parametrosMailing.DIAS alojados o que ya hayan salido
+                                            //Bucle de encuestas
+
+                                            contextOfK (k);
+                                            
+                                            function contextOfK(contextualized_k)
+                                            {
+                                                var filePath = data3[contextualized_k].PATH;
+
+                                                bbdd.sel_all_from_reservasInMail (data3[contextualized_k].IDHOTEL, data3[contextualized_k].DIAS, data3[contextualized_k].IDIOMA, function (err, data4)
+                                                {
+                                                    var step1 = function (x)
+                                                    {
+                                                        if (x < data4.length)
+                                                        {
+                                                            utilities.logFile("      EMAIL TO: " + data4[x].MAIL_CARDEX);
+                                                    
+                                                            //Preparamos la encuesta
+                                                            var filename = path.join(__dirname , "public/mails/in");
+                                                            filename = path.join(filename , filePath);
+                                                            
+                                                            fs.stat(filename, function (errf, stat)
+                                                            {
+                                                                if (!errf)
+                                                                {
+                                                                    var sbuffer = fs.readFileSync(filename, "utf8");
+                                                                    
+                                                                    sbuffer = translate (sbuffer, data3[contextualized_k].IDIOMA);
+
+                                                                    var shotel = "";
+                                                                    var IdHotel = data4[x].IDHOTEL;
+                                                                    for (var ht = 0; ht < data2.length; hy++)
+                                                                    {
+                                                                        if (data2[ht].IDHOTEL == data4[x].IDHOTEL)
+                                                                        {
+                                                                            shotel = data2[ht].DESCHOTEL;
+                                                                            break;
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    var body = sbuffer.replaceAll("@@NOMBRECOMPLEJO@@", shotel);
+                                                                    body = body.replaceAll("@@ROWID@@", data4[x].ROWID);
+                                                                    body = body.replaceAll("@@IDHOTEL@@", IdHotel);
+                                                                    body = body.replaceAll("@@IDRESERVA@@", data4[x].IDRESERVA);
+                                                                    body = body.replaceAll("@@IDENCUESTA@@", IdEncuesta);
+                                                                    body = body.replaceAll("@@IDIOMA@@", data4[x].ISO_IDIOMA);
+                                                                    body = body.replaceAll("@@NOMBRE@@", data4[x].NOMBRE);
+                                                                    body = body.replaceAll("@@APELLIDO1@@", data4[x].APELLIDO1);
+                                                                    body = body.replaceAll("@@APELLIDO2@@", data4[x].APELLIDO2);
+                                                                    
+                                                                    sendEmail (data4[x].ROWID, data4[x].MAIL_CARDEX, "ENCUESTA", body, function (err, rowid)
+                                                                    {
+                                                                        if (err == null)
+                                                                        {
+                                                                            bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "SI_IN_ENVIADO", 1, function(err,data)
+                                                                            {
+                                                                            });
+                                                                            bbdd.update_generico ("gomaonis_maonibd.reservas", rowid, "FECHAINENVIADO", todatToyyyymmdd_hhmmss(), function(err,data)
+                                                                            {
+                                                                            });
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
+
+                                                            step1(x + 1);
+                                                        }
+                                                    };
+
+                                                    step1 (0);                                            
+                                                });
+                                            }
+                                        }
+                                    }
+                                }                        
+                            });
+                        }
+                    });
+                }
+            }
+        });
     });
     
     setTimeout (enviarMails, 1000 * 60 * 30); // 30 minutos
@@ -481,7 +515,7 @@ function notificarIncidencias()
         if(data1 != undefined)
         {
             //Preparamos la notificación
-            var menufilename = __dirname + "/public/mails/notificacion_ES_A.html";
+            var menufilename = path.join(__dirname, "/public/mails/notificacion_ES_A.html");
             
             var step1 = function (x)
             {

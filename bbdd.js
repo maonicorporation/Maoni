@@ -174,6 +174,7 @@ exports.sel_all_from_reservasPreMail = sel_all_from_reservasPreMail;
 exports.update_generico = update_generico;
 exports.sel_incidenciasNoNotificadas = sel_incidenciasNoNotificadas;
 exports.insert_reservs_csv = insert_reservs_csv;
+exports.sel_all_from_traducciones = sel_all_from_traducciones;
 
 function update_generico (table, rowid, field, value, callback)
 {
@@ -312,7 +313,7 @@ function sel_all_from_reservasInMail (idhotel, diasAlojados, idioma, callback)
         cps.seq([
             function(_, callback)
             {
-                conn.query (sentencia, [idhotel, idioma, diasAlojados], callback);
+                conn.query (sentencia, [idhotel, idioma, -diasAlojados], callback);
             },
             function(res, cb) 
             {
@@ -333,6 +334,25 @@ function insert_reservs_csv (csvrow, callback)
             function(_, callback)
             {
                 conn.query (sentencia, csvrow, callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function sel_all_from_traducciones (callback)
+{
+    var sentencia = "SELECT * FROM gomaonis_maonibd.traducciones;";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, callback);
             },
             function(res, cb) 
             {

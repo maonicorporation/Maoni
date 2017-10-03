@@ -4,6 +4,7 @@
     
 var table = null;
 var currentROWID = -1;
+var gData = null;
 
 $(function ()
 {     
@@ -31,6 +32,49 @@ $(document).ready(function()
     table = $('#datatable').DataTable();
     $('#idDesde').val(dateToddmmyy(new Date()));
 });
+
+function editReg (i)
+{
+    var form = new DEIForm("formEditReg", "Editar reserva");
+
+    form.setJsonData(gData[i]);
+
+    form.addField("ROWID", "ROWID", "int", false, 2);
+    form.addField("IDRESERVA", "ID Reserva", "int", false, 2);
+    form.addField("ENTRADA", "Entrada", "text", false, 2);
+    form.addField("SALIDA", "Salida", "text", false, 2);
+    form.addField("", "", "break", false, 12);
+    form.addField("FULLNAME", "Nombre", "text", false, 6);
+    form.addField("MAIL_CARDEX", "Email", "text", false, 6);
+    //form.addField("", "", "break", false, 12);
+    //form.addField("TITULO", "Petición", "text", true, 8);
+    //form.addField("", "", "break", false, 12);
+    //form.addField("COMENTARIOS", "Detalle", "textarea", true, 12);
+
+    form.setCancelButton(true, function () { ; });
+    //form.setDeleteButton(true, true, function () { form.hideDialog(); });
+    form.setSaveButton(true, true, function (data)
+    {
+        /*$.post("@func", JSON.stringify(
+        {
+            f: "updateGenerico",
+            table: "IT.CABECERA_PEDIDO_PROVEEDOR",
+            keys: { ROWID: data.ROWID },
+            fields:
+            {
+                TITULO: data.TITULO,
+                COMENTARIOS: data.COMENTARIOS
+            },
+        }))
+        .done(function (err, data)
+        {
+            form.hideDialog();
+            generarInforme();
+        });*/
+    });
+
+    form.showDialog();
+}
 
 function deleteReg (rowid, reserva)
 {
@@ -73,17 +117,40 @@ function query ()
     getReservas (idhotel, entrada, function(err, data)
     {
         //$('#cbhoteles').empty();
+
+        gData = data;
         
         for (var i = 0; i < data.length; i++)
         {
+            data[i].ENTRADA = extractDateFromYYYYMMDDTHHMMSSstring(data[i].ENTRADA);
+            data[i].SALIDA = extractDateFromYYYYMMDDTHHMMSSstring(data[i].SALIDA);
+            data[i].FULLNAME = data[i].NOMBRE + " " +  data[i].APELLIDO1 + " " + data[i].APELLIDO2;
+
             var row = "<tr>";
             row += "<td><span class='badge'>" + data[i].ROWID + "</span></td>";
             row += "<td>" + data[i].IDRESERVA + "</td>";
-            row += "<td>" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].ENTRADA) + "</td>";
-            row += "<td>" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].SALIDA) + "</td>";
+            row += "<td>" + data[i].ENTRADA + "</td>";
+            row += "<td>" + data[i].SALIDA + "</td>";
             row += "<td><a href='mailto:" + data[i].MAIL_CARDEX + "'>" + data[i].MAIL_CARDEX + "</a></td>";
-            row += "<td>" + data[i].NOMBRE + " " +  data[i].APELLIDO1 + " " + data[i].APELLIDO2 + "</td>";
-            row += "<td href='#' onclick='deleteReg(" + data[i].ROWID + "," + data[i].IDRESERVA + ");' ><b class='red dedo'>ELIMINAR</b></td>";
+            row += "<td>" + data[i].FULLNAME + "</td>";
+            row += "<td>" + data[i].ISO_IDIOMA + "</td>";
+
+            var fechaPre = "";
+            if (data[i].SI_PRE_ENVIADO == 1)
+            {
+                fechaPre = "<small> (" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].FECHAPREENVIADO) + ")</small>"
+            }
+            row += "<td>" + bool2Text(data[i].SI_PRE_ENVIADO) + fechaPre  + "</td>";
+
+            var fechaIn = "";
+            if (data[i].SI_IN_ENVIADO == 1)
+            {
+                fechaIn = "<small> (" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].FECHAINENVIADO) + ")</small>"
+            }
+            row += "<td>" + bool2Text(data[i].SI_IN_ENVIADO) + fechaIn  + "</td>";
+
+            row += "<td href='#' onclick='editReg(" + i + ");' ><b class='green dedo'>editar</b></td>";
+            row += "<td href='#' onclick='deleteReg(" + data[i].ROWID + "," + data[i].IDRESERVA + ");' ><b class='red dedo'>eliminar</b></td>";
             
             row += "</tr>";
     
@@ -138,12 +205,23 @@ function query ()
                     
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                    <br />
                     </p>
                     <table id="datatable" class="table table-striped _table-bordered dt-responsive nowrap table-hover jambo_table" width="100%">
                     
                         <thead>
-                            <tr>  <th>ROWID</th> <th>ID Reserva</th> <th>Entrada</th> <th>Salida</th> <th>Email</th> <th>Huésped</th><th>Acción</th></tr>
+                            <tr>
+                                <th>ROWID</th> 
+                                <th>ID Reserva</th>
+                                <th>Entrada</th>
+                                <th>Salida</th>
+                                <th>Email</th>
+                                <th>Huésped</th>
+                                <th>Idioma</th>
+                                <th>¿Premail?</th>
+                                <th>¿Inmail?</th>
+                                <th>Acción</th>
+                                <th></th>
+                            </tr>
                         </thead>                        
 
                         <tbody>
