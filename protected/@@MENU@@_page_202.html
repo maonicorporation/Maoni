@@ -3,7 +3,6 @@
 <script>
     
 var table = null;
-var currentROWID = -1;
 var gData = null;
 
 $(function ()
@@ -46,50 +45,45 @@ function editReg (i)
     form.addField("", "", "break", false, 12);
     form.addField("FULLNAME", "Nombre", "text", false, 6);
     form.addField("MAIL_CARDEX", "Email", "text", false, 6);
-    //form.addField("", "", "break", false, 12);
-    //form.addField("TITULO", "Petición", "text", true, 8);
-    //form.addField("", "", "break", false, 12);
-    //form.addField("COMENTARIOS", "Detalle", "textarea", true, 12);
+    form.addField("", "", "break", false, 12);
+    form.addField("SI_PRE_ENVIADO", "¿Premail enviado? (Desmarca para volver a enviar)&nbsp;&nbsp;", "bool", gData[i].SI_PRE_ENVIADO?true:false, 12);
+    form.addField("SI_IN_ENVIADO", "¿Inmail enviado? (Desmarca para volver a enviar)&nbsp;&nbsp;", "bool", gData[i].SI_IN_ENVIADO?true:false, 12);
 
     form.setCancelButton(true, function () { ; });
-    //form.setDeleteButton(true, true, function () { form.hideDialog(); });
+    form.setDeleteButton(true, true, function () 
+    {
+        doDelete (gData[i].ROWID);
+        
+        form.hideDialog(); 
+    });
     form.setSaveButton(true, true, function (data)
     {
-        /*$.post("@func", JSON.stringify(
+        var idhotel = $('#cbhoteles').find(":selected").val();
+
+        if (data.SI_PRE_ENVIADO == 0 && gData[i].SI_PRE_ENVIADO == 1)
         {
-            f: "updateGenerico",
-            table: "IT.CABECERA_PEDIDO_PROVEEDOR",
-            keys: { ROWID: data.ROWID },
-            fields:
+            reservaResetPre (idhotel, gData[i].IDRESERVA, function(err, data)
             {
-                TITULO: data.TITULO,
-                COMENTARIOS: data.COMENTARIOS
-            },
-        }))
-        .done(function (err, data)
+                query ();
+            });
+        }
+        if (data.SI_IN_ENVIADO == 0 && gData[i].SI_IN_ENVIADO == 1)
         {
-            form.hideDialog();
-            generarInforme();
-        });*/
+            reservaResetIn (idhotel, gData[i].IDRESERVA, function(err, data)
+            {
+                query ();
+            });
+        }
+        form.hideDialog();
     });
 
     form.showDialog();
 }
 
-function deleteReg (rowid, reserva)
+
+function doDelete(rowid)
 {
-    currentROWID = rowid;
-
-    $('#idnumres').html(reserva);
-
-    $('#confirmDelete').modal('show');
-}
-
-function doDelete()
-{
-    $('#confirmDelete').modal('hide');
-
-    deleteReserva (currentROWID, function(err, data)
+    deleteReserva (rowid, function(err, data)
     {
         if (data.result == 1)
         {
@@ -150,7 +144,6 @@ function query ()
             row += "<td>" + bool2Text(data[i].SI_IN_ENVIADO) + fechaIn  + "</td>";
 
             row += "<td href='#' onclick='editReg(" + i + ");' ><b class='green dedo'>editar</b></td>";
-            row += "<td href='#' onclick='deleteReg(" + data[i].ROWID + "," + data[i].IDRESERVA + ");' ><b class='red dedo'>eliminar</b></td>";
             
             row += "</tr>";
     
@@ -220,7 +213,6 @@ function query ()
                                 <th>¿Premail?</th>
                                 <th>¿Inmail?</th>
                                 <th>Acción</th>
-                                <th></th>
                             </tr>
                         </thead>                        
 
@@ -231,30 +223,4 @@ function query ()
             </div>
         </div>
     </div>
-</div>
-
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmación</h4>
-      </div>
-      <div class="modal-body">
-          <div class="clearfix"></div>
-            <br />
-                <h3 class="inline">¿Está seguro de que desea eliminar la reserva &nbsp;</h3><h3 id="idnumres" class="inline">2</h3> <h3 class="inline">&nbsp; ?</h3>
-                <div class="clearfix"></div>
-            <br />
-      </div>
-      <div class="modal-footer">
-        
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-danger" onclick="doDelete();">ELIMINAR</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </div>

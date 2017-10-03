@@ -182,9 +182,9 @@ var DEIForm = function ()
                 }
                 else if (_config.fields[i].type == 'bool')
                 {
-                    embed += '<br/><div class="form-group fg-line checkbox">';
+                    embed += '<br/><div class="form-group fg-line _checkbox">';
                     embed += '<label for="' + _config.fields[i].idField + '">' + _config.fields[i].text + '</label>';                    
-                    embed += '<input campo-chk value="" ' + (_data[_config.fields[i].idField] ? 'checked':'') + ' type="checkbox" id="' + _config.fields[i].idField + '" ' + enabled2 + '>';
+                    embed += '<input campo-chk ' + enabled + ' value="" ' + (_data[_config.fields[i].idField] ? 'checked':'') + ' type="checkbox" id="' + _config.fields[i].idField + '" ' + enabled2 + '>';
                     embed += '<i class="input-helper"></i>';
                     embed += '</div>';
                 }

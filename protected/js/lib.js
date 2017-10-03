@@ -497,6 +497,60 @@ function getIncidenciasPorSemana (idhotel, desde, hasta, callback)
 	});
 }
 
+function reservaResetPre(idhotel, idreserva, callback)
+{
+	var url = "https://wsreservas.go.maoni.solutions/ReservaResetPre/" + idhotel + "/" + idreserva;
+	
+	try{
+	$.ajax({
+		url: url,
+		method: "PUT",
+		data: "{}",
+		dataType: 'json',
+		contentType: "application/json",
+		success: function(result,status,jqXHR )
+		{
+			callback (null, result);
+		},
+		error(jqXHR, textStatus, errorThrown)
+		{
+			callback (errorThrown, null);
+		}
+    }); 
+	}
+	catch (err)
+	{
+		alert(err);
+	}
+}
+
+function reservaResetIn(idhotel, idreserva, callback)
+{
+	var url = "https://wsreservas.go.maoni.solutions/ReservaResetIn/" + idhotel + "/" + idreserva;
+	
+	try{
+	$.ajax({
+		url: url,
+		method: "PUT",
+		data: "{}",
+		dataType: 'json',
+		contentType: "application/json",
+		success: function(result,status,jqXHR )
+		{
+			callback (null, result);
+		},
+		error(jqXHR, textStatus, errorThrown)
+		{
+			callback (errorThrown, null);
+		}
+    }); 
+	}
+	catch (err)
+	{
+		alert(err);
+	}
+}
+
 function deleteReserva (rowid, callback)
 {
 	deleteData("https://wsreservas.go.maoni.solutions/Reservas/" + rowid, {}, callback);
