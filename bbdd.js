@@ -1,4 +1,5 @@
 var utilities = require("./utilities");
+var config = require('./bbdd_config');
 
 //MySQL
 var db = require('node-mysql');
@@ -7,20 +8,11 @@ var DB = db.DB;
 var BaseRow = db.Row;
 var BaseTable = db.Table;
 
-/*
 var box = new DB({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'maonipass77',
-    database : 'maoniBD'
-});*/
-
-var box = new DB({
-    host     : 'go.maoni.solutions',
-    //host     : 'localhost',
-    user     : 'gomaonis_Aleix',
-    password : 'Aleix.2302',
-    database : 'gomaonis_maonibd'
+    host     : config.host,
+    user     : config.user,
+    password : config.password,
+    database : config.database
 });
 
 /**********************************************************************************************************************/

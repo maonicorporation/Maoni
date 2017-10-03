@@ -192,6 +192,13 @@ function bool2Text (b)
 	return b?"Sí":"No";
 }
 
+function tipo2Text (i)
+{
+	if (i == 1) return "Premail";
+	if (i == 2) return "Inmail";
+	return "Indefinido";
+}
+
 /******************************************************************************************************************/
 
 function loginToMaoni (user, pwd, callback)
@@ -287,6 +294,22 @@ function getReservas (idhotel, entrada, callback)
 	//app.get('/Reservas/:IDHOTEL/:ENTRADA', bbdd.getReservas, function(err,data){});
 
     var url = "https://wsreservas.go.maoni.solutions/Reservas/" + idhotel + "/" + entrada;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function getParametrosMailing (idhotel, callback)
+{
+	//https://wsreservas.go.maoni.solutions/ParametrosMailing/1
+
+    var url = "https://wsreservas.go.maoni.solutions/ParametrosMailing/" + idhotel;
 	$.get(url)
 	.fail(function() 
     {
