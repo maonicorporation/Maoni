@@ -46,7 +46,7 @@ var DEIGrid = function ()
     }
 
     
-    this.doFiltro = function ()
+    this.doFiltroGrid = function ()
     {
         var filtro = $("#idFiltroDlgGrid").val().toUpperCase();
 
@@ -169,7 +169,7 @@ var DEIGrid = function ()
             //Filtro
             embed += '<div class="form-group">';
             embed += '<label for="idFiltro">Filtro</label>';
-            embed += '<input type="text" class="form-control" id="idFiltroDlgGrid" onkeyup="doFiltro();" placeholder="Filtro">';
+            embed += '<input type="text" class="form-control" id="idFiltroDlgGrid" onkeyup="doFiltroGrid();" placeholder="Filtro">';
             embed += '</div>';
 
             //Formulario
@@ -195,7 +195,7 @@ var DEIGrid = function ()
 
             $('body').append(embed);
 
-            doFiltro();
+            doFiltroGrid();
 
             $('#' + _config.uniqueId).modal('show');
         };

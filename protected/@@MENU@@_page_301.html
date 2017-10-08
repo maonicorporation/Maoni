@@ -1,0 +1,118 @@
+﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
+<script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    
+var table = null;
+var currentROWID = -1;
+var gData = null;
+
+$(function ()
+{     
+    $('#grp3').addClass('active');
+    $('#menu3').show();
+    $('#page301').addClass('current-page');
+});
+
+$(document).ready(function()
+{
+    table = $('#datatable').DataTable();
+});
+
+/*
+function editReg (i)
+{
+    var form = new DEIForm("formEditReg", "Editar configuración");
+
+    form.setJsonData(gData[i]);
+
+    form.addField("ROWID", "ROWID", "int", false, 2);
+
+    form.setCancelButton(true, function () { ; });
+    //form.setDeleteButton(true, true, function () { form.hideDialog(); });
+    form.setSaveButton(true, true, function (data)
+    {
+    });
+
+    form.showDialog();
+}*/
+      
+function query ()
+{
+    if(table != null)
+    {
+        table.destroy();
+    }
+    $("#datatable > tbody > tr").remove();
+    
+    var idhotel = $('#cbhoteles').find(":selected").val();
+    
+    getUsuarios (idhotel, function(err, data)
+    {
+        gData = data;
+        
+        for (var i = 0; i < data.length; i++)
+        {
+            var row = "<tr>";
+            row += "<td><span class='badge'>" + data[i].ROWID + "</span></td>";
+            row += "<td>" + data[i].IDUSUARIO + "</td>";
+            row += "<td>" + data[i].DESCUSUARIO + "</td>";
+            row += "<td>" + data[i].CARGO + "</td>";
+            row += "<td>" + data[i].EMAIL + "</td>";
+            row += "<td>" + nivel2Text(data[i].NIVEL) + "</td>";
+            row += "<td>" + bool2Text(data[i].SIACTIVO) + "</td>";
+            row += "<td>" + extractDateFromYYYYMMDDTHHMMSSstring(data[i].PERMISOWEBHASTA) + "</td>";
+            
+            row += "</tr>";
+    
+            $('#datatable > tbody:last').append(row);
+        }
+        
+        table = $('#datatable').DataTable();
+    });
+}
+
+</script>
+
+
+<div class="card-body card-padding">
+    
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Parámetros <small>Consultar</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                    </p>
+                    <table id="datatable" class="table table-striped _table-bordered dt-responsive nowrap table-hover jambo_table" width="100%">
+                    
+                        <thead>
+                            <tr>
+                                <th>ROWID</th> 
+                                <th>Id usuario</th>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th>Email</th>
+                                <th>Nivel</th>
+                                <th>¿Activo?</th>
+                                <th>Caducidad acceso web</th>
+                            </tr>
+                        </thead>                        
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

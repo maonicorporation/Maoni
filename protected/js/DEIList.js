@@ -19,7 +19,7 @@
         }
     }
 
-    this.doFiltro = function ()
+    this.doFiltroList = function ()
     {
         var value = $("#idFiltroDlgList").val().toUpperCase();
 
@@ -96,7 +96,7 @@
 
             embed += '<div class="form-group">';
             embed += '<label for="idFiltro">Filtro</label>';
-            embed += '<input type="text" class="form-control" id="idFiltroDlgList" onkeyup="doFiltro();" placeholder="Filtro">';
+            embed += '<input type="text" class="form-control" id="idFiltroDlgList" onkeyup="doFiltroList();" placeholder="Filtro">';
             embed += '</div>';
 
             //Formulario

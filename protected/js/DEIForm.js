@@ -191,7 +191,7 @@ var DEIForm = function ()
                 else if (_config.fields[i].type == 'button')
                 {
                     embed += '<div class="form-group fg-line ' + enabled + '">';
-                    embed += '<br/><button type="button" class="btn btn-primary" onclick="clickbuttonSearch(' + i + ');">' + _config.fields[i].text + '<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></button>';
+                    embed += '<br/><button type="button" class="btn btn-primary" style="margin-top: 4px;" onclick="clickbuttonSearch(' + i + ');">' + _config.fields[i].text + '<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></button>';
 
                     embed += '<input campo class="form-control input-md" value="' + _data[_config.fields[i].idField] + '" id="' + _config.fields[i].idField + '" placeholder=" " type="hidden" >';
 

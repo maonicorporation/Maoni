@@ -1,9 +1,11 @@
 ﻿<script src="./vendors/jquery/dist/jquery.min.js"></script>
- <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
     
 var table = null;
 var gData = null;
+var gDataIdiomas = null;
+var gDataPaises = null;
 
 $(function ()
 {     
@@ -21,9 +23,38 @@ $(function ()
         format:'DD/MM/YYYY',
         calender_style: "picker_2"
     }, 
-    function(start, end, label) {
+    function(start, end, label)
+    {
         console.log(start.toISOString(), end.toISOString(), label);
     });
+
+    //Idiomas
+    getIdiomas(function(err, data)
+	{
+		if (data)
+		{
+            gDataIdiomas = [];
+            
+            for (var i = 0; i < data.length; i++)
+            {
+                gDataIdiomas.push({ISO_IDIOMA: data[i].KEY, DESCIDIOMA: data[i].IDIOMA});                
+            }
+		}
+    });
+    
+    //paises
+    getPaises(function(err, data)
+	{
+		if (data)
+		{
+            gDataPaises = [];
+            
+            for (var i = 0; i < data.length; i++)
+            {
+                gDataPaises.push({ISO_PAIS: data[i].KEY, DESCPAIS: data[i].PAIS});                
+            }
+		}
+	});
 });
 
 $(document).ready(function()
@@ -32,19 +63,67 @@ $(document).ready(function()
     $('#idDesde').val(dateToddmmyy(new Date()));
 });
 
+function descIdioma(key)
+{
+    var ret = "";
+
+    if (gDataIdiomas)
+    {
+        for (var i = 0; i < gDataIdiomas.length; i++)
+        {
+            if (gDataIdiomas[i].ISO_IDIOMA == key)
+            {
+                return gDataIdiomas[i].DESCIDIOMA;
+            }
+        }
+    }
+
+    return ret;
+}
+
+function descPais(key)
+{
+    var ret = "";
+
+    if (gDataPaises)
+    {
+        for (var i = 0; i < gDataPaises.length; i++)
+        {
+            if (gDataPaises[i].ISO_PAIS == key)
+            {
+                return gDataPaises[i].DESCPAIS;
+            }
+        }
+    }
+
+    return ret;
+}
+
 function editReg (i)
 {
     var form = new DEIForm("formEditReg", "Editar reserva");
 
+    gData[i].DESCIDIOMA = descIdioma(gData[i].ISO_IDIOMA);
+
+    gData[i].DESCPAIS = descPais(gData[i].ISO_PAIS);
+
     form.setJsonData(gData[i]);
 
-    form.addField("ROWID", "ROWID", "int", false, 2);
-    form.addField("IDRESERVA", "ID Reserva", "int", false, 2);
-    form.addField("ENTRADA", "Entrada", "text", false, 2);
-    form.addField("SALIDA", "Salida", "text", false, 2);
+    form.addField("ROWID", "ROWID", "int", false, 3);
+    form.addField("IDRESERVA", "ID Reserva", "int", false, 3);
+    form.addField("ENTRADA", "Entrada (yyyy-mm-dd)", "date", true, 3);
+    form.addField("SALIDA", "Salida (yyyy-mm-dd)", "date", true, 3);
     form.addField("", "", "break", false, 12);
     form.addField("FULLNAME", "Nombre", "text", false, 6);
     form.addField("MAIL_CARDEX", "Email", "text", false, 6);
+    
+    form.addField("", "", "break", false, 12);
+    form.addField("DESCPAIS", "País", "text", false, 5);
+    form.addButton("ISO_PAIS", "DESCPAIS", "", false, gDataPaises, 1);
+
+    form.addField("DESCIDIOMA", "Idioma", "text", false, 2);
+    form.addButton("ISO_IDIOMA", "DESCIDIOMA", "", false, gDataIdiomas, 1);
+
     form.addField("", "", "break", false, 12);
     form.addField("SI_PRE_ENVIADO", "¿Premail enviado? (Desmarca para volver a enviar)&nbsp;&nbsp;", "bool", gData[i].SI_PRE_ENVIADO?true:false, 12);
     form.addField("SI_IN_ENVIADO", "¿Inmail enviado? (Desmarca para volver a enviar)&nbsp;&nbsp;", "bool", gData[i].SI_IN_ENVIADO?true:false, 12);
@@ -60,6 +139,44 @@ function editReg (i)
     {
         var idhotel = $('#cbhoteles').find(":selected").val();
 
+        var fields = {};
+
+        if (data.SI_PRE_ENVIADO == 0 && gData[i].SI_PRE_ENVIADO == 1)
+        {
+            fields.SI_PRE_ENVIADO = 0;
+            fields.FECHAPREENVIADO = null;
+        }
+        if (data.SI_IN_ENVIADO == 0 && gData[i].SI_IN_ENVIADO == 1)
+        {
+            fields.SI_IN_ENVIADO = 0;
+            fields.FECHAINENVIADO = null;
+        }
+        if (data.ISO_PAIS != gData[i].ISO_PAIS)
+        {
+            fields.ISO_PAIS = data.ISO_PAIS;
+        }
+        if (data.ISO_IDIOMA != gData[i].ISO_IDIOMA)
+        {
+            fields.ISO_IDIOMA = data.ISO_IDIOMA;
+        }
+        if (data.ENTRADA != gData[i].ENTRADA)
+        {
+            fields.ENTRADA = data.ENTRADA;
+        }
+        if (data.SALIDA != gData[i].SALIDA)
+        {
+            fields.SALIDA = data.SALIDA;
+        }
+
+        if (fields != {})
+        {
+            updateReserva(gData[i].ROWID, fields, function(err, data)
+            {
+                query ();
+            });
+        }
+
+        /*
         if (data.SI_PRE_ENVIADO == 0 && gData[i].SI_PRE_ENVIADO == 1)
         {
             reservaResetPre (idhotel, gData[i].IDRESERVA, function(err, data)
@@ -74,6 +191,21 @@ function editReg (i)
                 query ();
             });
         }
+        if (data.ISO_PAIS != gData[i].ISO_PAIS)
+        {
+            reservaSetPais (idhotel, gData[i].IDRESERVA, data.ISO_PAIS, function(err, data)
+            {
+                query ();
+            });
+        }
+        if (data.ISO_IDIOMA != gData[i].ISO_IDIOMA)
+        {
+            reservaSetIdioma (idhotel, gData[i].IDRESERVA, data.ISO_IDIOMA, function(err, data)
+            {
+                query ();
+            });
+        }*/
+
         form.hideDialog();
     });
 

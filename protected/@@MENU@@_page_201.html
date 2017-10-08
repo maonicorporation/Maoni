@@ -49,6 +49,7 @@ $(function ()
     });
     
     fillComboCountry('#idPais');
+
     $("#idPais").val('ES');
     
     $("#idPais").select2
@@ -56,7 +57,16 @@ $(function ()
         placeholder: "Seleccione un país...",
         allowClear: true
     });
+
+    fillComboIdioma('#idIdioma');
+
+    $("#idIdioma").val('ES');
     
+    $("#idIdioma").select2
+    ({
+        placeholder: "Seleccione un idioma...",
+        allowClear: true
+    });    
     
     $('#idFechaEntrada').daterangepicker
     ({
@@ -110,7 +120,7 @@ function saveReserva()
             "NOMBRE": $("#idNombre").val(),
             "APELLIDO1": $("#idApellido1").val(),
             "APELLIDO2": $("#idApellido2").val(),
-			"ISO_IDIOMA": "ES",
+			"ISO_IDIOMA": $('#idIdioma').find(":selected").val(),
             "ISO_PAIS": $('#idPais').find(":selected").val()};
             
         postData ("https://wsreservas.go.maoni.solutions/Reservas", data, function (err, data)
@@ -240,6 +250,15 @@ function saveReserva()
                             </label>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <select id="idPais" required="required" class="col-md-7 col-xs-12 form-control" tabindex="-1">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idIdioma">Idioma <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <select id="idIdioma" required="required" class="col-md-7 col-xs-12 form-control" tabindex="-1">
                                 </select>
                             </div>
                         </div>
