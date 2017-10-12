@@ -348,22 +348,6 @@ function getUsuarios (idhotel, callback)
 	});
 }
 
-function getUsuario (idUsuario, callback)
-{
-	//https://wsreservas.go.maoni.solutions/Usuario/maoni
-
-    var url = "https://wsreservas.go.maoni.solutions/Usuario/" + idUsuario;
-	$.get(url)
-	.fail(function() 
-    {
-         callback("error", null);
-	})
-	.done(function( data )
-	{
-        callback(null, data);
-	});
-}
-
 function getIncidenciasNoNotificadas (callback)
 {
 	//https://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas
