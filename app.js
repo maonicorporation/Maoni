@@ -11,6 +11,7 @@ var nodemailer = require('nodemailer');
 var csvparse = require('csv-parse');
 var utilities = require("./utilities");
 var bbdd = require("./bbdd");
+var config = require('./bbdd_config');
 var formidable = require('formidable');
 var util = require('util');
 
@@ -205,7 +206,7 @@ var smtpConfig =
     //secure: false,
     auth: {
         user: 'no-reply@go.maoni.solutions',
-        pass: '4rfgtdidn6238e'
+        pass: config.emailpwd
     }
 };
 
