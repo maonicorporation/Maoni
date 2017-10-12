@@ -348,6 +348,27 @@ function getUsuarios (idhotel, callback)
 	});
 }
 
+function getUsuario (usuario, callback)
+{
+	//https://wsreservas.go.maoni.solutions/Usuario/maoni
+
+    var url = "https://wsreservas.go.maoni.solutions/Usuario/" + usuario;
+	$.get(url)
+	.fail(function() 
+    {
+         callback("error", null);
+	})
+	.done(function( data )
+	{
+        callback(null, data);
+	});
+}
+
+function updateUsuario (usuario, data, callback)
+{
+	putData("https://wsreservas.go.maoni.solutions/Usuario/" + getCookie("SESSIONKEYBBDD") + "/" + usuario, data, callback);
+}
+
 function getIncidenciasNoNotificadas (callback)
 {
 	//https://wsreservas.go.maoni.solutions/IncidenciasNoNotificadas
@@ -814,5 +835,20 @@ function fillComboIdioma(selector)
 				$(selector).append('<option value="' + data[i].KEY + '">' + data[i].IDIOMA + '</option>');
 			}
 		}
+	});
+}
+
+function sendEmail (email, subject, body, callback)
+{
+    var params = { f: "version", email: email, subject: subject, body: body };
+
+	$.post( "FUNC", JSON.stringify(params))
+	.fail(function( data) 
+    {
+		alert("ERROR : " + JSON.stringify(data));
+	})
+	.done(function( data )
+	{
+		alert("OK : " + data);
 	});
 }

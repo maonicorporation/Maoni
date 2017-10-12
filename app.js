@@ -58,6 +58,10 @@ app.use(function (req, res)
     {
         bbdd.redirecciona(req, res);
     }
+    else if (req.url == "/FUNC")
+    {
+        redireccionaFunc(req, res);
+    }
     else if (req.url.toLowerCase() == '/upload' && req.method.toLowerCase() == 'post') 
     {
         try
@@ -147,6 +151,10 @@ app.use(function (req, res)
     {
         utilities.servefile(res, path.join(home, "index.html"));
     }
+    else if ( req.url == "/changepwd.html")
+    {
+        utilities.servefile(res, path.join(home, "changepwd.html"));
+    }
     else
     {
         var url_parts = parse(req.url, true);
@@ -197,6 +205,46 @@ app.use(function (req, res)
         }
     }
 });
+
+function redireccionaFunc(req, res)
+{
+    var jsonString = '';
+
+    req.on('data', function (data)
+    {
+        jsonString += data;
+        
+    });
+    req.on('end', function ()
+    {
+        if(jsonString.trim() != "")
+        {
+            var params = JSON.parse(jsonString);
+            
+            var mess = params.f + " -> " + jsonString;
+            utilities.logFile(mess);
+
+            handle[params.f](req, res, params, function (err, ret)
+            {
+                res.setHeader('Content-Length', ret.length);
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(ret);
+            });
+        }  
+        else
+        {
+            res.end ();
+        }          
+    });
+}
+
+//Hash de funciones
+var handle = {};
+
+handle["version"] = function(req, res, params, callback)
+{
+    callback (null, JSON.stringify({"version": "1.0"}));
+}
 
 //INICIO NODEMAILER
 var smtpConfig =

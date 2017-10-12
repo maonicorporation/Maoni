@@ -15,9 +15,48 @@ $(document).ready(function()
       
 function query ()
 {    
-    getParametrosMailing (idhotel, function(err, data)
+    getUsuario (getCookie("IDUSUARIO"), function(err, data)
     {
+        if (data != null && data.length == 1)
+        {
+            $("#idRowid").val(data[0].ROWID);
+            $("#idUsuario").val(data[0].IDUSUARIO);
+            $("#idDescUsuario").val(data[0].DESCUSUARIO);
+            $("#idCargo").val(data[0].CARGO);
+            $("#idEmail").val(data[0].EMAIL);
+            $("#idPermisoWeb").val(extractDateFromYYYYMMDDTHHMMSSstring(data[0].PERMISOWEBHASTA));
+            $("#idActivo").prop('checked', data[0].SIACTIVO);
+            $("#idNivel").val(nivel2Text(data[0].NIVEL));
+        }
     });
+}
+
+function saveReserva()
+{
+    var fields = {};
+
+    fields.CARGO = $("#idCargo").val();
+    fields.EMAIL = $("#idEmail").val();
+    fields.DESCUSUARIO = $("#idDescUsuario").val();
+
+    updateUsuario(getCookie("IDUSUARIO"), fields, function(err, data)
+    {
+        if (!err)
+        {
+            toastr["success"]("Usuario guardado");
+        }
+        else
+        {
+            toastr["error"]("Error al guardar usuario");
+        }
+        query ();
+    });
+}
+
+function gotoChangePwd()
+{
+    setCookie("EMAILCHANGEPWD", $("#idEmail").val());
+    window.location.href=navigateTo('changepwd.html');
 }
 
 </script>
@@ -38,7 +77,84 @@ function query ()
                     <div class="clearfix"></div>
                 </div>
                 
-                hola
+                <form id="formUsuario" _data-parsley-validate class="form-horizontal form-label-left">
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idRowid">ID <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input disabled type="text" id="idRowid" required="required" class="form-control col-md-4 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idUsuario">Usuario <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input disabled type="text" id="idUsuario" required="required" class="form-control col-md-4 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idPermisoWeb">Caducidad acceo web <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input disabled type="text" id="idPermisoWeb" required="idPermisoWeb" class="form-control col-md-4 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idActivo">¿Activo? <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input disabled type="checkbox" id="idActivo" required="idPermisoWeb" style="margin-top:10px" class="_form-control col-md-1 col-xs-1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idNivel">Nivel <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input disabled type="text" id="idNivel" required="idPermisoWeb" class="form-control col-md-4 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDescUsuario">Descripción <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="text" id="idDescUsuario" required="required" class="form-control col-md-4 col-xs-12" maxlength="75">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCargo">Cargo <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="text" id="idCargo" required="required" class="form-control col-md-4 col-xs-12" maxlength="50">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idEmail">Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="text" id="idEmail" required="required" class="form-control col-md-4 col-xs-12" maxlength="50">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                            <button id="idButSubmit" type="button" onclick="saveReserva()" class="btn btn-success">Guardar</button>
+                            <button type="button" onclick="gotoChangePwd();" class="btn btn-info">Cambiar contraseña</button>
+                        </div>
+                    </div>
+
+
+                </form>
             </div>
         </div>
     </div>
