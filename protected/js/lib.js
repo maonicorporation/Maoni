@@ -255,10 +255,10 @@ function login (user, pwd, callback)
 			setCookie("IDEMPRESA", data[0].IDEMPRESA);
 			setCookie("DESCEMPRESA", data[0].DESCEMPRESA);
 			
-            loginToMaoni(user,pwd,function()
+            loginToMaoni (data[0].IDUSUARIO, pwd, function()
             {
                 setCookie("SESSIONKEYBBDD", data[0].SESSIONKEY);
-                setCookie("IDUSUARIO", user);
+                setCookie("IDUSUARIO", data[0].IDUSUARIO);
                 setCookie("DESCUSUARIO", data[0].DESCUSUARIO);
                 callback(null, data);
             });
@@ -838,17 +838,32 @@ function fillComboIdioma(selector)
 	});
 }
 
-function sendEmail (email, subject, body, callback)
+function sendCode (email, callback)
 {
-    var params = { f: "version", email: email, subject: subject, body: body };
+    var params = { f: "sendCode", email: email };
 
 	$.post( "FUNC", JSON.stringify(params))
 	.fail(function( data) 
     {
-		alert("ERROR : " + JSON.stringify(data));
+		callback ("error", data);
 	})
 	.done(function( data )
 	{
-		alert("OK : " + data);
+		callback (null, data);
+	});
+}
+
+function cambiarPwd (email, codigo, pwd, callback)
+{
+    var params = { f: "cambiarPwd", email: email, codigo: codigo, pwd: pwd };
+
+	$.post( "FUNC", JSON.stringify(params))
+	.fail(function( data) 
+    {
+		callback ("error", data);
+	})
+	.done(function( data )
+	{
+		callback (null, data);
 	});
 }

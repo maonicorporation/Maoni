@@ -246,6 +246,82 @@ handle["version"] = function(req, res, params, callback)
     callback (null, JSON.stringify({"version": "1.0"}));
 }
 
+handle["sendCode"] = function(req, res, params, callback)
+{
+    var makeid = function (l)
+    {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      
+        for (var i = 0; i < l; i++)
+        {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+      
+        return text;
+    };
+
+    var email = params.email;
+    var subject = "MAONI - CAMBIO DE CONTRASEÑA";
+    var codigo = makeid (16);
+    var body = "Copie el siguiente código y péguelo, para continuar con el proceso de <u>CAMBIO DE CONTRASEÑA</u><br/><br/>";
+    body += "<h3><b>" + codigo + "</b></h3><br/>";
+
+    //Existe el usuario?
+    bbdd.get_usuario_by_email (email, function(err, data)
+    {
+        if(err == null && data.length == 1)
+        {
+            //Enviamos el código por email
+            sendEmail ("1000", email, subject, body, function(err, data)
+            {
+                //Si todo va bien, anotamos el código en la ficha del usuario
+                if (err == null)
+                {
+                    bbdd.update_usuario (email, "CODIGO", codigo, function (err, data)
+                    {
+                        callback (err, JSON.stringify({'RESULT': 1}));
+                    });
+                }
+                else
+                {
+                    callback ("error al enviar email", JSON.stringify({'RESULT': 0}));
+                }
+            });
+        }
+        else
+        {
+            callback ("error usuario no existe", JSON.stringify({'RESULT': 0}));
+        }
+    });
+}
+
+handle["cambiarPwd"] = function(req, res, params, callback)
+{
+    //var params = { f: "cambiarPwd", email: email, code: code, pwd: pwd };
+
+    //Existe el código?
+    bbdd.get_usuario_by_email_codigo (params.email, params.codigo, function(err, data)
+    {
+        if(err == null && data.length == 1)
+        {
+            //Reseteamos el código
+            bbdd.update_usuario (params.email, "CODIGO", '', function (err, data)
+            {
+                //Actualizamos pwd
+                bbdd.update_usuario (params.email, "PASSWORD", params.pwd, function (err, data)
+                {
+                    callback (err, JSON.stringify({'RESULT': 1}));
+                });   
+            });                
+        }
+        else
+        {
+            callback ("error usuario no existe", JSON.stringify({'RESULT': 0}));
+        }
+    });
+}
+
 //INICIO NODEMAILER
 var smtpConfig =
 {

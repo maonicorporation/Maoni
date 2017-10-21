@@ -165,6 +165,9 @@ exports.sel_all_from_parametrosMailing = sel_all_from_parametrosMailing;
 exports.sel_all_from_reservasInMail = sel_all_from_reservasInMail;
 exports.sel_all_from_reservasPreMail = sel_all_from_reservasPreMail;
 exports.update_generico = update_generico;
+exports.update_usuario = update_usuario;
+exports.get_usuario_by_email = get_usuario_by_email;
+exports.get_usuario_by_email_codigo = get_usuario_by_email_codigo;
 exports.sel_incidenciasNoNotificadas = sel_incidenciasNoNotificadas;
 exports.insert_reservs_csv = insert_reservs_csv;
 exports.sel_all_from_traducciones = sel_all_from_traducciones;
@@ -179,6 +182,63 @@ function update_generico (table, rowid, field, value, callback)
             function(_, callback)
             {
                 conn.query (sentencia, [value, rowid], callback)
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function get_usuario_by_email (email, callback)
+{
+    var sentencia = "SELECT * FROM gomaonis_maonibd.usuarios where EMAIL = ?";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [email], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function get_usuario_by_email_codigo (email, codigo, callback)
+{
+    var sentencia = "SELECT * FROM gomaonis_maonibd.usuarios where EMAIL = ? and CODIGO = ?";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [email, codigo], callback);
+            },
+            function(res, cb) 
+            {
+                callback (null, res);
+            }
+        ], callback);
+    }, callback);
+}
+
+function update_usuario (email, field, value, callback)
+{
+    var sentencia = "UPDATE gomaonis_maonibd.usuarios SET " + field + " = ? WHERE EMAIL = ?";
+    
+    box.connect(function(conn, callback)
+    {
+        cps.seq([
+            function(_, callback)
+            {
+                conn.query (sentencia, [value, email], callback)
             },
             function(res, cb) 
             {

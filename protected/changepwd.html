@@ -3,7 +3,30 @@
 <script src="./vendors/jquery/dist/jquery.min.js"></script>
 <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./js/lib.js"></script>
+<script src="./js/sha256.js"></script>
+<script src="./js/toastr.js"></script>
+
+<link href="./css/toastr.css" rel="stylesheet">
+
 <script>
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-bottom-full-width",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    }
 
 $(function ()
 {     
@@ -14,33 +37,104 @@ $(function ()
 
 $(document).ready(function()
 {
+    $("#idEmail").val('');
+    $("#idCode").val('');
+    $("#idContrasena1").val('');
+    $("#idContrasena2").val('');
+
     $("#idEmail").val(getCookie("EMAILCHANGEPWD"));
     setCookie("EMAILCHANGEPWD","");
 
     $("#idPanVerifica").hide();
-    $("#idPanContrasena").hide();    
+    $("#idPanContrasena").hide();
+    $("#idPanOk").hide();
 });
 
 function code()
 {
-    $("#idPanCode").hide(400);
-    $("#idPanVerifica").show(400);
+    $("#idButCodigo").prop( "disabled", true );
+
+    var email = $("#idEmail").val();
+
+    if (validateEmail(email))
+    {
+        sendCode (email, function(err, data)
+        {
+            $("#idButCodigo").prop( "disabled", false );
+
+            if (data.RESULT == 1)
+            {
+                $("#idPanCode").hide(400);
+                $("#idPanVerifica").show(400);
+            }
+            else
+            {
+                toastr["error"]("Usuario desconocido");
+            }
+        });
+    }
+    else
+    {
+        $("#idButCodigo").prop( "disabled", false );
+        toastr["error"]("El email no es válido");
+    }
 }
 
 function verifica()
 {
-    $("#idPanVerifica").hide(400);
-    $("#idPanContrasena").show(400);
+    var code = $("#idCode").val();
 
-    sendEmail ('xcastv@gmail.com','notificación','hola',function(err, data)
+    if (code == '')
     {
+        toastr["error"]("Introduzca el código que le hemos enviado");
+        return;
+    }
 
-    });
+    //$("#idPanVerifica").hide(400);
+    $("#idButVerifica").hide(400);
+    $("#idPanContrasena").show(400);
 }
 
 function cambia()
 {
+    var c1 = $("#idContrasena1").val();
+    var c2 = $("#idContrasena2").val();
 
+    if (c1.length < 5)
+    {
+        toastr["error"]("La contraseña es demasiado corta");
+        return;
+    }
+    if (c1 != c2)
+    {
+        toastr["error"]("La contraseña no coincide");
+        return;
+    }
+
+    var pwd = Sha256.hash(c1);
+    var email = $("#idEmail").val();
+    var code = $("#idCode").val();
+
+    cambiarPwd (email, code, pwd, function(err, data)
+    {
+        if (data.RESULT == 1)
+        {
+            $("#idPanVerifica").hide(400);
+            $("#idPanContrasena").hide(400);
+            $("#idPanOk").show(400);
+            toastr["success"]("La contraseña se ha cambiado");
+        }
+        else
+        {
+            toastr["error"]("No hemos podido restaurar la contraseña, parece que los datos proporcionados son incorrectos...");
+        }
+    });
+}
+
+function validateEmail(email)
+{
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 </script>
@@ -67,11 +161,11 @@ function cambia()
 
 		<div class="jumbotron">
             <h2><b>Cambiar contraseña</b></h2>
-            <b>Enviaremos un código de verificación a la dirección de email indicada, asociada al usuario</b>
-
-            <br/><br/><br/><br/>
+            
 
             <div id="idPanCode">
+                <b>Enviaremos un código de verificación a la dirección de email indicada, asociada al usuario</b>
+                <br/><br/><br/><br/>
                 <div class="row form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idEmail">Email <span class="required"></span>
                     </label>
@@ -90,11 +184,13 @@ function cambia()
             </div>
 
             <div id="idPanVerifica">
+                <b>Introduzca el código que hemos enviado a su dirección de email</b>
+                <br/><br/><br/><br/>
                 <div class="row form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCode">Código <span class="required"></span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCode">Introduzca el código de verificación que le hemos enviado por email <span class="required"></span>
                     </label>
                     <div class="col-md-6 col-sm-9 col-xs-12">
-                        <input type="text" id="idCode" required="required" class="form-control col-md-4 col-xs-12" maxlength="8">
+                        <input type="text" id="idCode" required="required" class="form-control col-md-4 col-xs-12" maxlength="16">
                     </div>
                 </div>
                 
@@ -108,19 +204,21 @@ function cambia()
             </div>
 
             <div id="idPanContrasena">
+                <b>Introduzca la nueva contraseña</b>
+                <br/><br/><br/><br/>
                 <div class="row form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idContrasena1">Nueva contraseña <span class="required"></span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idContrasena1">Nueva contraseña (máximo 8 carácteres) <span class="required"></span>
                     </label>
                     <div class="col-md-6 col-sm-9 col-xs-12">
-                        <input type="text" id="idContrasena1" required="required" class="form-control col-md-4 col-xs-12" maxlength="12">
+                        <input type="password" id="idContrasena1" required="required" class="form-control col-md-4 col-xs-12" maxlength="8">
                     </div>
                 </div>
 
                 <div class="row form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idContrasena2">Repetir contraseña <span class="required"></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idContrasena2">Repita la contraseña <span class="required"></span>
                         </label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
-                            <input type="text" id="idContrasena2" required="required" class="form-control col-md-4 col-xs-12" maxlength="12">
+                            <input type="password" id="idContrasena2" required="required" class="form-control col-md-4 col-xs-12" maxlength="8">
                         </div>
                     </div>
                 
@@ -131,6 +229,17 @@ function cambia()
                         <button id="idButVerifica" type="button" onclick="cambia()" class="btn btn-success pull-right">Cambiar</button>
                     </div>
                 </div>
+            </div>
+
+            <div id="idPanOk">
+
+                <br/><br/>
+                <b>La contraseña se ha cambiado. Puede volver a la página de inicio.</b>
+                <br/>
+                <br/>
+                <p><a href="index.html"><u>Ir a la página de inicio</u></a></p>
+                <br/><br/>
+                
             </div>
 
 		</div>
